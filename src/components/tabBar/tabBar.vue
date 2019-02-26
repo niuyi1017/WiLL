@@ -8,7 +8,7 @@
       <div class="icon"><i class="iconfont  icon-fire"></i></div>
       <div class="name">操场</div>
     </router-link>
-    <div class="tab-item">
+    <div class="tab-item" @click="handlePost">
       <div class="icon fabu"><i class="iconfont  icon-plus-circle"></i></div>
       <div class="name fabu-name">发布</div>
     </div>
@@ -26,6 +26,11 @@
 <script>
 export default {
   name: 'TabBar',
+  methods: {
+    handlePost() {
+      this.$emit('post')
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>

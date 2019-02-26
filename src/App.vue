@@ -4,18 +4,31 @@
       <router-view>
       </router-view>
     </keep-alive>
-    <TabBar/>
+    <TabBar @post="handlePost"/>
+    <post v-show="showPost"/>
   </div>
 </template>
 
 <script>
 
 import TabBar from './components/tabBar/tabBar'
+import Post from './base/post/post'
 export default {
   name: 'app',
+  data() {
+    return {
+      showPost: false
+    }
+  },
   components: {
-   TabBar
-  }
+   TabBar,
+   Post
+  },
+  methods: {
+    handlePost() {
+      this.showPost = !this.showPost
+    }
+  },
 }
 </script>
 
