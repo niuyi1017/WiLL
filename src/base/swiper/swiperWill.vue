@@ -5,22 +5,22 @@
         <div class="card-wrapper">
           <div class="top">
             <div class="tag">烟台大学</div>
-            <img class="swiper-img" src="../../common/image/1.jpg">
+            <img class="swiper-img" src="../../common/image/3.jpg">
           </div>
           <div class="bottom">
-            <div class="header"></div>
+            <div class="header">距海最近的大学 -- 烟台大学</div>
             <div class="desc">
               <div class="item">
-                <i class="iconfont"></i>
-                <span class="num"></span>
+                <span class="icon-wrapper"><i class="iconfont icon-eye"></i></span>
+                <span class="num">999+</span>
               </div>
               <div class="item">
-                <i class="iconfont"></i>
-                <span class="num"></span>
+                <span class="icon-wrapper"><i class="iconfont icon-comment"></i></span>
+                <span class="num">999+</span>
               </div>
               <div class="item">
-                <i class="iconfont"></i>
-                <span class="num"></span>
+               <span class="icon-wrapper"><i class="iconfont icon-heart"></i></span>
+                <span class="num">999+</span>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@
       return {
         swiperOption: {
           loop: true,
-          // autoplay: 3000
+          autoplay: 3000
         },
       }
     },
@@ -56,25 +56,27 @@
   width: 100%
   height :0
   overflow hidden
-  padding-bottom :60%
+  padding-bottom :4.65rem
   .card-wrapper
     width 90%
     margin-left 5%
     margin-top .2rem
     overflow hidden
     border-radius .3rem
-    height 0
-    padding-bottom 70%
+    height 4.25rem
     position relative
+    box-shadow 0 0 .3rem 0 #AAAAAA
+    margin-bottom .2rem
     .top
       height 0
       width 100%
-      padding-bottom :50%
+      padding-bottom 3rem
       position relative
       overflow hidden
       .swiper-img
         width 100%
         margin-top: -3.0rem;
+        overflow hidden
       .tag
         position absolute
         top .2rem
@@ -87,11 +89,42 @@
         color #fff
     .bottom
       width 100%
-      height 0
-      padding-bottom 15%
+      height 1.25rem
       background #fff 
-      z-index 200
       position absolute
-      bottom 20%
+      // bottom 0%
       border-radius 0 0 .3rem .3rem
+      .header
+        height .8rem
+        line-height .8rem
+        padding-left .4rem
+        font-size .36rem 
+        margin-bottom 0rem
+        font-weight 700
+      .desc
+        display flex
+        justify-content space-between
+        padding 0 .4rem
+        height .35rem
+        line-height .35rem
+        .item
+          height .35rem
+          line-height .35rem
+          .icon-wrapper
+            margin-right .1rem
+            .iconfont
+              color $cl-yellow
+              font-size .4rem
+              margin-top .1rem
+          .num
+            height .4rem
+            line-height .4rem
+            font-size .24rem
+            position relative
+            top -0.05rem
+            
+           
+           
+
+
 </style>
