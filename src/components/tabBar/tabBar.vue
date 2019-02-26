@@ -70,10 +70,12 @@ export default {
       justify-content center
       align-items center
       margin-bottom .2rem
-      box-shadow 0 -0.1rem .3rem #ddd
+      box-shadow 0 0rem 1rem $cl-yellow
+      background $cl-yellow
       .iconfont
-        font-size 1rem
-        color $cl-yellow
+        font-size .8rem
+        color #FFF
     .fabu-name
       margin-top .65rem
+  
 </style>
