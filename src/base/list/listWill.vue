@@ -18,7 +18,7 @@
                 <span class="num">{{item.like}}</span>
               </div>
               <div class="item">
-                <i class="iconfont icon-eye"></i>
+                <i class="iconfont icon-comment"></i>
                 <span class="num">{{item.comment}}</span>
               </div>
             </div>
