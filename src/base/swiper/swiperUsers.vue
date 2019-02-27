@@ -26,7 +26,8 @@ export default {
       return {
         swiperOption: {
           loop: true,
-          slidesPerView: 2.5,
+          slidesPerView: 2.3,
+          // spaceBetween: 30,
           freeMode: true,
         },
         userList: [

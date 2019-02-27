@@ -1,12 +1,13 @@
 <template>
   <div class="will">
-   <search-box/>
-   <swiper-will/>
-   <col-title />
-   <list-will/>
-   <swiper-users></swiper-users>
-   <div class="block">
-
+    <search-box/>
+    <swiper-will/>
+    <col-title title="热门 Hot" icon="icon-fire"/> 
+    <list-will/>
+    <swiper-users></swiper-users>
+    <col-title />
+    <list-will/>
+    <div class="block">
    </div>
   </div>
 </template>

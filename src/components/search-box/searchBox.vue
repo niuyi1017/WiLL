@@ -4,7 +4,7 @@
       <input type="text" class="search-input" :placeholder="placeholder">
       <span class="icon-wrapper"><i class="iconfont icon-search"></i></span>
     </div>
-    <div class="tool-wrapper">
+    <div class="tool-wrapper" @click="toolboxClick">
       <i class="iconfont icon-gongjuxiang"></i>
     </div>
   </div>
@@ -15,6 +15,11 @@ export default {
   data() {
     return {
       placeholder: '搜索大学、专业、学长学姐...'
+    }
+  },
+  methods: {
+    toolboxClick() {
+      this.$router.push('/toolbox')
     }
   },
 }
