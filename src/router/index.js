@@ -4,6 +4,7 @@ import Will from '../components/will/Will.vue'
 import Playground from '../components/playground/Playground.vue'
 import Message from '../components/message/Message.vue'
 import User from '../components/user/User.vue'
+import ToolBox from '../components/tool-box/toolBox.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -32,6 +33,11 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: User
+    },
+    {
+      path: '/toolbox',
+      name: 'ToolBox',
+      component: ToolBox
     },
   ]
 })
