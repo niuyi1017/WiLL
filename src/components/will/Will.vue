@@ -1,15 +1,18 @@
 <template>
   <div class="will">
     <search-box/>
-    <scroll :data="list" class="will-content">
-      <swiper-will/>
-      <col-title title="热门 Hot" icon="icon-fire"/> 
-      <list-will/>
-      <swiper-users></swiper-users>
-      <col-title />
-      <list-will/>
-      <div class="block"></div>
-    </scroll>
+    <div class="scroll-wrapper">
+      <scroll :data="list" class="will-content">
+        <div>
+          <swiper-will/>
+          <col-title title="热门 Hot" icon="icon-fire"/> 
+          <list-will/>
+          <swiper-users></swiper-users>
+          <col-title />
+          <list-will/>
+        </div>
+      </scroll>
+    </div>
   </div>
 </template>
 
@@ -41,10 +44,12 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .will
-  .will-content
-    height 100%
+  .scroll-wrapper
+    position fixed
+    top 1.2rem
+    width 100%
+    bottom 1.2rem
     overflow hidden
-    .block
-      height 2rem
-  
+    .will-content
+      height 100%
 </style>

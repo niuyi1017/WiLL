@@ -1,12 +1,18 @@
 <template>
   <div class="header">
     <div class="back" @click="handleBack"><i class="iconfont icon-left"></i></div>
-    <div class="title">工具箱</div>
+    <div class="title">{{title}}</div>
   </div>
 </template>
 <script>
 export default {
   name: "Header",
+  props: {
+    title: {
+      type: String,
+      default:'WiLL'
+    }
+  },
   methods: {
     handleBack(){
       this.$router.push('/')
@@ -19,8 +25,6 @@ export default {
 .header
   height 1rem
   line-height 1rem
-  // top 0
-  // z-index 50
   background #fff
   display flex
   justify-content center
