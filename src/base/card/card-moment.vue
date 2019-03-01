@@ -67,7 +67,7 @@ export default {
   width 96%
   margin-left 2%
   overflow hidden
-  margin-top .1rem
+  margin-top .15rem
   margin-bottom .1rem
   .header
     height 1.2rem
