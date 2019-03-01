@@ -2,18 +2,17 @@
   <div class="card-qa">
     <div class="wrapper">
       <div class="header">
-        <div class="tag">烟台大学</div>
-        <div class="time">1分钟前</div>
+        <div class="tag">{{qaData.tag}}</div>
+        <div class="time">{{qaData.postAt}}</div>
       </div>
-      <div class="question">物联网工程学单片机吗?</div>
+      <div class="question">{{qaData.question}}?</div>
       <div class="answer">
-          谢邀，物联网工程专业大三狗一枚。
-          单片机可以说是电子信息类专业的必修课了bulabulabula~
+          {{qaData.answer}}
       </div>
       <div class="footer">
         <div class="author">
           <div class="pic"><img src="../../common/image/t2.jpg" alt=""></div>
-          <div class="author-name">一只小小白</div>
+          <div class="author-name">{{qaData.userName}}</div>
         </div>
         <div class="icon-group">
           <div class="item">
@@ -21,11 +20,11 @@
               <i class="iconfont icon-caret-up-copy"></i>
               <i class="iconfont icon-caret-down-copy"></i>
             </div>
-            <span class="num zan">2.4k</span>
+            <span class="num zan">{{qaData.agreeNum}}</span>
           </div>
           <div class="item">
             <i class="iconfont icon-bulb icon-actived"></i>
-            <span class="num">1.8k</span>
+            <span class="num">{{qaData.recommendNum}}</span>
           </div>
         </div>
       </div>
@@ -36,7 +35,9 @@
 export default {
   name: 'CardQa',
   props: {
-    
+    qaData: {
+      type: Object
+    }
   }
 }
 </script>
