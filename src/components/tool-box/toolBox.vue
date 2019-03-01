@@ -1,75 +1,85 @@
 <template>
   <div class="tool-box">
     <m-header></m-header>
-    <div class="calendar">
-      <div class="top">
-        <div class="top-left">Today</div>
-        <div class="top-right">2019.02.27 星期三</div>
-      </div>
-      <div class="center">日历</div>
-      <div class="bottom">
-        <div class="tip-line">
-          <div class="tip">S</div>
-          <div class="tip">M</div>
-          <div class="tip">T</div>
-          <div class="tip">W</div>
-          <div class="tip">T</div>
-          <div class="tip">F</div>
-          <div class="tip">S</div>
+    <div class="scroll-wrapper">
+      <scroll :data="calender.allDays" class="scroll">
+        <div>
+        <div class="calendar">
+          <div class="top">
+            <div class="top-left">Today</div>
+            <div class="top-right">2019.02.27 星期三</div>
+          </div>
+          <div class="center">日历</div>
+          <div class="bottom">
+            <div class="tip-line">
+              <div class="tip">S</div>
+              <div class="tip">M</div>
+              <div class="tip">T</div>
+              <div class="tip">W</div>
+              <div class="tip">T</div>
+              <div class="tip">F</div>
+              <div class="tip">S</div>
+            </div>
+            <div class="tip-line">
+              <div class="tip" 
+                              v-for="(item, index) in calender.allDays" 
+                              :key="index"
+                              :class="{tipChecked:calender.activeIndex==index }"
+                              >{{item}}</div>
+            </div>
+          </div>
         </div>
-        <div class="tip-line">
-          <div class="tip" 
-                          v-for="(item, index) in calender.allDays" 
-                          :key="index"
-                          :class="{tipChecked:calender.activeIndex==index }"
-                          >{{item}}</div>
+        <div class="icon-group">
+          <div class="item">
+            <div class="icon"><i class="iconfont icon-linechart"></i></div>
+            <div class="name">历年分数线</div>
+          </div>
+          <div class="item">
+            <div class="icon"><i class="iconfont icon-bank"></i></div>
+            <div class="name">院校库</div>
+          </div>
+          <div class="item">
+            <div class="icon"><i class="iconfont icon-read"></i></div>
+            <div class="name">专业库</div>
+          </div>
+        </div>
+        <div class="boards">
+          <div class="board">
+            <div class="title">
+              <h1 class="name">高考政策解读</h1>
+            </div>
+          </div>
+          <div class="board">
+            <div class="title">
+              <h1 class="name">2019就业报告</h1>
+            </div>
+          </div>
+          <div class="board">
+            <div class="title">
+              <h1 class="name">最新院校排名</h1>
+            </div>
+          </div>
+          <div class="board">
+            <div class="title">
+              <h1 class="name">最新专业排名</h1>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="icon-group">
-      <div class="item">
-        <div class="icon"><i class="iconfont icon-linechart"></i></div>
-        <div class="name">历年分数线</div>
-      </div>
-      <div class="item">
-        <div class="icon"><i class="iconfont icon-bank"></i></div>
-        <div class="name">院校库</div>
-      </div>
-      <div class="item">
-        <div class="icon"><i class="iconfont icon-read"></i></div>
-        <div class="name">专业库</div>
-      </div>
-    </div>
-    <div class="boards">
-      <div class="board">
-        <div class="title">
-          <h1 class="name">高考政策解读</h1>
-        </div>
-      </div>
-      <div class="board">
-        <div class="title">
-          <h1 class="name">2019就业报告</h1>
-        </div>
-      </div>
-      <div class="board">
-        <div class="title">
-          <h1 class="name">最新院校排名</h1>
-        </div>
-      </div>
-      <div class="board">
-        <div class="title">
-          <h1 class="name">最新专业排名</h1>
-        </div>
-      </div>
-    </div>
-    <div class="block">
+    </scroll>
    </div>
+    <div class="block"></div>
   </div>
 </template>
 <script>
 import MHeader from '@/base/header/header'
+import Scroll from '@/base/scroll/scroll'
 export default {
   name: "ToolBox",
+  components: {
+    Scroll,
+    MHeader
+  },
   data() {
     return {
         calender:{
@@ -84,10 +94,12 @@ export default {
       return this.calender.activeIndex
     }
   },
-  components: {
-    MHeader
-  },
   methods: {
+    // handlePlaylist(playlist) {
+    //   const bottom = playlist.length > 0 ? '60px': ''
+    //   this.$refs.recommend.style.bottom = bottom
+    //   this.$refs.scroll.refresh()
+    // },
     _initCalender() {
       let date = new Date()
       let year = date.getFullYear()
@@ -154,88 +166,100 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .tool-box
-  background #fff
-  height 20rem
-  .calendar
-    height 3.2rem
-    background #fff
-    .top
-      height 1rem
-      // background #ccc
-      display flex
-      justify-content space-between
-      align-items flex-end
-      padding 0 .3rem .2rem .3rem
-      .top-left
-        font-size .88rem
-      .top-right
-        font-size .32rem
-    .center
-      height .5rem
-      line-height .5rem
-      padding-left .4rem
-      background $cl-bg
-    .bottom
-      .tip-line
-        height .6rem
-        line-height .6rem
+  height 100%
+  .scroll-wrapper
+    width: 100%
+    position fixed
+    top 1rem
+    // height 100%
+    bottom 1.2rem
+    overflow hidden
+    .scroll
+      height 100%
+      .calendar
+        height 3.2rem
+        background #fff
+        .top
+          height 1rem
+          display flex
+          justify-content space-between
+          align-items flex-end
+          padding 0 .3rem .2rem .3rem
+          .top-left
+            font-size .88rem
+          .top-right
+            font-size .32rem
+        .center
+          height .5rem
+          line-height .5rem
+          padding-left .4rem
+          background $cl-bg
+        .bottom
+          .tip-line
+            height .6rem
+            line-height .6rem
+            display flex
+            justify-content space-evenly
+            .tip
+              width .6rem
+              text-align center
+            .tipChecked
+              background $cl-pink
+              border-radius .3rem
+              color #fff
+      .icon-group
+        height 2.4rem
+        background #fff
         display flex
+        align-items center
         justify-content space-evenly
-        .tip
-          width .6rem
-          text-align center
-        .tipChecked
-          background $cl-pink
-          border-radius .3rem
-          color #fff
-  .icon-group
-    height 2.4rem
-    background #fff
-    display flex
-    align-items center
-    justify-content space-evenly
-    .item
-      width 2rem
-      height 2rem
-      .icon
-        height 1.6rem
-        line-height 1.6rem
-        text-align center
-        .iconfont
-          font-size 1.06rem
-          color $cl-yellow
-      .name
-        height .4rem
-        line-height .4rem
-        text-align center
-  .boards
-    background #fff
-    padding .4rem
-    .board
-      height 3rem
-      background #fff
-      border-radius .4rem
-      margin-bottom .2rem
-      &:nth-child(4)
-        background #f18c8e91
-        color $cl-orange
-      &:nth-child(2)
-        background #47b39d90
-        color $cl-green
-      &:nth-child(3)
-        background #344e5c90
-        color $cl-black
-      &:nth-child(1)
-        background #ffc25390
-        color $cl-yellow
-      .title
-        height 1.4rem
-        line-height 1.4rem
-        padding-left .6rem
-        .name
-          font-size .48rem
-          font-weight 600
+        .item
+          width 2rem
+          height 2rem
+          .icon
+            height 1.6rem
+            line-height 1.6rem
+            text-align center
+            .iconfont
+              font-size 1.06rem
+              color $cl-yellow
+          .name
+            height .4rem
+            line-height .4rem
+            text-align center
+      .boards
+        background #fff
+        padding .4rem
+        .board
+          height 3rem
+          background #fff
+          border-radius .4rem
+          margin-bottom .2rem
+          &:nth-child(4)
+            background #f18c8e91
+            color $cl-orange
+          &:nth-child(2)
+            background #47b39d90
+            color $cl-green
+          &:nth-child(3)
+            background #344e5c90
+            color $cl-black
+          &:nth-child(1)
+            background #ffc25390
+            color $cl-yellow
+          .title
+            height 1.4rem
+            line-height 1.4rem
+            padding-left .6rem
+            .name
+              font-size .48rem
+              font-weight 600
   .block
-    height 1.5rem
+    position fixed
+    left 0
+    right 0
+    top 0
+    bottom 0
     background #fff
+    z-index -1
 </style>
