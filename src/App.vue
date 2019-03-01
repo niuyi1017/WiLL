@@ -28,7 +28,8 @@ export default {
     handlePost() {
       this.showPost = !this.showPost
     }
-  },
+  }
+  
 }
 </script>
 

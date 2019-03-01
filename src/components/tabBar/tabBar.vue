@@ -75,7 +75,7 @@ export default {
       justify-content center
       align-items center
       margin-bottom .2rem
-      box-shadow 0 0rem 1rem $cl-yellow
+      box-shadow 0 0rem .5rem $cl-yellow
       background $cl-yellow
       .iconfont
         font-size .8rem
