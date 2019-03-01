@@ -2,11 +2,21 @@
   <div class="playground">
     <m-header title="操场"></m-header>
     <tab @changeTab="changeTab"/>
-    <div class="card-page" v-if="mode=='qa'">
-      <card-qa v-for="(qa, index ) in qaList" :key="index" :qaData="qa"/>
-    </div>
-    <div class="card-page" v-if="mode=='moment'">
-      <card-moment v-for="(moment, index ) in momentList" :key="index" :momentData="moment"/>
+    <div class="scroll-wrapper">
+      <scroll class="scroll" v-show="mode=='qa'">
+        <div>
+          <div class="card-page" >
+            <card-qa v-for="(qa, index ) in qaList" :key="index" :qaData="qa"/>
+          </div>
+        </div>
+      </scroll>
+      <scroll class="scroll" v-show="mode=='moment'">
+        <div>
+           <div class="card-page" >
+            <card-moment v-for="(moment, index ) in momentList" :key="index" :momentData="moment"/>
+          </div>
+        </div>
+      </scroll>
     </div>
   </div>
 </template>
@@ -15,13 +25,15 @@ import MHeader from '@/base/header/header'
 import Tab from '@/base/tab/tab'
 import CardQa from '@/base/card/card-qa'
 import CardMoment from '@/base/card/card-moment'
+import Scroll from '@/base/scroll/scroll'
 export default {
   name: 'playground',
   components: {
     MHeader,
     Tab,
     CardMoment,
-    CardQa
+    CardQa,
+    Scroll
   },
   data() {
     return {
@@ -334,3 +346,14 @@ export default {
   },
 }
 </script>
+<style lang="stylus" scoped>
+@import "~@/common/stylus/variable.styl"
+.playground
+  .scroll-wrapper
+    position fixed
+    top 1.8rem
+    bottom 1.25rem
+    overflow hidden
+    .scroll
+      height 100%
+</style>

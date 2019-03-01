@@ -48,7 +48,7 @@ export default {
   .wrapper
     height 3.2rem
     background #fff
-    margin-bottom .15rem
+    margin-top .15rem
     .header
       height .6rem
       display flex
