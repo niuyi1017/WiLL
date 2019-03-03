@@ -5,9 +5,6 @@
           @click="handleTabClick(tab.modeName)"
           :class="{'actived': mode==tab.modeName}"
           >{{tab.text}}</div>
-    <!-- <div class="menu" 
-          @click="handleTabClick('moment')"
-          :class="{'actived': mode=='moment'}">同学圈</div> -->
   </div>
 </template>
 <script>
@@ -35,6 +32,11 @@ export default {
       }
     }
   },
+  // computed: {
+  //   mode() {
+  //     return this.menu[0].modeName
+  //   }
+  // },
   methods: {
     handleTabClick( mode ) {
       this.mode = mode
