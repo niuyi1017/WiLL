@@ -1,6 +1,5 @@
 <template>
   <div class="playground">
-    <!-- <m-header title="操场"></m-header> -->
     <tab @changeTab="changeTab"/>
     <div class="scroll-wrapper">
       <scroll class="scroll" v-show="mode=='qa'">
@@ -21,7 +20,6 @@
   </div>
 </template>
 <script>
-// import MHeader from '@/base/header/header'
 import Tab from '@/base/tab/tab'
 import CardQa from '@/base/card/card-qa'
 import CardMoment from '@/base/card/card-moment'
@@ -29,7 +27,6 @@ import Scroll from '@/base/scroll/scroll'
 export default {
   name: 'playground',
   components: {
-    // MHeader,
     Tab,
     CardMoment,
     CardQa,

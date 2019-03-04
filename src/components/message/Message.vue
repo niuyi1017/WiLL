@@ -1,22 +1,50 @@
 <template>
   <div class="message">
-    <!-- <m-header title="小纸条"></m-header> -->
-    <tab @changeTab="changeTab"
-          :menu="menu"
-        />
+    <tab @changeTab="changeTab" :menu="menu"/>
+    <div class="scroll-wrapper">
+      <scroll class="scroll" v-show="mode=='notifications'">
+        <div>
+          <div class="notifications" >
+            <notification-part :notifications="notifications"/>
+          </div>
+        </div>
+      </scroll>
+      <scroll class="scroll" v-show="mode=='message'">
+        <div>
+           <div class="message" >
+            <message-item 
+                          v-for="(item, index) in messages" :key="index" 
+                          :message="item"
+                          />
+          </div>
+        </div>
+      </scroll>
+      <scroll class="scroll" v-show="mode=='contacts'">
+        <div>
+           <div class="contacts" >
+            contacts
+          </div>
+        </div>
+      </scroll>
+    </div>
   </div>
 </template>
 <script>
-// import MHeader from '@/base/header/header'
 import Tab from '@/base/tab/tab'
+import Scroll from '@/base/scroll/scroll'
+import NotificationPart from '@/base/notification-part/notification-part'
+import MessageItem from '@/base/message-part/messageItem'
 export default {
   name: 'message',
   components: {
-    // MHeader,
     Tab,
+    Scroll,
+    NotificationPart,
+    MessageItem
   },
   data() {
     return {
+      mode: 'notifications',
       menu: [
         {
           modeName: 'notifications',
@@ -30,13 +58,339 @@ export default {
           modeName: 'contacts',
           text: '同窗'
         }
+      ],
+      notifications: [
+        {
+          date: '今天',
+          notifications: [
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '评论了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '收藏了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: true,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '',
+              message: '你的文章被推荐到热门',
+              postTime: '17 mins ago',
+              articlePic: ''
+            }  
+          ]
+        },
+        {
+          date: '昨天',
+          notifications: [
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: true,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '关注了你',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            }  
+          ]
+        },
+        {
+          date: '前天',
+          notifications: [
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            }  
+          ]
+        },
+        {
+          date: '更早',
+          notifications: [
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            },
+            {
+              isRead: false,
+              isSystemMsg: false,
+              isFollow: false,
+              isFriends: false,
+              avatar: '',
+              username: '一只小小白',
+              message: '赞了你的文章',
+              postTime: '17 mins ago',
+              articlePic: ''
+            }  
+          ]
+        }
+        
+      ],
+      messages: [
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 1
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        }
       ]
+
     }
   },
   methods: {
-    changeTab() {
-
+    changeTab(mode) {
+       this.mode = mode
     }
   },
 }
 </script>
+<style lang="stylus" scoped>
+@import "~@/common/stylus/variable.styl"
+.message
+  .scroll-wrapper
+    position fixed
+    top 1rem
+    left 0
+    right 0
+    bottom 1.25rem
+    overflow hidden
+    background $cl-bg2
+    .scroll
+      height 100%
+    .message
+      background $cl-bg
+</style>
