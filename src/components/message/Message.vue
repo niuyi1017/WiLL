@@ -19,13 +19,16 @@
           </div>
         </div>
       </scroll>
-      <scroll class="scroll" v-show="mode=='contacts'">
+      <listview :data="contactsData"
+                />
+      <!-- <scroll class="scroll" v-show="mode=='contacts'">
         <div>
            <div class="contacts" >
             contacts
           </div>
         </div>
-      </scroll>
+      </scroll> -->
+
     </div>
   </div>
 </template>
@@ -34,13 +37,15 @@ import Tab from '@/base/tab/tab'
 import Scroll from '@/base/scroll/scroll'
 import NotificationPart from '@/base/notification-part/notification-part'
 import MessageItem from '@/base/message-part/messageItem'
+import Listview from '@/base/listview/listview'
 export default {
   name: 'message',
   components: {
     Tab,
     Scroll,
     NotificationPart,
-    MessageItem
+    MessageItem,
+    Listview
   },
   data() {
     return {
@@ -367,8 +372,188 @@ export default {
           desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
           num: 12
         }
-      ]
+      ],
+      contactsData: [
+        {
+          title: '常用',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
 
+          ]
+        },
+        {
+          title: 'A',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'B',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'C',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'D',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'E',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
