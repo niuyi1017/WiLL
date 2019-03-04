@@ -12,7 +12,10 @@
       <scroll class="scroll" v-show="mode=='message'">
         <div>
            <div class="message" >
-            message
+            <message-item 
+                          v-for="(item, index) in messages" :key="index" 
+                          :message="item"
+                          />
           </div>
         </div>
       </scroll>
@@ -30,12 +33,14 @@
 import Tab from '@/base/tab/tab'
 import Scroll from '@/base/scroll/scroll'
 import NotificationPart from '@/base/notification-part/notification-part'
+import MessageItem from '@/base/message-part/messageItem'
 export default {
   name: 'message',
   components: {
     Tab,
     Scroll,
-    NotificationPart
+    NotificationPart,
+    MessageItem
   },
   data() {
     return {
@@ -252,6 +257,116 @@ export default {
           ]
         }
         
+      ],
+      messages: [
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 1
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        },
+        {
+          username: '一只小小白',
+          time: '12 mins ago',
+          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
+          num: 12
+        }
       ]
 
     }
@@ -276,6 +391,6 @@ export default {
     background $cl-bg2
     .scroll
       height 100%
-      .notifications
-        // background #fff
+    .message
+      background $cl-bg
 </style>
