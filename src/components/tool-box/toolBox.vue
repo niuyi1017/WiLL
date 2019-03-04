@@ -1,6 +1,6 @@
 <template>
   <div class="tool-box">
-    <m-header></m-header>
+    <m-header title="工具箱"></m-header>
     <div class="scroll-wrapper">
       <scroll :data="calender.allDays" class="scroll">
         <div>

@@ -12,7 +12,7 @@ export default {
   name: 'Tab',
   data() {
     return {
-      mode : 'qa'
+      mode : this.defaultMenu
     }
   },
   props: {
@@ -30,13 +30,15 @@ export default {
           }
         ]
       }
+    },
+    defaultMenu: {
+      type:String,
+      default(){
+        return this.menu[0].modeName
+      }
+
     }
   },
-  // computed: {
-  //   mode() {
-  //     return this.menu[0].modeName
-  //   }
-  // },
   methods: {
     handleTabClick( mode ) {
       this.mode = mode
@@ -48,7 +50,7 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .tab
-  height .8rem
+  height 1rem
   border-bottom .02rem solid $cl-border
   background #ffffff
   display flex
@@ -56,7 +58,7 @@ export default {
   align-items center
   .menu
     font-size .32rem
-    padding 0 .15rem .15rem .15rem
+    padding 0.15rem .15rem .15rem .15rem
     color $cl-subColor
   .actived
     color $cl-yellow

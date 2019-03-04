@@ -1,18 +1,18 @@
 <template>
   <div class="message">
-    <m-header title="小纸条"></m-header>
+    <!-- <m-header title="小纸条"></m-header> -->
     <tab @changeTab="changeTab"
           :menu="menu"
         />
   </div>
 </template>
 <script>
-import MHeader from '@/base/header/header'
+// import MHeader from '@/base/header/header'
 import Tab from '@/base/tab/tab'
 export default {
   name: 'message',
   components: {
-    MHeader,
+    // MHeader,
     Tab,
   },
   data() {
@@ -31,6 +31,11 @@ export default {
           text: '同窗'
         }
       ]
+    }
+  },
+  methods: {
+    changeTab() {
+
     }
   },
 }
