@@ -1,51 +1,26 @@
 <template>
   <div class="message">
     <tab @changeTab="changeTab" :menu="menu"/>
-    <div class="scroll-wrapper">
-      <scroll class="scroll" v-show="mode=='notifications'">
-        <div>
-          <div class="notifications" >
-            <notification-part :notifications="notifications"/>
-          </div>
-        </div>
-      </scroll>
-      <scroll class="scroll" v-show="mode=='message'">
-        <div>
-           <div class="message" >
-            <message-item 
-                          v-for="(item, index) in messages" :key="index" 
-                          :message="item"
-                          />
-          </div>
-        </div>
-      </scroll>
-      <listview :data="contactsData"
-                />
-      <!-- <scroll class="scroll" v-show="mode=='contacts'">
-        <div>
-           <div class="contacts" >
-            contacts
-          </div>
-        </div>
-      </scroll> -->
-
-    </div>
+    <notification-part :notifications="notifications"
+                        v-show="mode=='notifications'"/>
+    <message-part :messages="messages"
+                  v-show="mode=='message'"/>
+    <contact-part :contacts="contacts"
+                    v-show="mode=='contacts'"/>
   </div>
 </template>
 <script>
 import Tab from '@/base/tab/tab'
-import Scroll from '@/base/scroll/scroll'
 import NotificationPart from '@/base/notification-part/notification-part'
-import MessageItem from '@/base/message-part/messageItem'
-import Listview from '@/base/listview/listview'
+import MessagePart from '@/base/message-part/message-part'
+import ContactPart from '@/base/contact-part/contact-part'
 export default {
   name: 'message',
   components: {
     Tab,
-    Scroll,
     NotificationPart,
-    MessageItem,
-    Listview
+    MessagePart,
+    ContactPart
   },
   data() {
     return {
@@ -373,7 +348,7 @@ export default {
           num: 12
         }
       ],
-      contactsData: [
+      contacts: [
         {
           title: '常用',
           items: [
@@ -552,6 +527,185 @@ export default {
               name: '一只小小白'
             }
           ]
+        },
+         {
+          title: 'F',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'G',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'H',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'I',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'J',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+
+          ]
+        },
+        {
+          title: 'K',
+          items: [
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            },
+            {
+              avatar: '',
+              name: '一只小小白'
+            }
+          ]
         }
       ]
     }
@@ -566,16 +720,16 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .message
-  .scroll-wrapper
-    position fixed
-    top 1rem
-    left 0
-    right 0
-    bottom 1.25rem
-    overflow hidden
-    background $cl-bg2
-    .scroll
-      height 100%
-    .message
-      background $cl-bg
+  // .scroll-wrapper
+  //   position fixed
+  //   top 1rem
+  //   left 0
+  //   right 0
+  //   bottom 1.25rem
+  //   overflow hidden
+  //   background $cl-bg2
+  //   .scroll
+  //     height 100%
+  //   .message
+  //     background $cl-bg
 </style>

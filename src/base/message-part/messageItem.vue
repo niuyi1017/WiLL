@@ -36,13 +36,13 @@ export default {
   position relative
   margin-top .1rem
   .pic
-    height 1rem
-    width 1rem
+    height .85rem
+    width .85rem
     overflow hidden
     border-radius .5rem
     position absolute
-    top .2rem
-    left .2rem
+    top .28rem
+    left .3rem
     img
       width 100%
   .username
@@ -58,6 +58,7 @@ export default {
     height .8rem
     line-height .8rem
     right .8rem
+    color $cl-subColor
     ellipsis()
   .time
     position absolute
