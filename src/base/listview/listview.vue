@@ -160,7 +160,7 @@ export default {
         }
       }
       this.currentIndex = listHeight.length-2
-      console.log(listHeight.length)
+      // console.log(listHeight.length)
     },
     diff (newVal) {
       let fixedTop = (newVal > 0 && newVal < TITLT_HEIGHT ) ? newVal - TITLT_HEIGHT : 0

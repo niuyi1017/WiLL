@@ -7,7 +7,7 @@
         <div class="calendar">
           <div class="top">
             <div class="top-left">Today</div>
-            <div class="top-right">2019.02.27 星期三</div>
+            <div class="top-right">{{calender.today}}</div>
           </div>
           <div class="center">日历</div>
           <div class="bottom">
