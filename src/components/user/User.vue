@@ -1,10 +1,14 @@
 <template>
   <div class="user">
-    user
+    <user-profile/>
   </div>
 </template>
 <script>
+import UserProfile from '@/base/user-profile/userProfile'
 export default {
-  name: 'user'
+  name: 'user',
+  components: {
+    UserProfile
+  }
 }
 </script>
