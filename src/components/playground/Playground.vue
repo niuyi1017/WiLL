@@ -105,6 +105,76 @@ export default {
           userName: "一只小小白",
           agreeNum: '1.2k',
           recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
+        },
+        {
+          tag: "物联网工程",
+          postAt: '14 mins ago',
+          question: "物联网工程学单片机吗",
+          answer: '谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~',
+          avatar: '132.jpg',
+          userName: "一只小小白",
+          agreeNum: '1.2k',
+          recommendNum: '1.5k'
         }
       ],
       momentList: [
@@ -349,6 +419,8 @@ export default {
   .scroll-wrapper
     position fixed
     top 1rem
+    left 0
+    right 0
     bottom 1.25rem
     overflow hidden
     .scroll

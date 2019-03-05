@@ -45,9 +45,11 @@ export default {
 @import "~@/common/stylus/variable.styl"
 @import '~@/common/stylus/mixins.styl'
 .card-qa
+  width 100%
   .wrapper
     height 3.2rem
     background #fff
+    width 100%
     margin-top .15rem
     .header
       height .6rem
