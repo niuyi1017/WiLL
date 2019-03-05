@@ -719,17 +719,5 @@ export default {
 </script>
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
-.message
-  // .scroll-wrapper
-  //   position fixed
-  //   top 1rem
-  //   left 0
-  //   right 0
-  //   bottom 1.25rem
-  //   overflow hidden
-  //   background $cl-bg2
-  //   .scroll
-  //     height 100%
-  //   .message
-  //     background $cl-bg
+
 </style>
