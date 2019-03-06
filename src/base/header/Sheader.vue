@@ -67,12 +67,12 @@ export default {
     },
     handleScroll () {
       const top =  document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
-      if(top < 60){
+      if(top < 100){
         let opacityAbs = 1 - (top/140)
         this.opacityStyleAbs = {opacity: opacityAbs }
       }
-      if ( top > 60){
-        let opacity = top / 140 
+      if ( top > 100){
+        let opacity = top / 200 
         opacity = opacity > 1 ? 1 : opacity
         this.opacityStyle = { opacity }
         this.isShowAbs = false
@@ -131,6 +131,7 @@ export default {
   background #fff
   display flex
   justify-content center
+  // box-shadow 0 .05rem .15rem rgba(0,0,0,.15)
   // position relative
   .back
     position absolute

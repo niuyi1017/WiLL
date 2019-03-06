@@ -10,33 +10,85 @@
     </div>
     <div class="content">
       <div class="pic">
-        <img src="../../common/image/t1.jpg" alt="" srcset="">
+        <img src="../../common/image/t2.jpg" alt="" srcset="">
       </div>
       <div class="user-info">
-        <div class="username">一只小小白</div>
-        <div class="school">烟台大学 物联网工程专业</div>
+        <div class="username">{{user.username}}</div>
+        <div class="school">{{user.desc}}</div>
       </div>
-    </div>
-    <div class="pad">
+      
+      <div class="pad">
+        <div class="totalNum">
+          <div class="item">
+            <div class="num">{{user.sum.following}}</div>
+            <div class="name">关注</div>
+          </div>
+          <div class="item">
+            <div class="num">{{user.sum.followers}}</div>
+            <div class="name">粉丝</div>
+          </div>
+          <div class="item">
+            <div class="num">{{user.sum.favorites}}</div>
+            <div class="name">收藏</div>
+          </div>
+          <div class="item">
+            <div class="num">{{user.sum.posts}}</div>
+            <div class="name">发布</div>
+          </div>
+        </div>
+        <div class="introduce">
+          <h3 class="title">个人简介</h3>
+          <p class="desc">{{user.intro}}</p>
+        </div>
+        <div class="tag">
+          <h3 class="title">斜杠青年</h3>
+          <div class="container">
+            <div class="item" v-for="(item, index) in user.tags" :key="index">{{item}}</div>
+          </div>
+        </div>
+        <div class="moment">
+          <div class="title">最近动态</div>
+          <div class="moment-list">
+            <card-user-page v-for="(item, index) in user.recentlyMoments" 
+                            :key="index" 
+                            :content="item"/>
+            
+            <div class="allMoment">
+              查看全部动态
+            </div>
 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import SHeader from '@/base/header/Sheader'
+import CardUserPage from '@/base/card/card-userpage'
 export default {
   name: 'UserProfile',
   components: {
-    SHeader
+    SHeader,
+    CardUserPage
+  },
+  props: {
+    user: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
   },
   data() {
     return {
-      mode: 'isSelf'
+      mode: 'isSelf',
+      username: "一只小小白"
     }
   },
   computed: {
     title() {
-      return this.mode=='isSelf' ? "我的主页" : "名片"
+      return this.mode=='isSelf' ? this.username : "名片"
     },
     hasMore() {
       return this.mode=='isSelf' ? "设置" : ""
@@ -55,6 +107,7 @@ export default {
     }
 
   },
+
 }
 </script>
 <style lang="stylus" scoped>
@@ -62,19 +115,16 @@ export default {
 .userProfile
   position relative
   .pic-wrapper
-    height 0
+    height 5.5rem
     width 100%
-    padding-bottom 70%
-    overflow hidden
     background url('../../common/image/b2.jpg') 
-    filter: blur(.08rem); 
+    filter: blur(.015rem); 
     position fixed
     background-size:100% 100%;
   .content
-    height 0
-    width 100%
-    padding-bottom 70%
-    z-index 1
+    height 5.5rem
+    left 0
+    right 0
     position absolute
     background-color rgba(0,0,0,.15)
     top 0
@@ -84,7 +134,7 @@ export default {
       border-radius 50%
       overflow hidden
       position absolute
-      bottom 1.5rem
+      bottom 2.5rem
       left 50%
       box-shadow $shadow
       margin-left -0.75rem
@@ -93,14 +143,105 @@ export default {
     .user-info
       width 100%
       position absolute
-      bottom .5rem
+      bottom 1.5rem
       text-align center
       line-height .4rem
-      color $cl-border
-      // font-size .32rem
-      // font-weight 600
-
+      color #fff
+      font-weight 600
   .pad
-    height 30rem
-
+    position absolute
+    top 5.5rem
+    // height 30rem
+    width 100%
+    background $cl-bg2
+    margin-bottom 2rem
+    .totalNum
+      height 1.5rem
+      width 90%
+      background #fff
+      position absolute
+      transform translateY(-50%)
+      margin-left 5%
+      // box-shadow $shadow
+      box-shadow 0 0.2rem .8rem #ddd
+      border-radius .2rem
+      display flex
+      justify-content space-evenly
+      align-items center
+      .item
+        text-align center
+        .num
+          font-size .48rem
+          color $cl-blue
+        .name
+          color $cl-subColor
+          margin-top .2rem
+    .introduce
+      height 1.5rem
+      margin-top 1.1rem
+      .title
+        height .6rem
+        line-height .6rem
+        padding-left .2rem
+        font-size .34rem
+        font-weight 600
+      .desc
+        height 1.2rem
+        padding 0 .4rem 
+        display flex
+        flex-direction column
+        justify-content center
+        color $cl-subColor
+        line-height .4rem
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp:3;
+        -webkit-box-orient: vertical;
+    .tag
+      margin-top .4rem
+      max-height 3rem
+      overflow hidden
+      .title
+        height .6rem
+        line-height .6rem
+        padding-left .2rem
+        font-size .34rem
+        font-weight 600
+      .container
+        max-height 1.9rem
+        padding 0 .4rem
+        display flex
+        justify-content flex-start
+        flex-wrap wrap
+        margin-top .1rem
+        .item
+          height .45rem
+          line-height .45rem
+          padding 0 .35rem
+          border-radius .225rem
+          background #fff
+          margin-right .25rem
+          margin-bottom .2rem
+          border .02rem solid $cl-yellow
+          color $cl-subColor
+    .moment
+      margin-top .2rem
+      .title
+        height .6rem
+        line-height .6rem
+        padding-left .2rem
+        font-size .34rem
+        font-weight 600
+      .moment-list
+        .allMoment
+          text-align center
+          height .6rem
+          line-height .6rem
+          margin-top  .5rem
+          box-shadow 0 0.1rem .8rem #ccc
+          width 50%
+          margin-left 25%
+          background $cl-blue
+          color #fff
+          border-radius .25rem
 </style>
