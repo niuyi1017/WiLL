@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <div class="search-wrapper " >
-      <input type="text" class="search-input" :placeholder="placeholder">
+      <div class="search-input" >{{placeholder}}</div>
       <span class="icon-wrapper"><i class="iconfont icon-search"></i></span>
     </div>
     <div class="tool-wrapper" @click="toolboxClick">
@@ -41,10 +41,11 @@ export default {
     border-radius .5rem
     .search-input
       height  .7rem
+      line-height .7rem
       width 85%
       margin-left 5%
       font-size .24rem
-      color #666
+      color $cl-subColor
     .icon-wrapper
       height .7rem
       width 15%
