@@ -1,6 +1,6 @@
 <template>
-  <div class="search-box">
-    <div class="search-wrapper " >
+  <div class="search-box" >
+    <div class="search-wrapper " @click="handleSearchClick">
       <div class="search-input" >{{placeholder}}</div>
       <span class="icon-wrapper"><i class="iconfont icon-search"></i></span>
     </div>
@@ -20,6 +20,9 @@ export default {
   methods: {
     toolboxClick() {
       this.$router.push('/toolbox')
+    },
+    handleSearchClick () {
+      this.$router.push('/search')
     }
   },
 }

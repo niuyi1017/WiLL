@@ -28,7 +28,10 @@ export default {
   background #fff
   display flex
   justify-content center
-  position relative
+  position fixed
+  top 0
+  width 100%
+  // position relative
   .back
     position absolute
     left 0

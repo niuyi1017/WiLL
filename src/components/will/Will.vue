@@ -15,7 +15,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import SearchBox from '@/components/search-box/searchBox'
 import SwiperWill from '@/base/swiper/swiperWill'

@@ -5,13 +5,13 @@ import Playground from '../components/playground/Playground.vue'
 import Message from '../components/message/Message.vue'
 import User from '../components/user/User.vue'
 import ToolBox from '../components/tool-box/toolBox.vue'
+import Search from '../components/search/search.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      // name: 'root',
       redirect: '/will'
     },
     {
@@ -38,6 +38,11 @@ export default new Router({
       path: '/toolbox',
       name: 'ToolBox',
       component: ToolBox
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     },
   ]
 })
