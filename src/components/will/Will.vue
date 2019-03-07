@@ -50,6 +50,7 @@ export default {
     width 100%
     bottom 1.2rem
     overflow hidden
+    background $cl-bg2
     .will-content
       height 100%
 </style>

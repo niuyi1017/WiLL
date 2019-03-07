@@ -5,7 +5,7 @@
       </router-view>
     </keep-alive>
     <TabBar @post="handlePost"/>
-    <post v-show="showPost"/>
+    <post @closePost="handlePost" v-show="showPost"/>
   </div>
 </template>
 

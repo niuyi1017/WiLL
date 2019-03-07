@@ -29,6 +29,7 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .col-title
+  background $cl-bg2
   .foryou
     height .65rem
     line-height .65rem

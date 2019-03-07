@@ -57,6 +57,7 @@
   height :0
   overflow hidden
   padding-bottom :4.65rem
+  background $cl-bg2
   .card-wrapper
     width 90%
     margin-left 5%
