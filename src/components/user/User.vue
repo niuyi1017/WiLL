@@ -14,7 +14,8 @@ export default {
         username: "一只小小白",
         desc: '烟台大学 物联网工程专业',
         isSelf: true,
-        sum: {
+        isFriend: true,
+        sum: {  
           following: 1024,
           followers: '1.2k',
           favorites: 256,
@@ -34,11 +35,11 @@ export default {
             desc: '在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验',
           },
           {
-            contentType: contentType.Moment,
+            contentType: contentType.moment,
             momentMode: momentMode.post,
             postTime: '12 mins ago',
             img: '',
-            title: '新的同学圈',
+            title: '',
             desc: '在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验',
           },
           {
