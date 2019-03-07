@@ -51,8 +51,8 @@
           <div class="moment-list">
             <card-user-page v-for="(item, index) in user.recentlyMoments" 
                             :key="index" 
-                            :content="item"/>
-            
+                            :content="item"
+                            :isSelf="user.isSelf"/>
             <div class="allMoment">
               查看全部动态
             </div>
@@ -60,6 +60,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="footer" v-if="!user.isSelf">
+      <div class="button" v-if="!user.isFriend">加关注</div>
+      <div class="button" v-else>传小纸条</div>
     </div>
   </div>
 </template>
@@ -80,34 +84,26 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      mode: 'isSelf',
-      username: "一只小小白"
-    }
-  },
   computed: {
     title() {
-      return this.mode=='isSelf' ? this.username : "名片"
+      return this.user.username 
     },
     hasMore() {
-      return this.mode=='isSelf' ? "设置" : ""
+      return this.user.isSelf ? "设置" : ""
     },
     showBack() {
-      return this.mode=='isSelf' ? false : true
+      return !this.user.isSelf 
     },
     showLeft(){
-       return this.mode=='isSelf' ? false : true
+      return !this.user.isSelf 
     },
     showRight(){
-       return this.mode=='isSelf' ? true : false
+      return this.user.isSelf 
     },
     showAbs() {
-       return this.mode=='isSelf' ? true : false
+      return !this.user.isSelf 
     }
-
   },
-
 }
 </script>
 <style lang="stylus" scoped>
@@ -162,7 +158,6 @@ export default {
       position absolute
       transform translateY(-50%)
       margin-left 5%
-      // box-shadow $shadow
       box-shadow 0 0.2rem .8rem #ddd
       border-radius .2rem
       display flex
@@ -244,4 +239,23 @@ export default {
           background $cl-blue
           color #fff
           border-radius .25rem
+  .footer
+    position fixed
+    bottom 0
+    z-index 100
+    height 1.2rem
+    background rgba(255, 255, 255, 0.85)
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+    .button
+      height .8rem
+      line-height .8rem
+      background $cl-yellow
+      width 75%
+      text-align center
+      border-radius .2rem
+      color #fff
+  
 </style>
