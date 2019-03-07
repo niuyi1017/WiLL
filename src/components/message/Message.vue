@@ -6,7 +6,7 @@
     <message-part :messages="messages"
                   v-show="mode=='message'"/>
     <contact-part :contacts="contacts"
-                    v-show="mode=='contacts'"/>
+                    v-if="mode=='contacts'"/>
   </div>
 </template>
 <script>

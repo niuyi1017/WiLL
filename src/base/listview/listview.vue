@@ -46,6 +46,7 @@
   </scroll>
 </template>
 <script>
+/* eslint-disable */
 import Scroll from '@/base/scroll/scroll'
 import Loading from '@/base/loading/loading'
 import { getData } from '@/common/js/dom'
@@ -134,6 +135,7 @@ export default {
       this.listHeight.push(height)
       for(let i = 0; i<list.length; i++){
         height += list[i].clientHeight
+        
         this.listHeight.push(height)
       }
     }
@@ -160,7 +162,6 @@ export default {
         }
       }
       this.currentIndex = listHeight.length-2
-      // console.log(listHeight.length)
     },
     diff (newVal) {
       let fixedTop = (newVal > 0 && newVal < TITLT_HEIGHT ) ? newVal - TITLT_HEIGHT : 0
@@ -170,6 +171,9 @@ export default {
       this.fixedTop = fixedTop
       this.$refs.fixed.style.transform = `translate3d(0,${fixedTop}px,0)` 
     }
+  },
+  mounted() {
+    this._calculateHeight()
   },
 }
 </script>
@@ -181,27 +185,30 @@ export default {
     width: 100%
     height: 100%
     overflow: hidden
-    background: $color-background
+    background: $cl-bg2
     .list-group
       padding-bottom: 30px
+      background #FFF
       .list-group-title
         height: 30px
         line-height: 30px
         padding-left: 20px
         font-size: $font-size-small
-        color: $color-text-l
-        background: $color-highlight-background
+        color: $cl-yellow
+        background: $cl-bg
       .list-group-item
         display: flex
         align-items: center
         padding: 20px 0 0 30px
+        margin-bottom 2px
+        // background $cl-bg2
         .avatar
           width: 50px
           height: 50px
           border-radius: 50%
         .name
           margin-left: 20px
-          color: $color-text-l
+          color: $cl-content
           font-size: $font-size-medium
     .list-shortcut
       position: absolute
@@ -214,6 +221,7 @@ export default {
       border-radius: 10px
       text-align: center
       background: $color-background-d
+      // background #fff
       font-family: Helvetica
       .item
         padding: 3px
@@ -221,7 +229,7 @@ export default {
         color: $color-text-l
         font-size: $font-size-small
         &.current
-          color: $color-theme
+          color: $cl-yellow
     .list-fixed
       position: absolute
       top: -1px
@@ -232,8 +240,8 @@ export default {
         line-height: 30px
         padding-left: 20px
         font-size: $font-size-small
-        color: $color-text-l
-        background: $color-highlight-background
+        color: $cl-yellow
+        background: $cl-bg
     .loading-container
       position: absolute
       width: 100%

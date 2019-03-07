@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div class="post" @click="close">
     <div class="top">
       <div class="pic">
         <img src="../../common/image/post.jpg" alt="" srcset="">
@@ -13,11 +13,11 @@
         <div class="icon-wrapper"><i class="iconfont icon-dashboard"></i></div>
         <span class="menu-name">同学圈</span>
       </div>
-       <div class="item">
+      <div class="item">
         <div class="icon-wrapper"><i class="iconfont icon-container"></i></div>
         <span class="menu-name">长文</span>
       </div>
-       <div class="item">
+      <div class="item">
         <div class="icon-wrapper"><i class="iconfont icon-question-circle"></i></div>
         <span class="menu-name">提问</span>
       </div>
@@ -26,12 +26,18 @@
 </template>
 <script>
 export default {
-  nama: 'Post'
+  nama: 'Post',
+  methods: {
+    close(){
+      this.$emit('closePost')
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .post
+  overflow: hidden
   position fixed
   top 0
   bottom 0
@@ -39,7 +45,8 @@ export default {
   right 0
   background: linear-gradient(45deg,#fcd9df,#cfe0f8);
   overflow: hidden
-  z-index 49
+  opacity .95
+  z-index 100
   .top
     width 80%
     height 50%

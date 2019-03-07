@@ -99,7 +99,8 @@
           this.refresh()
         }, this.refreshDelay)
       }
-    }
+    },
+    
   }
 </script>
 
