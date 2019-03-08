@@ -1,6 +1,5 @@
 <template>
   <div class="search" >
-
     <div class="header">
       <h1 class="title">Search</h1>
       <div class="search-box">
@@ -11,7 +10,6 @@
         </span>
       </div>
     </div>
-
     <div class="scroll-wrapper">
         <div class="recommend-box" v-show="!key">
           <div class="hot">
@@ -56,7 +54,6 @@
         </ul>
       </div>
     </div>
-   
   </div>
 </template>
 <script>

@@ -1,11 +1,13 @@
 <template>
   <div class="user">
-    <user-profile :user="user"/>
+    <user-profile :user="user" v-if="isSignin"/>
+    <sign v-else/>
   </div>
 </template>
 <script>
 import {momentMode,contentType} from '@/common/js/config'
 import UserProfile from '@/base/user-profile/userProfile'
+import Sign from '@/components/sign/sign'
 export default {
   name: 'user',
   data() {
@@ -83,11 +85,13 @@ export default {
             desc: '在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验在距海最近的大学读书的是怎样的体验',
           }
         ]
-      }
+      },
+      isSignin: true
     }
   },
   components: {
-    UserProfile
+    UserProfile,
+    Sign
   }
 }
 </script>
