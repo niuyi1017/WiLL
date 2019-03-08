@@ -14,3 +14,11 @@ export const contentType = {
   moment: 4
 }
 export const contentTypeStr = ["文章", "问题", "评论", "回答", "同学圈"]
+export const searchResultType = {
+  school: 0,
+  major: 1,
+  user: 2,
+  article: 3,
+  moment: 4
+}
+export const searchResultTypeStr = ["学校", "专业", "同学", "文章", "动态"]
