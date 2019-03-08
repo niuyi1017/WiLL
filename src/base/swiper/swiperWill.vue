@@ -5,7 +5,10 @@
         <div class="card-wrapper">
           <div class="top">
             <div class="tag">烟台大学</div>
-            <img class="swiper-img" src="../../common/image/3.jpg">
+            <div class="pic">
+              <img  src="../../common/image/3.jpg">
+            </div>
+            
           </div>
           <div class="bottom">
             <div class="header">距海最近的大学 -- 烟台大学</div>
@@ -74,10 +77,15 @@
       padding-bottom 3rem
       position relative
       overflow hidden
-      .swiper-img
+      .pic
+        height 3rem
         width 100%
-        margin-top: -3.0rem;
         overflow hidden
+        // todo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // adjust swiper img
+        img
+          width 100%
+          margin-top: -3.0rem;
       .tag
         position absolute
         top .2rem
@@ -101,7 +109,7 @@
         padding-left .4rem
         font-size .36rem 
         margin-bottom 0rem
-        font-weight 700
+        // font-weight 700
       .desc
         display flex
         justify-content space-between

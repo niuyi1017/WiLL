@@ -21,6 +21,10 @@
         <div class="icon-wrapper"><i class="iconfont icon-question-circle"></i></div>
         <span class="menu-name">提问</span>
       </div>
+      <div class="item">
+        <div class="icon-wrapper"><i class="iconfont icon-close-circle"></i></div>
+        <span class="menu-name"></span>
+      </div>
     </div>
   </div>
 </template>
@@ -82,17 +86,26 @@ export default {
       width 1.6rem
       &:nth-child(1)
         position absolute
-        top 2.4rem
+        bottom 3.4rem
         left -0.4rem
       &:nth-child(2)
         position absolute
-        top 1.4rem
+        bottom 4.8rem
         left 50%
         margin-left -0.8rem
       &:nth-child(3)
         position absolute
-        top 2.4rem
+        bottom 3.4rem
         right -0.4rem
+      &:nth-child(4)
+        position absolute
+        bottom 1.4rem
+        left 50%
+        margin-left -0.8rem
+        .icon-wrapper
+          box-shadow 0 0 1rem #aaa
+          .iconfont
+            color $cl-orange
       .icon-wrapper
         height 1.4rem
         width 1.4rem

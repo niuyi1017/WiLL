@@ -2,7 +2,7 @@
   <div class="card-qa">
     <div class="wrapper">
       <div class="header">
-        <div class="tag">{{qaData.tag}}</div>
+        <div class="tag" :style="tagColor">{{qaData.tag}}</div>
         <div class="time">{{qaData.postAt}}</div>
       </div>
       <div class="question">{{qaData.question}}?</div>
@@ -32,13 +32,22 @@
   </div>
 </template>
 <script>
+import {getRandomColor} from '@/common/js/config'
 export default {
   name: 'CardQa',
+  data() {
+    return {
+      tagColor: {}
+    }
+  },
   props: {
     qaData: {
       type: Object
     }
-  }
+  },
+  mounted() {
+    this.tagColor = getRandomColor()
+  },
 }
 </script>
 <style lang="stylus" scoped>

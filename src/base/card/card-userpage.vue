@@ -1,9 +1,9 @@
 <template>
   <div class="cardUserPage">
     <div class="wrapper">
-    <div class="line"></div>
+    <div class="line" :style="tagColor"></div>
     <div class="header">
-      <div class="mode">{{contentType}}</div>
+      <div class="mode" :style="modeColor">{{contentType}}</div>
       <div class="postTime">1 min ago</div>
     </div>
      
@@ -24,9 +24,14 @@
   </div>
 </template>
 <script>
-import {momentModeStr,contentTypeStr} from '@/common/js/config'
+import {momentModeStr,contentTypeStr,getRandomColor} from '@/common/js/config'
 export default {
   name: "CardUserPage",
+  data() {
+    return {
+      tagColor: {}
+    }
+  },
   props: {
     content: {
       type: Object,
@@ -48,7 +53,15 @@ export default {
     },
     title() {
       return  this.content.momentMode == 0 ? `${this.momentMode}新的${this.contentType}：`: `${this.momentMode}${this.contentType}`
+    },
+    modeColor() {
+      let result = {}
+      result.color = this.tagColor.background
+      return result
     }
+  },
+  mounted() {
+    this.tagColor = getRandomColor()
   },
 }
 </script>

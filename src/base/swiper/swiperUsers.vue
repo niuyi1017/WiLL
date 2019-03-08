@@ -1,34 +1,55 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" ref="wrapper">
     <swiper :options="swiperOption" >
-      <swiper-slide v-for="user in userList" :key="user.id">
-        <div class="card-wrapper">
-          <div class="pic-wrapper">
+      <swiper-slide v-for="(user,index) in userList" :key="user.id">
+        <div class="card-wrapper" >
+          <div class="pic-wrapper" >
             <img src="../../common/image/t1.jpg" >
           </div>
-          <div class="content">
+          <div class="content" ref="cradWapper">
             <h1 class="user-name">{{user.name}}</h1>
             <div class="desc">
               <p class="desc-content">{{user.desc}}</p>
             </div>
           </div>
           <div class="button">加好友</div>
-          <div class="line"></div>
+          <div class="line" :style="diffColor[index]"></div>
         </div>
       </swiper-slide>
     </swiper>
   </div>
 </template>
 <script>
+import {diffColor} from '@/common/js/config'
 export default {
   name: "SwiperUsers",
   data () {
       return {
         swiperOption: {
           loop: true,
-          slidesPerView: 2.3,
-          // spaceBetween: 30,
           freeMode: true,
+          breakpoints: {
+            1024: {
+              slidesPerView: 5.5,
+              spaceBetween: 40
+            },
+            768: {
+              slidesPerView: 4.5,
+              spaceBetween: 30
+            },
+            640: {
+              slidesPerView: 2.4,
+              spaceBetween: 20
+            },
+            380: {
+              slidesPerView: 2.3,
+              spaceBetween: 20
+            },
+            320: {
+              slidesPerView: 1.3,
+              spaceBetween: 10
+            }
+          }
         },
         userList: [
           {
@@ -67,9 +88,10 @@ export default {
             name: '一只小小白',
             desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
           },
-        ]
+        ],
+        diffColor
       }
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>

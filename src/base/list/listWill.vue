@@ -123,8 +123,8 @@ export default {
       .header
         margin-top .25rem
         .author
-          color $cl-disabled
-          font-size .24rem
+          color $cl-subColor
+          font-size .28rem
         .title-wrapper
           margin-top .05rem
           height .95rem
@@ -132,9 +132,9 @@ export default {
           justify-content flex-start
           align-items center
           .title
-            line-height .35rem
+            line-height .36rem
             font-size .32rem
-            font-weight 600
+            // font-weight 600
       .desc
         margin-top .15rem  
         display flex
@@ -143,8 +143,8 @@ export default {
           display flex
           .item
             margin-left 0.15rem
-            color $cl-disabled
-            font-size .24rem
+            color $cl-subColor
+            font-size .26rem
             position relative
             .iconfont
               margin-right .1rem

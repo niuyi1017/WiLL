@@ -22,3 +22,39 @@ export const searchResultType = {
   moment: 4
 }
 export const searchResultTypeStr = ["学校", "专业", "同学", "文章", "动态"]
+export const diffColor = [
+  {
+    background: '#EE4540'
+  },
+  {
+    background: '#47b39d'
+  },
+  {
+    background: '#ffc253'
+  },
+  {
+    background: '#2db7f5'
+  },
+  {
+    background: '#eb6b56'
+  },
+  {
+    background: '#f18c8e'
+  },
+  {
+    background: '#AC13D0'
+  },
+  {
+    background: '#344e5c'
+  },
+  {
+    background: '#4d5e72'
+  },
+  {
+    background: '#b05f6d'
+  }
+]
+export function getRandomColor() {
+  let index = Math.floor(Math.random()*10)
+  return diffColor[index]
+}
