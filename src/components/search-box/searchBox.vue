@@ -31,6 +31,11 @@ export default {
 @import "~@/common/stylus/variable.styl"
 .search-box
   height 1.2rem
+  position fixed
+  top 0
+  z-index 50
+  left 0
+  right 0
   background #fff
   display flex
   .search-wrapper
