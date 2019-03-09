@@ -45,13 +45,13 @@ export const diffColor = [
     background: '#AC13D0'
   },
   {
-    background: '#344e5c'
+    background: '#EF3D59'
   },
   {
-    background: '#4d5e72'
+    background: '#5ac4c3'
   },
   {
-    background: '#b05f6d'
+    background: '#AC13D0'
   }
 ]
 export function getRandomColor() {
