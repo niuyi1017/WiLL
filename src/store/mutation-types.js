@@ -1,0 +1,1 @@
+export const SET_SHOWPOST = 'SET_SHOWPOST'

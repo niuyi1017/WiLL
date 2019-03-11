@@ -4,31 +4,23 @@
       <router-view>
       </router-view>
     </keep-alive>
-    <TabBar @post="handlePost"/>
-    <post @closePost="handlePost" v-show="showPost"/>
   </div>
 </template>
 
 <script>
-
-import TabBar from './components/tabBar/tabBar'
-import Post from './base/post/post'
+// import Post from './base/post/post'
+// import {mapGetters} from 'vuex'
 export default {
   name: 'app',
-  data() {
-    return {
-      showPost: false
-    }
-  },
   components: {
-   TabBar,
-   Post
+  //  Post
   },
   methods: {
     handlePost() {
-      this.showPost = !this.showPost
-    }
-  }
+      this.setShowPost(false)
+    },
+    
+  },
   
 }
 </script>

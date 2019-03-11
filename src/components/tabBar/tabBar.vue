@@ -8,7 +8,7 @@
       <div class="icon"><i class="iconfont  icon-fire"></i></div>
       <div class="name">操场</div>
     </router-link>
-    <div class="tab-item" @click="handlePost">
+    <div class="tab-item" @click="handlePostOpen">
       <div class="icon fabu"><i class="iconfont  icon-plus-circle"></i></div>
       <div class="name fabu-name">发布</div>
     </div>
@@ -20,18 +20,34 @@
       <div class="icon"><i class="iconfont  icon-user"></i></div>
       <div class="name">我的</div>
     </router-link>
+    <Post @closePost="handlePostClose" v-show="showPost"/>
   </div>
 </template>
 
 <script>
-
+import Post from '@/base/post/post'
+import {mapMutations, mapGetters} from 'vuex'
 export default {
   name: 'TabBar',
-  methods: {
-    handlePost() {
-      this.$emit('post')
-    }
+  components: {
+    Post
   },
+  methods: {
+    handlePostOpen() {
+      this.setShowPost(true)
+    },
+    handlePostClose(){
+      this.setShowPost(false)
+    },
+    ...mapMutations({
+      setShowPost: 'SET_SHOWPOST'
+    }),
+  },
+  computed: {
+    ...mapGetters([
+       'showPost'
+    ])
+  }
 }
 </script>
 <style lang="stylus" scoped>

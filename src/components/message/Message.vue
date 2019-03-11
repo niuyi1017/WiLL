@@ -7,6 +7,7 @@
                   v-show="mode=='message'"/>
     <contact-part :contacts="contacts"
                     v-if="mode=='contacts'"/>
+    <tab-bar/>
   </div>
 </template>
 <script>
@@ -14,13 +15,15 @@ import Tab from '@/base/tab/tab'
 import NotificationPart from '@/base/notification-part/notification-part'
 import MessagePart from '@/base/message-part/message-part'
 import ContactPart from '@/base/contact-part/contact-part'
+import TabBar from '@/components/tabBar/tabBar'
 export default {
   name: 'message',
   components: {
     Tab,
     NotificationPart,
     MessagePart,
-    ContactPart
+    ContactPart,
+    TabBar
   },
   data() {
     return {

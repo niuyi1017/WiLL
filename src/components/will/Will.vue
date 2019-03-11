@@ -7,15 +7,16 @@
     <swiper-users></swiper-users>
     <col-title />
     <list-will/>
+    <TabBar />
   </div>
 </template>
 <script>
+import TabBar from '@/components/tabBar/tabBar'
 import SearchBox from '@/components/search-box/searchBox'
 import SwiperWill from '@/base/swiper/swiperWill'
 import SwiperUsers from '@/base/swiper/swiperUsers'
 import ListWill from '@/base/list/listWill'
 import ColTitle from '@/base/col-title/colTitle'
-// import Scroll from '@/base/scroll/scroll'
 export default {
   name: 'Will',
   components: {
@@ -24,14 +25,13 @@ export default {
     ListWill,
     ColTitle,
     SwiperUsers,
-    // Scroll
+    TabBar
   },
   data() {
     return {
       list: [1,2,3]
     }
   },
-
 }
 </script>
 <style lang="stylus" scoped>

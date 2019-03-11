@@ -1,0 +1,1 @@
+export const showPost = state => state.showPost
