@@ -95,11 +95,6 @@ export default {
     }
   },
   methods: {
-    // handlePlaylist(playlist) {
-    //   const bottom = playlist.length > 0 ? '60px': ''
-    //   this.$refs.recommend.style.bottom = bottom
-    //   this.$refs.scroll.refresh()
-    // },
     _initCalender() {
       let date = new Date()
       let year = date.getFullYear()
@@ -156,7 +151,7 @@ export default {
         num = '0' + num 
       }
       return num
-    }
+    },
   },
   mounted() {
     this._initCalender()
@@ -171,8 +166,7 @@ export default {
     width: 100%
     position fixed
     top 1rem
-    // height 100%
-    bottom 1.2rem
+    bottom 0rem
     overflow hidden
     .scroll
       height 100%

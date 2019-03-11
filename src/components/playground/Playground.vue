@@ -17,6 +17,7 @@
         </div>
       </scroll>
     </div>
+    <tab-bar/>
   </div>
 </template>
 <script>
@@ -24,13 +25,15 @@ import Tab from '@/base/tab/tab'
 import CardQa from '@/base/card/card-qa'
 import CardMoment from '@/base/card/card-moment'
 import Scroll from '@/base/scroll/scroll'
+import TabBar from '@/components/tabBar/tabBar'
 export default {
   name: 'playground',
   components: {
     Tab,
     CardMoment,
     CardQa,
-    Scroll
+    Scroll,
+    TabBar
   },
   data() {
     return {

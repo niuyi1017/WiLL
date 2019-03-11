@@ -65,16 +65,19 @@
       <div class="button" v-if="!user.isFriend">加关注</div>
       <div class="button" v-else>传小纸条</div>
     </div>
+    <tab-bar v-if="user.isSelf"/>
   </div>
 </template>
 <script>
 import SHeader from '@/base/header/Sheader'
 import CardUserPage from '@/base/card/card-userpage'
+import TabBar from '@/components/tabBar/tabBar'
 export default {
   name: 'UserProfile',
   components: {
     SHeader,
-    CardUserPage
+    CardUserPage,
+    TabBar
   },
   props: {
     user: {
