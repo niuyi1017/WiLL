@@ -13,7 +13,6 @@
     </fade-animate>
   </div>
 </template>
-
 <script>
 import FadeAnimate from '@/base/fadeAnimate/fadeAnimate'
 import Gallery from '@/base/gallery/gallery'
