@@ -38,6 +38,11 @@
              </li>
            </ul>
           </div>
+          <div class="closeSearch">
+            <div class="icon-wrapper" @click="handleSearchClose">
+              <i class="iconfont icon-close-circle"></i>
+            </div>
+          </div>
         </div>
       <div class="result-box" v-show="key">
         <h3 class="result-title">搜索结果</h3>
@@ -60,9 +65,6 @@
 import {searchResultType,searchResultTypeStr} from '@/common/js/config'
 export default {
   name: 'Search',
-  components: {
-    
-  },
   data() {
     return {
       key: '',
@@ -161,6 +163,9 @@ export default {
   methods: {
     clearKey() {
       this.key = ''
+    },
+    handleSearchClose(){
+      this.$router.push('/')
     }
   },
 }
@@ -222,6 +227,7 @@ export default {
     margin-top 2.85rem
     bottom 0
     width 100%
+    background #fff
     overflow hidden
     .recommend-box
       background #fff
@@ -305,6 +311,28 @@ export default {
               margin-left .1rem
               height .6rem
               line-height .6rem
+      .closeSearch
+        position fixed
+        bottom 0
+        left 0
+        right 0 
+        height 2rem
+        background #fff
+        display flex
+        justify-content center
+        align-items center
+        .icon-wrapper
+          height 1.2rem
+          width 1.2rem
+          background $cl-yellow
+          border-radius 50%
+          box-shadow 0 0 .5rem $cl-yellow
+          display flex
+          justify-content center
+          align-items center
+          .iconfont
+            color #fff
+            font-size .78rem
     .result-box
       background #fff
       margin-bottom 1.4rem
