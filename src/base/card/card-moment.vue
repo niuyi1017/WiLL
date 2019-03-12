@@ -20,8 +20,8 @@
       </div>
       <div class="pic-group-wrapper" v-show="momentData.content.picList.length">
         <div class="pic-group" v-for="(pics, index) in momentData.content.picList" :key="index">
-          <div class="pic" v-for="(pic,index) in pics" :key="index">
-            <img src="../../common/image/7.jpg" alt="" srcset="" v-show="pic.imgUrl">
+          <div class="pic" v-for="(pic,innerIndex) in pics" :key="innerIndex">
+            <img src="../../common/image/7.jpg" v-show="pic.imgUrl" @click="handleImgClick(index,innerIndex)">
           </div>
         </div>
       </div>
@@ -47,8 +47,16 @@
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
 export default {
   name: 'Tab',
+  data() {
+    return {
+      galleryImgs: [
+        '../../7.jpg','../../7.jpg', '../../7.jpg','../../7.jpg'
+      ],
+    }
+  },
   props: {
     momentData:{
       type: Object,
@@ -56,6 +64,19 @@ export default {
         return {}
       }
     }
+  },
+  methods: {
+    handleImgClick(index,innerIndex){
+      let galleryImgs = this.galleryImgs
+      let realIndex = 3*index + innerIndex
+      this.openGallery({
+        index: realIndex,
+        galleryImgs
+        })
+    },
+    ...mapActions([
+      'openGallery'
+    ])
   }
 }
 </script>
@@ -99,7 +120,6 @@ export default {
     .right
       width 2rem
       height 1.2rem
-      // line-height 1.2rem
       display flex
       justify-content flex-end
       align-items center
@@ -112,7 +132,6 @@ export default {
         color $cl-yellow
   .content-wrapper
     padding .2rem .4rem
-    // background #ccc
     .text
       font-size .32rem
       line-height .4rem
@@ -122,7 +141,6 @@ export default {
     .pic-group
       display flex
       justify-content space-evenly
-      // flex-wrap wrap
       max-height 9rem
       .pic
         width 100%
@@ -137,12 +155,10 @@ export default {
     height .8rem
     padding 0 .4rem
     justify-content space-between
-    
     .left
       display flex
       height .8rem
       line-height .8rem
-      
       .item
         margin-right .4rem
         .iconfont
@@ -152,7 +168,4 @@ export default {
       line-height .8rem
       .iconfont
           font-size .34rem
-
-
-
 </style>

@@ -4,22 +4,39 @@
       <router-view>
       </router-view>
     </keep-alive>
+    <fade-animate>
+      <gallery 
+            :imgs="galleryImgs" 
+            :galleryIndex="galleryIndex"
+            v-if="galleryImgs.length"
+            @close="handleClose"/>
+    </fade-animate>
   </div>
 </template>
 
 <script>
-// import Post from './base/post/post'
-// import {mapGetters} from 'vuex'
+import FadeAnimate from '@/base/fadeAnimate/fadeAnimate'
+import Gallery from '@/base/gallery/gallery'
+import{mapGetters,mapActions} from 'vuex'
 export default {
   name: 'app',
   components: {
-  //  Post
+    FadeAnimate,
+    Gallery
   },
   methods: {
-    handlePost() {
-      this.setShowPost(false)
-    },
-    
+   handleClose(){
+     this.closeGallery()
+   },
+   ...mapActions([
+     'closeGallery'
+   ])
+  },
+  computed: {
+   ...mapGetters([
+     'galleryIndex',
+     'galleryImgs'
+   ])
   },
   
 }
