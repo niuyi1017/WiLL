@@ -18,10 +18,10 @@
     <div class="content-wrapper">
       <div class="text">{{momentData.content.text}}
       </div>
-      <div class="pic-group-wrapper" v-show="momentData.content.picList.length">
-        <div class="pic-group" v-for="(pics, index) in momentData.content.picList" :key="index">
+      <div class="pic-group-wrapper" v-show="displayPicList.length">
+        <div class="pic-group" v-for="(pics, index) in displayPicList" :key="index">
           <div class="pic" v-for="(pic,innerIndex) in pics" :key="innerIndex">
-            <img src="../../common/image/7.jpg" v-show="pic.imgUrl" @click="handleImgClick(index,innerIndex)">
+            <img :src="pic" v-show="pic" @click="handleImgClick(index,innerIndex)">
           </div>
         </div>
       </div>
@@ -50,13 +50,6 @@
 import {mapActions} from 'vuex'
 export default {
   name: 'Tab',
-  data() {
-    return {
-      galleryImgs: [
-        '../../7.jpg','../../7.jpg', '../../7.jpg','../../7.jpg'
-      ],
-    }
-  },
   props: {
     momentData:{
       type: Object,
@@ -65,6 +58,35 @@ export default {
       }
     }
   },
+  computed: {
+    galleryImgs(){
+      return this.momentData.content.picList
+    },
+    displayPicList(){
+        let picList = this.momentData.content.picList 
+        let res = []
+        if(picList.length == 4){
+          res = [[],[]]
+          res[0][0] = picList[0]
+          res[0][1] = picList[1]
+          res[1][0] = picList[2]
+          res[1][1] = picList[3]
+        }else{
+          for(let i = 0;i< picList.length;i++){
+          if(i%3 == 0&&i>=3){
+            res.push(["","",""])
+          }
+          if(i%3 == 0&&i<3){
+            res.push([])
+          }
+          let x = Math.floor(i/3)
+          let y = i%3
+          res[x][y] = picList[i]? picList[i]: ''
+        }
+      }
+        return res
+      }
+    },
   methods: {
     handleImgClick(index,innerIndex){
       let galleryImgs = this.galleryImgs
