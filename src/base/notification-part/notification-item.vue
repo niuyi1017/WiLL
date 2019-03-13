@@ -1,14 +1,14 @@
 <template>
   <div class="item">
     <div class="pic">
-      <img src="../../common/image/t1.jpg" alt="" srcset="" v-show="!notification.isSystemMsg">
+      <img :src="notification.avatar" alt="" srcset="" v-show="!notification.isSystemMsg">
       <i class="iconfont icon-bell" v-show="notification.isSystemMsg"></i>
     </div>
     <div class="content">
         <div class="text"><span class="username">{{notification.username}}</span> {{notification.message}}</div>
     </div>
     <div class="article-pic" v-if="!notification.isFollow">
-      <img src="../../common/image/5.jpg" alt="" srcset="">
+      <img :src="notification.articlePic" alt="" srcset="">
     </div>
     <div class="follow" v-else>
       + Follow
