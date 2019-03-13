@@ -1,12 +1,12 @@
 <template>
   <div class="will">
     <search-box/>
-    <swiper-will/>
+    <swiper-will :swiperList="will.swiperlist"/>
     <col-title title="热门 Hot" icon="icon-fire"/> 
-    <list-will/>
-    <swiper-users></swiper-users>
+    <list-will :articleList="will.hotArticList"/>
+    <swiper-users :userList="will.recommendUserList"></swiper-users>
     <col-title />
-    <list-will/>
+    <list-will :articleList="will.recommendArticleList"/>
     <TabBar />
   </div>
 </template>
@@ -17,6 +17,7 @@ import SwiperWill from '@/base/swiper/swiperWill'
 import SwiperUsers from '@/base/swiper/swiperUsers'
 import ListWill from '@/base/list/listWill'
 import ColTitle from '@/base/col-title/colTitle'
+import { getWill } from '@/api/will'
 export default {
   name: 'Will',
   components: {
@@ -29,8 +30,20 @@ export default {
   },
   data() {
     return {
-      list: [1,2,3]
+      will:{}
     }
+  },
+  methods: {
+    _getWill(){
+      getWill().then((res) => {
+        if(res.code==0&&res.data){
+          this.will = res.data
+        }
+      })
+    }
+  },
+  mounted() {
+    this._getWill()
   },
 }
 </script>
