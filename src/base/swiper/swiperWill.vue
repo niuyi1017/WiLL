@@ -1,29 +1,29 @@
 <template>
   <div class="wrapper">
     <swiper :options="swiperOption" >
-      <swiper-slide >
+      <swiper-slide v-for="(item, index) in swiperList" :key="index" >
         <div class="card-wrapper">
           <div class="top">
-            <div class="tag">烟台大学</div>
+            <div class="tag">{{item.tag}}</div>
             <div class="pic">
-              <img  src="../../common/image/3.jpg">
+              <img  :src="item.imgUrl">
             </div>
             
           </div>
           <div class="bottom">
-            <div class="header">距海最近的大学 -- 烟台大学</div>
+            <div class="header">{{item.title}}</div>
             <div class="desc">
               <div class="item">
                 <span class="icon-wrapper"><i class="iconfont icon-eye"></i></span>
-                <span class="num">999+</span>
+                <span class="num">{{item.read}}</span>
               </div>
               <div class="item">
                 <span class="icon-wrapper"><i class="iconfont icon-comment"></i></span>
-                <span class="num">999+</span>
+                <span class="num">{{item.comment}}</span>
               </div>
               <div class="item">
                <span class="icon-wrapper"><i class="iconfont icon-heart"></i></span>
-                <span class="num">999+</span>
+                <span class="num">{{item.heart}}</span>
               </div>
             </div>
           </div>
@@ -44,11 +44,6 @@
           loop: true,
           autoplay: 3000
         },
-      }
-    },
-    computed: {
-      showSwiperList () {
-        return this.swiperList.length
       }
     }
   }

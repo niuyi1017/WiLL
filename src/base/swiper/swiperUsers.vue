@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper" ref="wrapper">
     <swiper :options="swiperOption" >
-      <swiper-slide v-for="(user,index) in userList" :key="user.id">
+      <swiper-slide v-for="(user,index) in userList" :key="index">
         <div class="card-wrapper" >
           <div class="pic-wrapper" >
-            <img src="../../common/image/t1.jpg" >
+            <img :src="user.avatar" >
           </div>
           <div class="content" ref="cradWapper">
             <h1 class="user-name">{{user.name}}</h1>
@@ -12,7 +12,8 @@
               <p class="desc-content">{{user.desc}}</p>
             </div>
           </div>
-          <div class="button">加好友</div>
+          <div class="button" v-if="user.isFriend">传纸条</div>
+          <div class="button" v-else>加好友</div>
           <div class="line" :style="diffColor[index]"></div>
         </div>
       </swiper-slide>
@@ -23,6 +24,14 @@
 import {diffColor} from '@/common/js/config'
 export default {
   name: "SwiperUsers",
+  props: {
+    userList:{
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
   data () {
       return {
         swiperOption: {
@@ -51,44 +60,6 @@ export default {
             }
           }
         },
-        userList: [
-          {
-            id: '001',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-          {
-            id: '002',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-          {
-            id: '003',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-          {
-            id: '004',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-          {
-            id: '005',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-          {
-            id: '006',
-            avatar: '',
-            name: '一只小小白',
-            desc: '与你均来自济北中学，就读于烟台大学物联网工程专业'
-          },
-        ],
         diffColor
       }
   }
@@ -119,12 +90,12 @@ export default {
       left -0.3rem
       height 1rem
       width 1rem
-      background #123
       border-radius 50%
       overflow hidden
       z-index 2
       img 
         width 100%
+        height 100%
     .content
       position absolute
       height 2.4rem

@@ -1,6 +1,6 @@
 <template>
   <div class="list-will">
-    <div class="card-wrapper" v-for="item in articleList" :key="item.id" >
+    <div class="card-wrapper" v-for="(item,index) in articleList" :key="index" >
      <div class="left">
        <img class="left-pic" src='../../common/image/2.jpg' >
      </div>
@@ -36,52 +36,14 @@
 <script>
 export default {
   name: 'ListWill',
-  data() {
-    return {
-      articleList: [
-        {
-          id: '001',
-          imgUrl: '',
-          title: '在距海最近的大学读书是',
-          subTitle: '烟台大学，国内距海最近的大学国内距海最近的大',
-          author: '一只小小白',
-          like: 1234,
-          comment: 123,
-          read:'3.4k'
-        },
-        {
-          id: '002',
-          imgUrl: '',
-          title: '在距海最近的大学读书是怎样的体验',
-          subTitle: '烟台大学，国内距海最近的大学国内距海最近的大',
-          author: '一只小小白',
-          like: 1234,
-          comment: 1233,
-          read:'3.4k'
-        },
-        {
-          id: '003',
-          imgUrl: '',
-          title: '在距海最近的大学读书是怎样的体验',
-          subTitle: '烟台大学，国内距海最近的大学国内距海最近的大',
-          author: '一只小小白',
-          like: 1234,
-          comment: 123,
-          read:'3.4k'
-        },
-        {
-          id: '004',
-          imgUrl: '',
-          title: '在距海最近的大学读书是怎样的体验距海最近的大',
-          subTitle: '烟台大学，国内距海最近的大学国内距海最近的大',
-          author: '一只小小白',
-          like: 123,
-          comment: "1.2k",
-          read:'3.4k'
-        }
-      ]
+  props: {
+    articleList: {
+      type: Array,
+      default(){
+        return []
+      }
     }
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>

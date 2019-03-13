@@ -17,6 +17,7 @@
 import FadeAnimate from '@/base/fadeAnimate/fadeAnimate'
 import Gallery from '@/base/gallery/gallery'
 import{mapGetters,mapActions} from 'vuex'
+
 export default {
   name: 'app',
   components: {
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
    handleClose(){
-     this.closeGallery()
+     this.closeGallery()            
    },
    ...mapActions([
      'closeGallery'
@@ -36,8 +37,7 @@ export default {
      'galleryIndex',
      'galleryImgs'
    ])
-  },
-  
+  }
 }
 </script>
 
