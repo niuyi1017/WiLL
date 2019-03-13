@@ -1,7 +1,7 @@
 <template>
   <div class="message-item">
     <div class="pic">
-      <img src="../../common/image/t1.jpg" alt="">
+      <img :src="message.avatar" alt="">
     </div>
     <div class="username">{{message.username}}</div>
     <div class="time">{{message.time}}</div>
@@ -16,12 +16,7 @@ export default {
     message: {
       type: Object,
       default() {
-        return {
-          username: '一只小小白',
-          time: '12 mins ago',
-          desc: '学长你好，我也想学物联网工程专业，想请教你点问题',
-          num: 12
-        }
+        return {}
       }
     }
   }
@@ -45,6 +40,7 @@ export default {
     left .3rem
     img
       width 100%
+      height 100%
   .username
     position absolute 
     margin-left 1.5rem
@@ -57,7 +53,7 @@ export default {
     left 1.5rem
     height .8rem
     line-height .8rem
-    right .8rem
+    right .95rem
     color $cl-subColor
     ellipsis()
   .time
@@ -70,7 +66,8 @@ export default {
     right .1rem
     bottom .1rem
     height .5rem
-    width .5rem
+    min-width .1rem
+    padding 0 .2rem
     line-height .5rem
     text-align center
     color #fff

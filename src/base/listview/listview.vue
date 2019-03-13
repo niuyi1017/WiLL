@@ -17,7 +17,7 @@
               class="list-group-item" 
               :key="index"
               >
-            <img class="avatar" src="../../common/image/t1.jpg">
+            <img class="avatar" :src="item.avatar">
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
@@ -125,7 +125,7 @@ export default {
       }else if( index > this.listHeight.length-2){
         index = this.listHeight.length-2
       }
-      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
+      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 500)
       this.scrollY = -this.listHeight[index]
     },
     _calculateHeight () {
