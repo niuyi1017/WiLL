@@ -7,10 +7,11 @@
               :showRight="showRight"
               :showAbs="showAbs"/>
     <div class="pic-wrapper">
+      <img :src="user.bgImg" >
     </div>
     <div class="content">
       <div class="pic">
-        <img src="../../common/image/t2.jpg" alt="" srcset="">
+        <img :src="user.avatar">
       </div>
       <div class="user-info">
         <div class="username">{{user.username}}</div>
@@ -18,13 +19,14 @@
       </div>
       
       <div class="pad">
-        <div class="totalNum">
+        <div class="totalNum" v-if="user.sum!==undefined">
           <div class="item">
             <div class="num">{{user.sum.following}}</div>
             <div class="name">关注</div>
           </div>
           <div class="item">
             <div class="num">{{user.sum.followers}}</div>
+            <!-- <div class="num">111</div> -->
             <div class="name">粉丝</div>
           </div>
           <div class="item">
@@ -106,7 +108,7 @@ export default {
     showAbs() {
       return !this.user.isSelf 
     }
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -116,10 +118,12 @@ export default {
   .pic-wrapper
     height 5.5rem
     width 100%
-    background url('../../common/image/b2.jpg') 
-    filter: blur(.015rem); 
+    filter: blur(.1rem); 
     position fixed
     background-size:100% 100%;
+    img 
+      height 100%
+      width 100%
   .content
     height 5.5rem
     left 0
