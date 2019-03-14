@@ -26,7 +26,6 @@
           </div>
           <div class="item">
             <div class="num">{{user.sum.followers}}</div>
-            <!-- <div class="num">111</div> -->
             <div class="name">粉丝</div>
           </div>
           <div class="item">
@@ -154,7 +153,6 @@ export default {
   .pad
     position absolute
     top 5.5rem
-    // height 30rem
     width 100%
     background $cl-bg2
     margin-bottom 2rem
@@ -264,5 +262,4 @@ export default {
       text-align center
       border-radius .2rem
       color #fff
-  
 </style>

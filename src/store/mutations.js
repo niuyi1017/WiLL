@@ -10,5 +10,8 @@ const mutations = {
   [types.SET_GALLERYINDEX](state, galleryIndex) {
     state.galleryIndex = galleryIndex
   },
+  [types.SET_ISSIGNIN](state, isSignin) {
+    state.isSignin = isSignin
+  },
 }
 export default mutations
