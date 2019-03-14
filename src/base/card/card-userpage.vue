@@ -6,7 +6,6 @@
       <div class="mode" :style="modeColor">{{contentType}}</div>
       <div class="postTime">1 min ago</div>
     </div>
-     
      <div class="title">{{title}}</div>
      <div class="content">
        <div class="pic">
@@ -103,7 +102,6 @@ export default {
       height .6rem
       line-height .6rem
       font-size .36rem
-      // font-weight 600
       padding 0 .2rem
       ellipsis()
     .content

@@ -4,46 +4,93 @@
       <div class="title">{{title}}</div>
       <div class="input-group">
         <div class="input-wrapper">
-          <input type="text" class="username" placeholder="账号">
+          <input type="text" v-model="username" class="username" placeholder="账号">
         </div>
         <div class="input-wrapper">
-          <input type="password" class="password" placeholder="密码">
+          <input type="password" v-model="password" class="password" placeholder="密码">
         </div>
-        <div class="input-wrapper" v-show="!isSignIn">
-          <input type="password" class="password" placeholder="确认密码">
+        <div class="input-wrapper" v-show="!signMode">
+          <input type="password" v-model="confirmPassword" class="password" placeholder="确认密码">
         </div>
       </div>
-      <div class="tip" v-show="isError"><span>账号或密码不正确</span></div>
+      <div class="tip" ><span v-show="errMsg">{{errMsg}}</span></div>
       <div class="btn">
-        <div class="circle">
+        <div class="circle" @click="handleSign">
           <i class="iconfont icon-feiji"></i>
         </div>
       </div>
     </div>
     <div class="footer">
-      <div class="sign-up" v-show="isSignIn">注册</div>
-      <div class="forgot" v-if="isSignIn">忘记密码</div>
-      <div class="forgot" v-else>已有账号？去登录</div>
+      <div class="sign-up" v-show="signMode" @click="changeSignMode">还没账号？赶快来注册吧</div>
+      <div class="forgot" v-if="signMode">忘记密码</div>
+      <div class="forgot" v-else @click="changeSignMode">已有账号？去登录</div>
     </div>
   </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
   name: 'sign',
-  props: {
-    isSignIn: {
-      type: Boolean,
-      default: true
-    }
-  },
   data() {
     return {
-      isError: false
+      isError: false,
+      errMsg:'',
+      signMode: true, //true = signin, false = signup
+      username: null,
+      password: null,
+      confirmPassword: null
     }
+  },
+  methods: {
+    handleSign(){
+      if(this._checkform()){
+         this.setIsSignin(true)
+      }
+    },
+    _checkform(){
+      if(this.signMode){
+        if (this.username && this.password) {
+          if(this.username.length<6||this.password.length<6){
+            this.errMsg = "用户名 / 密码长度不能小于6位！"
+          }else{
+              return true
+          }
+        }
+        if(!this.username||!this.password){
+          this.errMsg = "用户名 / 密码不能为空！"
+        }
+      }else{
+        if (this.username && this.password && this.confirmPassword ) {
+          if(this.password == this.confirmPassword)
+            if(this.username.length<6||this.password.length<6){
+              this.errMsg = "用户名 / 密码长度不能小于6位！"
+            }else{
+              return true
+            }
+          else{
+            this.errMsg = "两次密码不一致！"
+          }
+        }
+        if(!this.username||!this.password){
+          this.errMsg = "用户名 / 密码不能为空！！"
+        }
+      }
+    },
+    changeSignMode(){
+      this.signMode = !this.signMode
+      this.errMsg = ''
+      this.username = ''
+      this.password = ''
+      this.confirmPassword = ''
+
+    },
+    ...mapMutations({
+        setIsSignin: 'SET_ISSIGNIN'
+    })
   },
   computed: {
     title() {
-      return this.isSignIn ? "登录" : "注册"
+      return this.signMode ? "登录" : "注册"
     }
   },
 }
@@ -65,7 +112,7 @@ export default {
   .box
     width 80%
     height 0
-    padding-bottom 100%
+    padding-bottom 120%
     // margin-bottom 2rem
     .title
       height 2rem

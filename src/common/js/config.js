@@ -3,9 +3,10 @@ export const momentMode = {
   like: 1,
   comment: 2,
   favorite: 3,
-  fellow: 4
+  follow: 4,
+  reply: 5
 }
-export const momentModeStr = ["发布了", "赞了", "评论了", "收藏了", "赞了","关注了"]
+export const momentModeStr = ["发布了", "赞了", "评论了", "收藏了", "赞了","关注了","回复了"]
 export const contentType = {
   article: 0,
   question: 1,
