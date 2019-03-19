@@ -1,29 +1,20 @@
 <template>
   <div class="message">
     <tab @changeTab="changeTab" :menu="menu"/>
-    <notification-part :notifications="notifications"
-                        v-show="mode=='notifications'"/>
-    <message-part :messages="messages"
-                  v-show="mode=='message'"/>
-    <contact-part :contacts="contacts"
-                    v-if="mode=='contacts'"/>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <tab-bar/>
   </div>
 </template>
 <script>
 import Tab from '@/base/tab/tab'
-import NotificationPart from '@/base/notification-part/notification-part'
-import MessagePart from '@/base/message-part/message-part'
-import ContactPart from '@/base/contact-part/contact-part'
 import TabBar from '@/components/tabBar/tabBar'
-import { getMessage } from '@/api/message'
+
 export default {
   name: 'message',
   components: {
     Tab,
-    NotificationPart,
-    MessagePart,
-    ContactPart,
     TabBar
   },
   data() {
@@ -35,7 +26,7 @@ export default {
           text: '通知'
         },
         {
-          modeName: 'message',
+          modeName: 'messages',
           text: '消息'
         },
         {
@@ -50,20 +41,12 @@ export default {
   },
   methods: {
     changeTab(mode) {
-       this.mode = mode
-    },
-    _getMessage(){
-      getMessage().then((res) => {
-        if(res.code==0&&res.data){
-          this.notifications = res.data.notifications
-          this.messages = res.data.messages
-          this.contacts = res.data.contacts
-        }
-      })
+       let url = '/message/' + mode
+       this.$router.push(url)
     }
   },
   mounted() {
-    this._getMessage()
+    this.$router.push('/message/notifications')
   },
 }
 </script>

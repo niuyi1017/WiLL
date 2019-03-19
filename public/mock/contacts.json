@@ -1,289 +1,33 @@
 {
   "code": 0,
   "data": {
-    "notifications": [
-      {
-          "date": "今天",
-          "notifications": [
-          {
-              "isRead": false,
-              "isSystemMsg": false,
-              "isFollow": false,
-              "isFriends": false,
-              "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-              "username": "一只小小白",
-              "message": "赞了你的文章",
-              "postTime": "17 mins ago",
-              "articlePic": "http://blogpic.niuy.xyz/1.jpg"
-          },
-          {
-              "isRead": false,
-              "isSystemMsg": false,
-              "isFollow": false,
-              "isFriends": false,
-              "avatar": "http://blogpic.niuy.xyz/t2.jpg",
-              "articlePic": "http://blogpic.niuy.xyz/2.jpg",
-              "username": "一只小小白",
-              "message": "评论了你的文章",
-              "postTime": "17 mins ago"
-              
-          },
-          {
-              "isRead": false,
-              "isSystemMsg": false,
-              "isFollow": false,
-              "isFriends": false,
-              "avatar": "http://blogpic.niuy.xyz/t3.jpg",
-              "articlePic": "http://blogpic.niuy.xyz/3.jpg",
-              "username": "一只小小白",
-              "message": "收藏了你的文章",
-              "postTime": "17 mins ago"
-             
-          },
-          {
-              "isRead": false,
-              "isSystemMsg": true,
-              "isFollow": false,
-              "isFriends": false,
-              "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-              "articlePic": "http://blogpic.niuy.xyz/4.jpg",
-              "username": "",
-              "message": "你的文章被推荐到热门",
-              "postTime": "17 mins ago"
-          }
-        ]
-      },
-      {
-        "date": "昨天",
-        "notifications": [
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": true,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t2.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/5.jpg",
-            "username": "一只小小白",
-            "message": "关注了你",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t3.jpg",
-            "username": "一只小小白",
-            "message": "赞了你的文章",
-            "postTime": "17 mins ago",
-            "articlePic": "http://blogpic.niuy.xyz/6.jpg"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/7.jpg",
-            "username": "一只小小白",
-            "message": "评论了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t2.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "收藏了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": true,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t3.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/2.jpg",
-            "username": "",
-            "message": "你的文章被推荐到热门",
-            "postTime": "17 mins ago"
-          }
-        ]
-      },
-      {
-        "date": "前天",
-        "notifications": [
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": true,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "关注了你",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "username": "一只小小白",
-            "message": "赞了你的文章",
-            "postTime": "17 mins ago",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "评论了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "收藏了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": true,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "",
-            "message": "你的文章被推荐到热门",
-            "postTime": "17 mins ago"
-          }
-        ]
-      },
-      {
-        "date": "更早",
-        "notifications": [
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": true,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "关注了你",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "username": "一只小小白",
-            "message": "赞了你的文章",
-            "postTime": "17 mins ago",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "评论了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": false,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "一只小小白",
-            "message": "收藏了你的文章",
-            "postTime": "17 mins ago"
-          },
-          {
-            "isRead": false,
-            "isSystemMsg": true,
-            "isFollow": false,
-            "isFriends": false,
-            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-            "articlePic": "http://blogpic.niuy.xyz/1.jpg",
-            "username": "",
-            "message": "你的文章被推荐到热门",
-            "postTime": "17 mins ago"
-          }
-        ]
-      }
-    ],
-    "messages": [
-      {
-          "username": "一只小小白",
-          "time": "12 mins ago",
-          "desc": "学长你好，我也想学物联网工程专业，想请教你点问题",
-          "num": 1,
-          "avatar":"http://blogpic.niuy.xyz/t1.jpg"
-      },
-      {
-        "username": "一只小小白",
-        "time": "12 mins ago",
-        "desc": "学长你好，我也想学物联网工程专业，想请教你点问题",
-        "num": "999+",
-        "avatar": "http://blogpic.niuy.xyz/t2.jpg"
-      },
-      {
-        "username": "一只小小白",
-        "time": "12 mins ago",
-        "desc": "学长你好，我也想学物联网工程专业，想请教你点问题",
-        "num": 1,
-        "avatar": "http://blogpic.niuy.xyz/t3.jpg"
-      }
-    ],
     "contacts": [
       {
-          "title": "常用",
-          "items": [
+        "title": "常用",
+        "items": [
           {
-              "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
+            "name": "一只小小白"
           },
           {
-              "avatar": "http://blogpic.niuy.xyz/t2.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t2.jpg",
+            "name": "一只小小白"
           },
           {
-              "avatar": "http://blogpic.niuy.xyz/t3.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t3.jpg",
+            "name": "一只小小白"
           },
           {
-              "avatar": "http://blogpic.niuy.xyz/t1.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t1.jpg",
+            "name": "一只小小白"
           },
           {
-              "avatar": "http://blogpic.niuy.xyz/t2.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t2.jpg",
+            "name": "一只小小白"
           },
           {
-              "avatar": "http://blogpic.niuy.xyz/t3.jpg",
-              "name": "一只小小白"
+            "avatar": "http://blogpic.niuy.xyz/t3.jpg",
+            "name": "一只小小白"
           },
           {
             "avatar": "http://blogpic.niuy.xyz/t3.jpg",
@@ -437,7 +181,6 @@
             "avatar": "http://blogpic.niuy.xyz/t3.jpg",
             "name": "一只小小白"
           }
-
         ]
       },
       {
@@ -632,7 +375,6 @@
             "avatar": "http://blogpic.niuy.xyz/t3.jpg",
             "name": "一只小小白"
           }
-          
         ]
       },
       {

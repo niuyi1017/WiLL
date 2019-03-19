@@ -5,18 +5,28 @@
 </template>
 <script>
 import ListView from '@/base/listview/listview'
+import { getContacts } from '@/api/message'
 export default {
   name: 'ContactPart',
-  props: {
-    contacts: {
-      type: Array,
-      default() {
-        return []
-      }
+  data() {
+    return {
+      contacts: []
     }
   },
   components: {
     ListView
+  },
+  methods: {
+    _getContacts(){
+      getContacts().then((res) => {
+        if(res.code==0&&res.data){
+          this.contacts = res.data.contacts
+        }
+      })
+    }
+  },
+  mounted() {
+    this._getContacts()
   }
 }
 </script>

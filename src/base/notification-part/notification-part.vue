@@ -19,36 +19,29 @@
 <script>
 import NotififationItem from '@/base/notification-part/notification-item'
 import Scroll from '@/base/scroll/scroll'
+import { getNotifications } from '@/api/message'
 export default {
   name: 'NotificationPart',
   components: {
     NotififationItem,
     Scroll
   },
-  props:{
-    notifications: {
-      type :Array,
-      default() {
-        return [
-          {
-            date: '今天',
-            notifications: [
-              {
-                isRead: false,
-                isSystemMsg: false,
-                isFollow: false,
-                isFriends: false,
-                avatar: '',
-                username: '一只小小白',
-                message: '赞了你的文章',
-                postTime: '17 mins ago',
-                articlePic: ''
-              }
-            ]
-          },
-        ]
-      }
+  data() {
+    return {
+      notifications: []
     }
+  },
+  methods: {
+    _getNotifications(){
+      getNotifications().then((res) => {
+        if(res.code==0&&res.data){
+          this.notifications = res.data.notifications
+        }
+      })
+    }
+  },
+  mounted() {
+    this._getNotifications()
   }
 }
 </script>
