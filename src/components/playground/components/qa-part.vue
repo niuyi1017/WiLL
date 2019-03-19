@@ -2,40 +2,39 @@
   <div class="scroll-wrapper">
     <scroll class="scroll">
       <div>
-        <message-item 
-                v-for="(item, index) in messages" :key="index" 
-                :message="item"
-                />
+        <div class="card-page" >
+          <card-qa v-for="(qa, index ) in qaList" :key="index" :qaData="qa"/>
+        </div>
       </div>
     </scroll>
   </div>
 </template>
 <script>
+import CardQa from '@/base/card/card-qa'
 import Scroll from '@/base/scroll/scroll'
-import MessageItem from '@/base/message-part/messageItem'
-import { getMessages } from '@/api/message'
+import { getQaList } from '@/api/playground'
 export default {
-  name: 'MessagePart',
+  name: 'qa-part',
   data() {
     return {
-      messages: []
+      qaList: []
     }
   },
   components: {
-    MessageItem,
+    CardQa,
     Scroll
   },
   methods: {
-    _getMessages(){
-      getMessages().then((res) => {
-        if(res.code==0&&res.data){
-          this.messages = res.data.messages
-        }
-      })
+     _getQaList(){
+        getQaList().then((res) => {
+          if(res.code==0&&res.data){
+            this.qaList = res.data.qaList
+          }
+        })
     }
   },
   mounted() {
-    this._getMessages()
+   this._getQaList()
   }
 }
 </script>
@@ -48,7 +47,6 @@ export default {
   right 0
   bottom 1.25rem
   overflow hidden
-  background $cl-bg2
   .scroll
     height 100%
 </style>

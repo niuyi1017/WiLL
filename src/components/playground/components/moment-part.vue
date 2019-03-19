@@ -2,40 +2,39 @@
   <div class="scroll-wrapper">
     <scroll class="scroll">
       <div>
-        <message-item 
-                v-for="(item, index) in messages" :key="index" 
-                :message="item"
-                />
+        <div class="card-page" >
+         <card-moment v-for="(moment, index ) in momentList" :key="index" :momentData="moment"/>
+        </div>
       </div>
     </scroll>
   </div>
 </template>
 <script>
+import CardMoment from '@/base/card/card-moment'
 import Scroll from '@/base/scroll/scroll'
-import MessageItem from '@/base/message-part/messageItem'
-import { getMessages } from '@/api/message'
+import { getMomentList } from '@/api/playground'
 export default {
-  name: 'MessagePart',
+  name: 'moment-part',
   data() {
     return {
-      messages: []
+     momentList: []
     }
   },
   components: {
-    MessageItem,
+    CardMoment,
     Scroll
   },
   methods: {
-    _getMessages(){
-      getMessages().then((res) => {
-        if(res.code==0&&res.data){
-          this.messages = res.data.messages
-        }
-      })
+     _getMomentList(){
+        getMomentList().then((res) => {
+          if(res.code==0&&res.data){
+            this.momentList = res.data.momentList
+          }
+        })
     }
   },
   mounted() {
-    this._getMessages()
+   this._getMomentList()
   }
 }
 </script>
@@ -48,7 +47,6 @@ export default {
   right 0
   bottom 1.25rem
   overflow hidden
-  background $cl-bg2
   .scroll
     height 100%
 </style>

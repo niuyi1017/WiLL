@@ -171,10 +171,7 @@ export default {
       this.fixedTop = fixedTop
       this.$refs.fixed.style.transform = `translate3d(0,${fixedTop}px,0)` 
     }
-  },
-  mounted() {
-    this._calculateHeight()
-  },
+  }
 }
 </script>
 
