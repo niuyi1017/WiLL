@@ -1,6 +1,6 @@
 <template>
   <div class="tab ">
-    <div class="menu " 
+    <div class="menu" 
           v-for="(tab, index) in menu" :key="index"
           @click="handleTabClick(tab.modeName)"
           :class="{'actived': mode==tab.modeName}"
@@ -19,16 +19,7 @@ export default {
     menu: {
       type: Array,
       default() {
-        return [
-          {
-            modeName:'qa',
-            text: '问答'
-          },
-          {
-            modeName:'moment',
-            text: '同学圈'
-          }
-        ]
+        return 
       }
     },
     defaultMenu: {
@@ -36,7 +27,6 @@ export default {
       default(){
         return this.menu[0].modeName
       }
-
     }
   },
   methods: {

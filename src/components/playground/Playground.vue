@@ -1,6 +1,6 @@
 <template>
   <div class="playground">
-    <tab @changeTab="changeTab"/>
+    <tab @changeTab="changeTab" :menu="menu"/>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -19,19 +19,33 @@ export default {
   data() {
     return {
       mode: 'qa',
+      menu: [
+          {
+            modeName:'qa',
+            text: '问答',
+            url: '/playground/qa'
+          },
+          {
+            modeName:'moment',
+            text: '同学圈',
+            url: '/playground/moment'
+          }
+        ],
       qaList:[],
       momentList: []
     }
   },
   methods: {
     changeTab(mode) {
+      this.mode = mode
       let url = '/playground/' + mode
       this.$router.push(url)
     }
   },
-  mounted() {
-    this.$router.push('/playground/qa')
-  },
+  activated() {
+    let url = '/playground/' + this.mode
+    this.$router.push(url)
+  }
 }
 </script>
 <style lang="stylus" scoped>

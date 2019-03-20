@@ -23,15 +23,18 @@ export default {
       menu: [
         {
           modeName: 'notifications',
-          text: '通知'
+          text: '通知',
+          url: '/message/notifications'
         },
         {
           modeName: 'messages',
-          text: '消息'
+          text: '消息',
+          url: '/message/messages'
         },
         {
           modeName: 'contacts',
-          text: '同窗'
+          text: '同窗',
+          url: '/message/contacts'
         }
       ],
       notifications:[],
@@ -41,12 +44,14 @@ export default {
   },
   methods: {
     changeTab(mode) {
-       let url = '/message/' + mode
-       this.$router.push(url)
+      this.mode = mode
+      let url = '/message/' + mode
+      this.$router.push(url)
     }
   },
-  mounted() {
-    this.$router.push('/message/notifications')
+  activated() {
+    let url = '/message/' + this.mode
+    this.$router.push(url)
   }
 }
 </script>
