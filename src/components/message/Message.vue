@@ -47,7 +47,7 @@ export default {
   },
   mounted() {
     this.$router.push('/message/notifications')
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>

@@ -1,7 +1,6 @@
 {
   "code": 0,
-  "data": {
-    "notifications": [
+  "data": [
       {
         "date": "今天",
         "notifications": [
@@ -232,5 +231,4 @@
         ]
       }
     ]
-  }
 }

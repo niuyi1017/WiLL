@@ -28,7 +28,7 @@ export default {
      _getMomentList(){
         getMomentList().then((res) => {
           if(res.code==0&&res.data){
-            this.momentList = res.data.momentList
+            this.momentList = res.data
           }
         })
     }

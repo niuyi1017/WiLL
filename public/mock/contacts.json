@@ -1,7 +1,6 @@
 {
   "code": 0,
-  "data": {
-    "contacts": [
+  "data": [
       {
         "title": "常用",
         "items": [
@@ -522,5 +521,4 @@
         ]
       }
     ]
-  }
 }

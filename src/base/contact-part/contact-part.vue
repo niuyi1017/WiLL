@@ -20,7 +20,7 @@ export default {
     _getContacts(){
       getContacts().then((res) => {
         if(res.code==0&&res.data){
-          this.contacts = res.data.contacts
+          this.contacts = res.data
         }
       })
     }

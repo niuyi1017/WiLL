@@ -35,7 +35,7 @@ export default {
     _getNotifications(){
       getNotifications().then((res) => {
         if(res.code==0&&res.data){
-          this.notifications = res.data.notifications
+          this.notifications = res.data
         }
       })
     }

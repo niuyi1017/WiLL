@@ -29,7 +29,7 @@ export default {
     _getMessages(){
       getMessages().then((res) => {
         if(res.code==0&&res.data){
-          this.messages = res.data.messages
+          this.messages = res.data
         }
       })
     }

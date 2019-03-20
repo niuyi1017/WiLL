@@ -1,7 +1,6 @@
 {
   "code": 0,
-  "data": {
-    "momentList": [
+  "data": [
       {
         "avatar": "",
         "userName": "一只小小白",
@@ -187,5 +186,4 @@
         "likeNum": "1.2k"
       }
     ]
-  }
 }
