@@ -13,8 +13,9 @@ import MessagePart from '@/base/message-part/message-part'
 import ContactPart from '@/base/contact-part/contact-part'
 
 import User from '../components/user/User.vue'
-import ToolBox from '../components/tool-box/toolBox.vue'
+// import ToolBox from '../components/tool-box/toolBox.vue'
 import Search from '../components/search/search.vue'
+import School from '../components/school/school.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -71,7 +72,7 @@ export default new Router({
     {
       path: '/toolbox',
       name: 'ToolBox',
-      component: ToolBox
+      component: School
     },
     {
       path: '/search',
