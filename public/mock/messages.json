@@ -1,7 +1,6 @@
 {
   "code": 0,
-  "data": {
-    "messages": [
+  "data": [
       {
           "username": "一只小小白",
           "time": "12 mins ago",
@@ -24,5 +23,4 @@
         "avatar": "http://blogpic.niuy.xyz/t3.jpg"
       }
     ]
-  }
 }

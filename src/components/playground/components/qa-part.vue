@@ -28,7 +28,7 @@ export default {
      _getQaList(){
         getQaList().then((res) => {
           if(res.code==0&&res.data){
-            this.qaList = res.data.qaList
+            this.qaList = res.data
           }
         })
     }

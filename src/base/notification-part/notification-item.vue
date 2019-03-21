@@ -67,6 +67,7 @@ export default {
       color #fff
     img
       width 100%
+      height 100%
   .content
     margin-left .8rem
     margin-right 1.6rem

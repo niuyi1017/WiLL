@@ -1,7 +1,6 @@
 {
   "code": 0,
-  "data": {
-    "qaList": [
+  "data": [
       {
         "tag": "物联网工程",
         "postAt": "14 mins ago",
@@ -153,5 +152,4 @@
         "recommendNum": "1.5k"
       }
     ]
-  }
 }
