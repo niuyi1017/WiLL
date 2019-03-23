@@ -50,6 +50,8 @@
 </template>
 <script>
 import SHeader from '@/base/header/Sheader'
+// import {getSchoolList} from '@/api/toolbox'
+// import axios from 'axios'
 export default {
   name: 'School',
   data() {
@@ -60,7 +62,38 @@ export default {
   },
   components: {
     SHeader
-  }
+  },
+  methods: {
+    _getSchoolList(){
+      // const options = {
+      //   param: 'jsonpCallback'
+      // }
+      // getSchoolList('https://gkcx.eol.cn/api', {
+      //   uri: "gksjk/api/school/hotlists", 
+      //   page: 1, 
+      //   request_type:1,
+      //   size: 20,
+      //   sort: "view_total",
+      // },options).then((result) => {
+      //   console.log(result.data)
+      // })
+      // axios.get('https://gkcx.eol.cn/api',{
+      //   params: {
+      //     uri: "gksjk/api/school/hotlists", 
+      //     page: 1, 
+      //     request_type:1,
+      //     size: 20,
+      //     sort: "view_total"
+      //   }
+      // }).then(res => {
+      //   console.log(res.data)
+      // })
+      
+    }
+  },
+  mounted() {
+   this._getSchoolList()
+  },
 }
 </script>
 <style lang="stylus" scoped>
