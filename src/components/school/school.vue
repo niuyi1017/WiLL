@@ -16,7 +16,6 @@
             </div>
             <div class="right">
               <div class="title">烟台大学</div>
-              <!-- <div class="intro">山东 综合类 公办 普通本科</div> -->
               <div class="tags">
                 <div class="item">985</div>
                 <div class="item">211</div>
@@ -45,61 +44,214 @@
         </div>
       </div>
     </div>
-    <div class="abx"></div>
+    <div class="abx">
+      <div class="col-title">
+        <div class="title">热门文章</div>
+        <div class="icon">更多</div>
+      </div>
+      <list-will :articleList="hotArticList"/>
+      <div class="col-title">
+        <div class="title">明星校友</div>
+        <div class="icon">更多</div>
+      </div>
+      <div class="card-wrapper">
+        <swiper-users :userList="recommendUserList"></swiper-users>
+      </div>
+     
+      <div class="col-title">
+        <div class="title">热门问答</div>
+        <div class="icon">更多</div>
+      </div>
+      <div class="card-wrapper">
+        <card-qa v-for="(qa, index ) in qaList" :key="index" :qaData="qa"/>
+      </div>
+      <div class="col-title">
+        <div class="title">热门动态</div>
+        <div class="icon">更多</div>
+      </div>
+      <div class="card-wrapper card-wrapper-moment">
+        <card-moment v-for="(moment, index ) in momentList" :key="index" :momentData="moment"/>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import SHeader from '@/base/header/Sheader'
-// import {getSchoolList} from '@/api/toolbox'
-// import axios from 'axios'
+import ListWill from '@/base/list/listWill'
+import SwiperUsers from '@/base/swiper/swiperUsers'
+import CardQa from '@/base/card/card-qa'
+import CardMoment from '@/base/card/card-moment'
 export default {
   name: 'School',
   data() {
     return {
       showAbs: true,
-      title: '烟台大学'
+      title: '烟台大学',
+      hotArticList: [
+        {
+          "imgUrl":"http://blogpic.niuy.xyz/2.jpg",
+          "author": "一只小小白",
+          "title": "在距海最近的大学读书是怎样的体验",
+          "like": "1234",
+          "comment": "123",
+          "read":"3.4k"
+        },
+        {
+          "imgUrl": "http://blogpic.niuy.xyz/2.jpg",
+          "author": "一只小小白",
+          "title": "在距海最近的大学读书是怎样的体验在距海最近的大学读书",
+          "like": "1234",
+          "comment": "123",
+          "read": "3.4k"
+        },
+        {
+          "imgUrl": "http://blogpic.niuy.xyz/2.jpg",
+          "author": "一只小小白",
+          "title": "在距海最近的大学读书是怎样的体验在距海最近的大学读书",
+          "like": "1234",
+          "comment": "123",
+          "read": "3.4k"
+        }
+      ],
+      recommendUserList: [
+        {
+          "avatar":"http://blogpic.niuy.xyz/t1.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t2.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t3.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t1.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t2.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t3.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        },
+        {
+          "avatar": "http://blogpic.niuy.xyz/t1.jpg",
+          "name": "一只小小白",
+          "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
+          "isFriend": false
+        }
+      ],
+      qaList: [
+        {
+          "tag": "物联网工程",
+          "postAt": "14 mins ago",
+          "question": "物联网工程学单片机吗",
+          "answer": "谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~",
+          "avatar": "132.jpg",
+          "userName": "一只小小白",
+          "agreeNum": "1.2k",
+          "recommendNum": "1.5k"
+        },
+        {
+          "tag": "物联网工程",
+          "postAt": "14 mins ago",
+          "question": "物联网工程学单片机吗",
+          "answer": "谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~",
+          "avatar": "132.jpg",
+          "userName": "一只小小白",
+          "agreeNum": "1.2k",
+          "recommendNum": "1.5k"
+        },
+        {
+          "tag": "物联网工程",
+          "postAt": "14 mins ago",
+          "question": "物联网工程学单片机吗",
+          "answer": "谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~",
+          "avatar": "132.jpg",
+          "userName": "一只小小白",
+          "agreeNum": "1.2k",
+          "recommendNum": "1.5k"
+        },
+        {
+          "tag": "物联网工程",
+          "postAt": "14 mins ago",
+          "question": "物联网工程学单片机吗",
+          "answer": "谢邀，物联网工程专业大三狗一枚。单片机可以说是电子信息类专业的必修课了bulabulabula~",
+          "avatar": "132.jpg",
+          "userName": "一只小小白",
+          "agreeNum": "1.2k",
+          "recommendNum": "1.5k"
+        }
+      ],
+      momentList: [
+        {
+          "avatar": "",
+          "userName": "一只小小白",
+          "postAt": "12 mins ago",
+          "isFriend": false,
+          "content": {
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis reiciendis provident. Explicabo eum perferendis rem quia consectetur natus excepturi officiis similique at voluptate nulla, aliquid vitae culpa sit. Repellat!",
+            "picList": [
+              "http://blogpic.niuy.xyz/1.jpg",
+              "http://blogpic.niuy.xyz/2.jpg",
+              "http://blogpic.niuy.xyz/3.jpg"
+            ]
+          },
+          "readNum": "1.2k",
+          "commentNum": "1.2k",
+          "likeNum": "1.2k"
+        },
+        {
+          "avatar": "",
+          "userName": "一只小小白",
+          "postAt": "12 mins ago",
+          "isFriend": false,
+          "content": {
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis reiciendis provident. Explicabo eum perferendis rem quia consectetur natus excepturi officiis similique at voluptate nulla, aliquid vitae culpa sit. Repellat!",
+            "picList": [
+              "http://blogpic.niuy.xyz/1.jpg"
+            ]
+          },
+          "readNum": "1.2k",
+          "commentNum": "1.2k",
+          "likeNum": "1.2k"
+        }
+      ]
     }
   },
   components: {
-    SHeader
+    SHeader,
+    ListWill,
+    SwiperUsers,
+    CardQa,
+    CardMoment
   },
   methods: {
-    _getSchoolList(){
-      // const options = {
-      //   param: 'jsonpCallback'
-      // }
-      // getSchoolList('https://gkcx.eol.cn/api', {
-      //   uri: "gksjk/api/school/hotlists", 
-      //   page: 1, 
-      //   request_type:1,
-      //   size: 20,
-      //   sort: "view_total",
-      // },options).then((result) => {
-      //   console.log(result.data)
-      // })
-      // axios.get('https://gkcx.eol.cn/api',{
-      //   params: {
-      //     uri: "gksjk/api/school/hotlists", 
-      //     page: 1, 
-      //     request_type:1,
-      //     size: 20,
-      //     sort: "view_total"
-      //   }
-      // }).then(res => {
-      //   console.log(res.data)
-      // })
-      
-    }
+   
   },
-  mounted() {
-   this._getSchoolList()
-  },
+  
 }
 </script>
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .shool-wrapper
-  height 25rem
+  background $cl-bg2
   .pic-wrapper
     height 6.5rem
     width 100%
@@ -188,8 +340,25 @@ export default {
               color $cl-blue
   .abx
     position absolute
-    top 6.5rem
-    height 5rem
+    margin-top 6.5rem
+    padding-top 2rem
+    padding-bottom .4rem
     width 100%
-    background #fff
+    background $cl-bg2
+    .col-title
+      height .8rem
+      line-height .8rem
+      padding 0 .2rem
+      background $cl-bg2
+      font-size .34rem 
+      font-weight 600
+      display flex
+      justify-content space-between
+      .icon
+        font-weight 500
+        font-size .30rem
+        color $cl-blue
+    .card-wrapper
+      background $cl-bg2
+
 </style>
