@@ -2,7 +2,7 @@
   <div>
     <div v-show="isShowAbs" >
       <div class="header-abs header-abs-left" v-show="showLeft">
-        <div class="header-abs-back">
+        <div class="header-abs-back" @click="handleBack">
           <i class="iconfont icon-left"></i>
         </div>
       </div>
@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-export default {
+export default {  
   name: "Header",
   data() {
     return {
@@ -101,7 +101,7 @@ export default {
   left .2rem
   width .8rem
   border-radius .4rem
-  background rgba(0,0,0,.5)
+  background rgba(0, 0, 0, .5)
   .header-abs-back
     color $cl-yellow  
     height .8rem

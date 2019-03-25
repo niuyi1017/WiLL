@@ -16,6 +16,7 @@ import User from '../components/user/User.vue'
 // import ToolBox from '../components/tool-box/toolBox.vue'
 import Search from '../components/search/search.vue'
 import School from '../components/school/school.vue'
+import Article from '../components/article/article.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -78,6 +79,11 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: Search
+    },
+    {
+      path: '/articles',
+      name: 'articles',
+      component: Article
     },
   ]
 })

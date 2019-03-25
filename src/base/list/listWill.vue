@@ -1,6 +1,8 @@
 <template>
   <div class="list-will">
-    <div class="card-wrapper" v-for="(item,index) in articleList" :key="index" >
+    <div class="card-wrapper" v-for="(item,index) in articleList" 
+                              :key="index"
+                              @click="seleteItem(item)" >
      <div class="left">
        <img class="left-pic" src='../../common/image/2.jpg' >
      </div>
@@ -43,7 +45,13 @@ export default {
         return []
       }
     }
-  }
+  },
+  methods: {
+    seleteItem(item){
+      
+      this.$router.push('/articles')
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>
