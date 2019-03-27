@@ -13,6 +13,7 @@ import MessagePart from '@/base/message-part/message-part'
 import ContactPart from '@/base/contact-part/contact-part'
 
 import User from '../components/user/User.vue'
+import UserProfile from '@/base/user-profile/userProfile'
 // import ToolBox from '../components/tool-box/toolBox.vue'
 import Search from '../components/search/search.vue'
 import School from '../components/school/school.vue'
@@ -85,6 +86,12 @@ export default new Router({
       name: 'articles',
       component: Article
     },
+    {
+      path: '/userProfile/:id',
+      name: 'userProfile',
+      component: UserProfile,
+      props:true
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
