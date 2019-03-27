@@ -12,7 +12,7 @@
           </div>
           <div class="icon-group">
             <div class="item">
-              <i class="iconfont icon-reply"></i>
+              <i class="iconfont icon-icon_community_line"></i>
               <span class="num">{{item.reply_num}}</span>
             </div>
             <div class="item">
