@@ -6,14 +6,14 @@
           <div class="pic-wrapper" >
             <img :src="user.avatar" >
           </div>
-          <div class="content" ref="cradWapper">
+          <div class="content" ref="cradWapper" @click.stop="selectUser(index)">
             <h1 class="user-name">{{user.name}}</h1>
             <div class="desc">
               <p class="desc-content">{{user.desc}}</p>
             </div>
           </div>
           <div class="button" v-if="user.isFriend">传纸条</div>
-          <div class="button" v-else>加好友</div>
+          <div class="button" v-else @click.stop="addFriend(index)">加好友</div>
           <div class="line" :style="diffColor[index]"></div>
         </div>
       </swiper-slide>
@@ -35,7 +35,7 @@ export default {
   data () {
       return {
         swiperOption: {
-          loop: true,
+          loop: false,
           freeMode: true,
           breakpoints: {
             1024: {
@@ -62,7 +62,16 @@ export default {
         },
         diffColor
       }
-  }
+  },
+  methods: {
+    selectUser(id){
+      let url = `/userProfile/${id}` 
+      this.$router.push(url)
+    },
+    addFriend(){
+    //  console.log(index)
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>
@@ -81,7 +90,6 @@ export default {
     border-radius .2rem
     margin-bottom .5rem
     box-shadow 0 0rem .5rem #aaa
-    
     &:first-child
       margin-left .5rem
     .pic-wrapper

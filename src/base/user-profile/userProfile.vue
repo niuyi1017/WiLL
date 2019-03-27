@@ -53,7 +53,7 @@
             <card-user-page v-for="(item, index) in user.recentlyMoments" 
                             :key="index" 
                             :content="item"
-                            :isSelf="user.isSelf"/>
+                            :isSelf="isSelf"/>
             <div class="allMoment">
               查看全部动态
             </div>
@@ -62,17 +62,18 @@
         </div>
       </div>
     </div>
-    <div class="footer" v-if="!user.isSelf">
+    <div class="footer" v-if="!isSelf">
       <div class="button" v-if="!user.isFriend">加关注</div>
       <div class="button" v-else>传小纸条</div>
     </div>
-    <tab-bar v-if="user.isSelf"/>
+    <tab-bar v-if="isSelf"/>
   </div>
 </template>
 <script>
 import SHeader from '@/base/header/Sheader'
 import CardUserPage from '@/base/card/card-userpage'
 import TabBar from '@/components/tabBar/tabBar'
+import { getUser } from '@/api/user'
 export default {
   name: 'UserProfile',
   components: {
@@ -81,11 +82,27 @@ export default {
     TabBar
   },
   props: {
-    user: {
-      type: Object,
-      default() {
-        return {}
-      }
+    isSelf: {
+      type: Boolean,
+      default: false
+    },
+    id: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      user: {}
+    }
+  },
+  methods: {
+    _getUser(){
+      getUser().then((res) => {
+        if(res.code == 0 && res.data){
+          this.user = res.data
+        }
+      })
     }
   },
   computed: {
@@ -93,21 +110,24 @@ export default {
       return this.user.username 
     },
     hasMore() {
-      return this.user.isSelf ? "设置" : ""
+      return this.isSelf ? "设置" : ""
     },
     showBack() {
-      return !this.user.isSelf 
+      return !this.isSelf 
     },
     showLeft(){
-      return !this.user.isSelf 
+      return !this.isSelf 
     },
     showRight(){
-      return this.user.isSelf 
+      return this.isSelf 
     },
     showAbs() {
-      return !this.user.isSelf 
+      return !this.isSelf 
     }
-  }
+  },
+  activated() {
+    this._getUser()
+  },
 }
 </script>
 <style lang="stylus" scoped>
