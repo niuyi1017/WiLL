@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     handleBack(){
-      this.$router.push('/')
+      this.$router.go(-1)
     }
   },
 }

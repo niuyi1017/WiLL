@@ -92,6 +92,8 @@ export default {
     box-shadow 0 0rem .5rem #aaa
     &:first-child
       margin-left .5rem
+    &:last-child
+      margin-right .5rem
     .pic-wrapper
       position absolute
       top -0.3rem
