@@ -170,6 +170,59 @@
         "desc": "与你均来自济北中学，就读于烟台大学物联网工程专业",
         "isFriend": false
       }
+    ],
+    "hotSchoolList": [
+      {
+        "name": "浙江大学",
+        "is985": true,
+        "is211": true,
+        "isDualClass": true
+      },
+      {
+        "name": "烟台大学",
+        "is985": true,
+        "is211": true,
+        "isDualClass": true
+      },
+      {
+        "name": "北京航空航天大学",
+        "is985": true,
+        "is211": true,
+        "isDualClass": true
+      },
+      {
+        "name": "名字很长很长很长很长的大学",
+        "is985": true,
+        "is211": false,
+        "isDualClass": true
+      },
+      {
+        "name": "浙江大学",
+        "is985": true,
+        "is211": true,
+        "isDualClass": true
+      }
+
+    ],
+    "hotMajorList": [
+      {
+        "name": "物联网工程"
+      },
+      {
+        "name": "计算机科学与技术"
+      },
+      {
+        "name": "名字很长很长很长很长很长的专业"
+      },
+      {
+        "name": "物联网工程"
+      },
+      {
+        "name": "计算机科学与技术"
+      },
+      {
+        "name": "名字很长很长很长很长很长的专业"
+      }
     ]
   }
 }

@@ -14,7 +14,7 @@ import ContactPart from '@/base/contact-part/contact-part'
 
 import User from '../components/user/User.vue'
 import UserProfile from '@/base/user-profile/userProfile'
-// import ToolBox from '../components/tool-box/toolBox.vue'
+import ToolBox from '../components/tool-box/toolBox.vue'
 import Search from '../components/search/search.vue'
 import School from '../components/school/school.vue'
 import Article from '../components/article/article.vue'
@@ -74,7 +74,7 @@ export default new Router({
     {
       path: '/toolbox',
       name: 'ToolBox',
-      component: School
+      component: ToolBox
     },
     {
       path: '/search',
@@ -82,7 +82,12 @@ export default new Router({
       component: Search
     },
     {
-      path: '/articles',
+      path: '/schools/:id',
+      name: 'schools',
+      component: School
+    },
+    {
+      path: '/articles/:id',
       name: 'articles',
       component: Article
     },
