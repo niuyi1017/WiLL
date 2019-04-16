@@ -6,26 +6,9 @@
           <div class="top">
             <div class="tag">{{item.tag}}</div>
             <div class="pic">
-              <img  :src="item.imgUrl">
+              <img :src="item.imgUrl">
             </div>
-            
-          </div>
-          <div class="bottom">
             <div class="header">{{item.title}}</div>
-            <div class="desc">
-              <div class="item">
-                <span class="icon-wrapper"><i class="iconfont icon-eye"></i></span>
-                <span class="num">{{item.read}}</span>
-              </div>
-              <div class="item">
-                <span class="icon-wrapper"><i class="iconfont icon-comment"></i></span>
-                <span class="num">{{item.comment}}</span>
-              </div>
-              <div class="item">
-               <span class="icon-wrapper"><i class="iconfont icon-heart"></i></span>
-                <span class="num">{{item.heart}}</span>
-              </div>
-            </div>
           </div>
         </div>
       </swiper-slide>
@@ -42,7 +25,8 @@
       return {
         swiperOption: {
           loop: true,
-          autoplay: 3000
+          slidesPerView: 1.1,
+          autoplay: 4500
         },
       }
     }
@@ -54,33 +38,30 @@
   width: 100%
   height :0
   overflow hidden
-  padding-bottom :4.65rem
+  padding-bottom :3.8rem
   background $cl-bg2
   .card-wrapper
-    width 90%
+    width 94%
     margin-left 5%
     margin-top .2rem
     overflow hidden
     border-radius .3rem
-    height 4.25rem
-    position relative
-    box-shadow 0 0 .3rem 0 #AAAAAA
+    height 3.6rem
+    box-shadow 0 0rem .1rem 0 #AAAAAA
     margin-bottom .2rem
     .top
       height 0
       width 100%
-      padding-bottom 3rem
+      padding-bottom 3.6rem
       position relative
       overflow hidden
       .pic
-        height 3rem
+        height 3.6rem
         width 100%
         overflow hidden
-        // todo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // adjust swiper img
         img
           width 100%
-          margin-top: -3.0rem;
+          margin-top: -2.0rem;
       .tag
         position absolute
         top .2rem
@@ -91,44 +72,15 @@
         background $cl-yellow
         border-radius .25rem
         color #fff
-    .bottom
-      width 100%
-      height 1.25rem
-      background #fff 
-      position absolute
-      // bottom 0%
-      border-radius 0 0 .3rem .3rem
       .header
-        height .8rem
-        line-height .8rem
-        padding-left .4rem
-        font-size .36rem 
-        margin-bottom 0rem
-        // font-weight 700
-      .desc
-        display flex
-        justify-content space-between
-        padding 0 .4rem
-        height .35rem
-        line-height .35rem
-        .item
-          height .35rem
-          line-height .35rem
-          .icon-wrapper
-            margin-right .1rem
-            .iconfont
-              color $cl-yellow
-              font-size .4rem
-              margin-top .1rem
-          .num
-            height .4rem
-            line-height .4rem
-            font-size .24rem
-            position relative
-            top -0.05rem
-            
-           
-           
-
-
+        position absolute
+        bottom 0rem
+        width 100%
+        height 1rem
+        line-height 1rem
+        padding-left .2rem
+        font-size .43rem
+        color #fff
+        font-weight 1000
+        background: linear-gradient(transparent,#ffc253fa)
 </style>
