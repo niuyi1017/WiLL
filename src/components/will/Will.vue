@@ -2,13 +2,12 @@
   <div class="will">
     <search-box/>
     <swiper-will :swiperList="will.swiperlist"/>
-    <col-title title="热门大学" icon="icon-fire"/>
-    <swiper-schools :schoolList="will.hotSchoolList"></swiper-schools>
-    <col-title title="热门专业" icon="icon-fire"/>
     <swiper-majors :majorList="will.hotMajorList"></swiper-majors>
     <col-title title="热门 Hot" icon="icon-fire"/> 
     <list-will :articleList="will.hotArticList"/>
     <swiper-users :userList="will.recommendUserList"></swiper-users>
+    <col-title title="热门大学" icon="icon-fire"/>
+    <swiper-schools :schoolList="will.hotSchoolList"></swiper-schools>
     <col-title />
     <list-will :articleList="will.recommendArticleList"/>
     <TabBar />
