@@ -34,7 +34,7 @@
             <div class="icon"><i class="iconfont icon-linechart"></i></div>
             <div class="name">历年分数线</div>
           </div>
-          <div class="item">
+          <div class="item" @click="gotoSchools">
             <div class="icon"><i class="iconfont icon-bank"></i></div>
             <div class="name">院校库</div>
           </div>
@@ -152,6 +152,9 @@ export default {
       }
       return num
     },
+    gotoSchools() {
+      this.$router.push('/schoollist')
+    }
   },
   mounted() {
     this._initCalender()
