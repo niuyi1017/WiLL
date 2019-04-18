@@ -16,6 +16,7 @@ import User from '../components/user/User.vue'
 import UserProfile from '@/base/user-profile/userProfile'
 import ToolBox from '../components/tool-box/toolBox.vue'
 import SchoolList from '../components/schoolList/schoolList.vue'
+import SpeciallList from '../components/speciallist/specialist.vue'
 import Search from '../components/search/search.vue'
 import School from '../components/school/school.vue'
 import Article from '../components/article/article.vue'
@@ -79,8 +80,13 @@ export default new Router({
     },
     {
       path: '/schoollist',
-      name: SchoolList,
+      name: "SchoolList",
       component: SchoolList
+    },
+    {
+      path: '/speciallist',
+      name: "SpeciallList",
+      component: SpeciallList
     },
     {
       path: '/search',
