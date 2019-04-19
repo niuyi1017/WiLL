@@ -1,9 +1,12 @@
 <template>
   <div class="post-moment">
-    <m-header title="同学圈" :right="right" @headerRightClicked="headerRightClicked"></m-header>
+    <m-header :title="title" :right="right" @headerRightClicked="headerRightClicked"></m-header>
     <div class="edit">
+      <div class="questionTitle" v-show="questionPlaceholder!=''">
+        <input type="text" name="questionTitle" id="questionTitle" :placeholder="questionPlaceholder" v-model="questionTitle">
+      </div>
       <div class="textarea">
-        <textarea name="moment" cols="30" rows="10" placeholder="向世界分享你的新鲜事..." v-model="momentContent"></textarea>
+        <textarea name="moment" cols="30" rows="10" :placeholder="placeholder" v-model="momentContent"></textarea>
       </div>
       <div class="pic-add-line">
         <div class="imgbox">
@@ -41,15 +44,33 @@ export default {
   components: {
     MHeader
   },
+  props:{
+    type: {
+      default: "moment",
+      type: String
+    }
+  },
   data() {
     return {
         right: {
           text: "发布"
         },
+        questionTitle: "",
         momentContent: "",
         sk: '',
         previewPics: [],
         picFiles:[]
+    }
+  },
+  computed: {
+    title(){
+      return this.type == 'moment' ? "同学圈" : "提问"
+    },
+    placeholder(){
+      return this.type == 'moment' ? "向世界分享你的新鲜事..." : "向世界提出你的疑惑..."
+    },
+    questionPlaceholder(){
+      return this.type == 'moment' ? '' : "请输入问题标题"
     }
   },
   methods: {
@@ -106,6 +127,13 @@ export default {
     margin-top 1.05rem
     bottom 0rem
     overflow hidden
+    .questionTitle
+      width 100%
+      background #fff
+      box-sizing border-box
+      padding .2rem
+      height 1rem
+      margin-bottom .05rem
     .textarea
       width 100%
       background #fff

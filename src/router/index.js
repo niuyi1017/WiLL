@@ -112,9 +112,10 @@ export default new Router({
       props:true
     },
     {
-      path: '/postmoment',
+      path: '/post/:type',
       name: 'postmoment',
-      component: PostMoment
+      component: PostMoment,
+      props: true
     }
   ],
   scrollBehavior(to, from, savedPosition) {
