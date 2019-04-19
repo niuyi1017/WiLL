@@ -69,7 +69,7 @@ export default {
       })
     },
     headerRightClicked(){
-      console.log(this.momentContent.length)
+      // console.log(this.momentContent.length)
     },
     handlePicInput(e){
       let readFiles = e.target.files
@@ -82,6 +82,7 @@ export default {
             this.previewPics.push(result)
           }))
           .catch((err) => {
+            // eslint-disable-next-line
             console.log(err)
           })
       }
@@ -89,7 +90,6 @@ export default {
     delPic(index) {
       this.picFiles.splice(index,1)
       this.previewPics.splice(index,1)
-      console.log(index)
     }
   },
   mounted() {
