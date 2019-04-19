@@ -6,6 +6,8 @@ import Will from '../components/will/Will.vue'
 import Playground from '../components/playground/Playground.vue'
 import qaPart from '../components/playground/components/qa-part.vue'
 import momentPart from '../components/playground/components/moment-part.vue'
+import PostMoment from '../components/post/post-moment.vue'
+
 
 import Message from '../components/message/Message.vue'
 import NotificationPart from '@/base/notification-part/notification-part'
@@ -108,6 +110,11 @@ export default new Router({
       name: 'userProfile',
       component: UserProfile,
       props:true
+    },
+    {
+      path: '/postmoment',
+      name: 'postmoment',
+      component: PostMoment
     }
   ],
   scrollBehavior(to, from, savedPosition) {

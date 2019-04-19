@@ -1,6 +1,6 @@
 <template>
   <div class="tool-box">
-    <m-header title="院校库"></m-header>
+    <m-header title="专业库"></m-header>
     <div class="scroll-wrapper">
       <scroll :data="specials" class="scroll">
         <div>
@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="right">
-              <div class="type">金融学类</div>
+              <div class="type">{{special.level3_name}}</div>
             </div>
           </div>
         </div>

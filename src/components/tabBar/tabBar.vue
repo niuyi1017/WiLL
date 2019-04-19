@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Post from '@/base/post/post'
+import Post from '@/components/post/Post'
 import {mapMutations, mapGetters} from 'vuex'
 export default {
   name: 'TabBar',
