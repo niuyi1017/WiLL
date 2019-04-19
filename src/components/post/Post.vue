@@ -17,7 +17,7 @@
         <div class="icon-wrapper"><i class="iconfont icon-container"></i></div>
         <span class="menu-name">长文</span>
       </div>
-      <div class="item">
+      <div class="item" @click="gotoPostQuestion">
         <div class="icon-wrapper"><i class="iconfont icon-question-circle"></i></div>
         <span class="menu-name">提问</span>
       </div>
@@ -36,8 +36,11 @@ export default {
       this.$emit('closePost')
     },
     gotoPostMoment(){
-      this.$router.push('/postMoment')
-    }
+      this.$router.push('/post/moment')
+    },
+    gotoPostQuestion(){
+      this.$router.push('/post/question')
+    },
   },
 }
 </script>
