@@ -4,7 +4,7 @@
     <div class="scroll-wrapper">
       <scroll :data="schools" class="scroll">
         <div>
-          <div class="card" v-for="(school, index) in schools" :key=index>
+          <div class="card" v-for="(school, index) in schools" :key="index">
             <div class="pic">
               <img :src="school.logo" alt="" srcset="">
             </div>

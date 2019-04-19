@@ -38,7 +38,7 @@
             <div class="icon"><i class="iconfont icon-bank"></i></div>
             <div class="name">院校库</div>
           </div>
-          <div class="item">
+          <div class="item" @click="gotoSpecials">
             <div class="icon"><i class="iconfont icon-read"></i></div>
             <div class="name">专业库</div>
           </div>
@@ -154,6 +154,9 @@ export default {
     },
     gotoSchools() {
       this.$router.push('/schoollist')
+    },
+    gotoSpecials() {
+       this.$router.push('/speciallist')
     }
   },
   mounted() {
