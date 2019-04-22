@@ -38,7 +38,11 @@
   </div>
 </template>
 <script>
+/* eslint-disable */ 
 import MHeader from '@/base/header/header'
+import * as qiniu from 'qiniu-js'
+import { Promise } from 'q';
+import { uploadAllPicAsync } from "@/api/uploadpic"
 export default {
   name: "ToolBox",
   components: {
@@ -90,7 +94,7 @@ export default {
       })
     },
     headerRightClicked(){
-      // console.log(this.momentContent.length)
+      this.uploadPicAsync()
     },
     handlePicInput(e){
       let readFiles = e.target.files
@@ -111,6 +115,16 @@ export default {
     delPic(index) {
       this.picFiles.splice(index,1)
       this.previewPics.splice(index,1)
+    },
+    async uploadPicAsync(){
+      let picFiles = this.picFiles
+      try {
+        let res = await uploadAllPicAsync(picFiles)
+        console.log(res)
+      } catch (error) {
+        console.log(error)
+      }
+      
     }
   },
   mounted() {
