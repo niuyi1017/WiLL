@@ -26,6 +26,7 @@
 <script>
 import MHeader from '@/base/header/header'
 import Scroll from '@/base/scroll/scroll'
+import { getSpecials } from '@/api/specials.js'
 export default {
   name: "ToolBox",
   components: {
@@ -34,200 +35,25 @@ export default {
   },
   data() {
     return {
-      specials:[
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        },
-        {
-          degree:"经济学学士",
-          level1:1,
-          level1_name:"本科",
-          level3:37,
-          level3_name:"金融学类",
-          limit_year:"四年",
-          rank_type:12,
-          rankall:1033,
-          special_id:"8",
-          special_name:"金融学",
-          users:[],
-          __v:0,
-          _id:"5caefa6765ab8d3b40795568",
-        }
-      ]
-      
+      specials:[]
     }
   },
   computed: {
    
   },
   methods: {
-    
+    _getSpecials() {
+      getSpecials().then(res => {
+         if(res.code==0&&res.data){
+          this.specials = res.data
+        }
+      })
+    }
   },
   mounted() {
-    
+    this._getSpecials()
   },
+  
 }
 </script>
 <style lang="stylus" scoped>

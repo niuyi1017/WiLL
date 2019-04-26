@@ -1,0 +1,386 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.233Z",
+        "updatedAt": "2019-04-11T08:24:01.233Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd38",
+      "special_id": "2",
+      "special_name": "逻辑学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 34,
+      "level3_name": "哲学类",
+      "limit_year": "四年",
+      "degree": "哲学学士",
+      "rankall": 93,
+      "rank_type": 2,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.256Z",
+        "updatedAt": "2019-04-11T08:24:01.256Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd79",
+      "special_id": "1",
+      "special_name": "哲学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 34,
+      "level3_name": "哲学类",
+      "limit_year": "四年",
+      "degree": "哲学学士",
+      "rankall": 25,
+      "rank_type": 1,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:26:36.881Z",
+        "updatedAt": "2019-04-11T08:26:36.881Z"
+      },
+      "users": [],
+      "_id": "5caefa3c98dce4342cd9f955",
+      "special_id": "3",
+      "special_name": "宗教学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 34,
+      "level3_name": "哲学类",
+      "limit_year": "四年",
+      "degree": "哲学学士",
+      "rankall": 714,
+      "rank_type": 4,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:26:37.063Z",
+        "updatedAt": "2019-04-11T08:26:37.063Z"
+      },
+      "users": [],
+      "_id": "5caefa3c98dce4342cd9fa3a",
+      "special_id": "1098",
+      "special_name": "伦理学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 34,
+      "level3_name": "哲学类",
+      "limit_year": "四年",
+      "degree": "哲学学士",
+      "rankall": 682,
+      "rank_type": 3,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:00.465Z",
+        "updatedAt": "2019-04-11T08:24:00.465Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd1c",
+      "special_id": "1101",
+      "special_name": "商务经济学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 2,
+      "rank_type": 1,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.265Z",
+        "updatedAt": "2019-04-11T08:24:01.265Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd9c",
+      "special_id": "1102",
+      "special_name": "能源经济",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 200,
+      "rank_type": 8,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.308Z",
+        "updatedAt": "2019-04-11T08:24:01.308Z"
+      },
+      "users": [],
+      "_id": "5caef9a14131ae152848cdc3",
+      "special_id": "1101",
+      "special_name": "商务经济学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 2,
+      "rank_type": 1,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.314Z",
+        "updatedAt": "2019-04-11T08:24:01.314Z"
+      },
+      "users": [],
+      "_id": "5caef9a14131ae152848cdcb",
+      "special_id": "1099",
+      "special_name": "国民经济管理",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 42,
+      "rank_type": 4,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.378Z",
+        "updatedAt": "2019-04-11T08:24:01.378Z"
+      },
+      "users": [],
+      "_id": "5caef9a14131ae152848ce38",
+      "special_id": "1100",
+      "special_name": "资源与环境经济学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 199,
+      "rank_type": 7,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:27:19.713Z",
+        "updatedAt": "2019-04-11T08:27:19.713Z"
+      },
+      "users": [],
+      "_id": "5caefa6765ab8d3b407954d9",
+      "special_id": "4",
+      "special_name": "经济学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 1067,
+      "rank_type": 13,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:27:19.851Z",
+        "updatedAt": "2019-04-11T08:27:19.851Z"
+      },
+      "users": [],
+      "_id": "5caefa6765ab8d3b40795581",
+      "special_id": "5",
+      "special_name": "经济统计学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 35,
+      "level3_name": "经济学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 1158,
+      "rank_type": 15,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.199Z",
+        "updatedAt": "2019-04-11T08:24:01.199Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd25",
+      "special_id": "6",
+      "special_name": "财政学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 36,
+      "level3_name": "财政学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 18,
+      "rank_type": 2,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.200Z",
+        "updatedAt": "2019-04-11T08:24:01.200Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd29",
+      "special_id": "6",
+      "special_name": "财政学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 36,
+      "level3_name": "财政学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 18,
+      "rank_type": 2,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:27:19.784Z",
+        "updatedAt": "2019-04-11T08:27:19.784Z"
+      },
+      "users": [],
+      "_id": "5caefa6765ab8d3b40795535",
+      "special_id": "7",
+      "special_name": "税收学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 36,
+      "level3_name": "财政学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 1179,
+      "rank_type": 16,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.235Z",
+        "updatedAt": "2019-04-11T08:24:01.235Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd3e",
+      "special_id": "1103",
+      "special_name": "金融数学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 123,
+      "rank_type": 6,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.260Z",
+        "updatedAt": "2019-04-11T08:24:01.260Z"
+      },
+      "users": [],
+      "_id": "5caef9a04131ae152848cd8b",
+      "special_id": "1105",
+      "special_name": "经济与金融",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 115,
+      "rank_type": 5,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:24:01.369Z",
+        "updatedAt": "2019-04-11T08:24:01.369Z"
+      },
+      "users": [],
+      "_id": "5caef9a14131ae152848ce15",
+      "special_id": "9",
+      "special_name": "金融工程",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 24,
+      "rank_type": 3,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:26:36.824Z",
+        "updatedAt": "2019-04-11T08:26:36.824Z"
+      },
+      "users": [],
+      "_id": "5caefa3c98dce4342cd9f901",
+      "special_id": "1104",
+      "special_name": "信用管理",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 686,
+      "rank_type": 11,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:26:36.993Z",
+        "updatedAt": "2019-04-11T08:26:36.993Z"
+      },
+      "users": [],
+      "_id": "5caefa3c98dce4342cd9f9e8",
+      "special_id": "11",
+      "special_name": "投资学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 663,
+      "rank_type": 9,
+      "__v": 0
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-11T08:27:19.837Z",
+        "updatedAt": "2019-04-11T08:27:19.837Z"
+      },
+      "users": [],
+      "_id": "5caefa6765ab8d3b40795568",
+      "special_id": "8",
+      "special_name": "金融学",
+      "level1": 1,
+      "level1_name": "本科",
+      "level3": 37,
+      "level3_name": "金融学类",
+      "limit_year": "四年",
+      "degree": "经济学学士",
+      "rankall": 1033,
+      "rank_type": 12,
+      "__v": 0
+    }
+  ],
+  "message": "success"
+}

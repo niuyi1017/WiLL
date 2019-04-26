@@ -6,7 +6,7 @@
         <input type="text" name="questionTitle" id="questionTitle" :placeholder="questionPlaceholder" v-model="questionTitle">
       </div>
       <div class="textarea">
-        <textarea name="moment" cols="30" rows="10" :placeholder="placeholder" v-model="momentContent"></textarea>
+        <textarea name="moment" cols="30" rows="10" :placeholder="placeholder" v-model="content"></textarea>
       </div>
       <div class="pic-add-line">
         <div class="imgbox">
@@ -17,15 +17,6 @@
       </div>
     </div>
     <div class="preview" v-show="previewPics.length">
-      <!-- <div class="pic">
-        <div class="img-wrapper">
-          <img src="../../common/image/p3.jpg" alt="" srcset="">
-        </div>
-        
-       <span class="icon-wrapper" @click="delPic(index)">
-          <i class="iconfont icon-close-circle myicon" ></i>
-        </span>
-      </div> -->
       <div class="pic" v-for="(pic,index) in previewPics" :key="index">
         <div class="img-wrapper">
           <img :src="pic"  alt="" srcset="">
@@ -38,7 +29,10 @@
   </div>
 </template>
 <script>
+/* eslint-disable */ 
 import MHeader from '@/base/header/header'
+import * as qiniu from 'qiniu-js'
+import { uploadAllPicAsync } from "@/api/uploadpic"
 export default {
   name: "ToolBox",
   components: {
@@ -56,7 +50,7 @@ export default {
           text: "发布"
         },
         questionTitle: "",
-        momentContent: "",
+        content: "",
         sk: '',
         previewPics: [],
         picFiles:[]
@@ -70,7 +64,7 @@ export default {
       return this.type == 'moment' ? "向世界分享你的新鲜事..." : "向世界提出你的疑惑..."
     },
     questionPlaceholder(){
-      return this.type == 'moment' ? '' : "请输入问题标题"
+      return this.type == 'moment' ? '' : "请输入问题标题，使用 #话题# 可添加话题" 
     }
   },
   methods: {
@@ -89,8 +83,17 @@ export default {
         }
       })
     },
-    headerRightClicked(){
-      // console.log(this.momentContent.length)
+    async headerRightClicked(){
+      let postUrl = `api/new/${this.type}` 
+      let postContent = {
+        content: this.content,
+        picUrls: await this.uploadPicAsync()
+      } 
+      if(this.type != "moment")
+        postContent.tag = this.questionTitle.split('#')[1],
+        postContent.title = this.questionTitle.split('#')[0]+this.questionTitle.split('#')[2]
+      
+      console.log(postUrl,postContent)
     },
     handlePicInput(e){
       let readFiles = e.target.files
@@ -111,11 +114,29 @@ export default {
     delPic(index) {
       this.picFiles.splice(index,1)
       this.previewPics.splice(index,1)
+    },
+    async uploadPicAsync(){
+      let picFiles = this.picFiles
+      let picUrls = []
+      try {
+        let res = await uploadAllPicAsync(picFiles)
+        res.map(item => {
+          picUrls.push(`http://pq2z2mcsm.bkt.clouddn.com/${item.key}`)
+        })
+      } catch (error) {
+        console.log(error)
+      }
+      return picUrls
     }
   },
-  mounted() {
+  activated() {
+    this.questionTitle = "",
+    this.content = "",
+    this.sk= '',
+    this.previewPics = [],
+    this.picFiles = []
     this._getUploadSk()
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -134,6 +155,8 @@ export default {
       padding .2rem
       height 1rem
       margin-bottom .05rem
+      input
+        width 100%
     .textarea
       width 100%
       background #fff
