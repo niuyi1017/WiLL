@@ -1,0 +1,365 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.911Z",
+        "updatedAt": "2019-04-11T14:10:21.226Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30e6",
+      "school_id": "102",
+      "name": "厦门大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/102.jpg",
+      "__v": 0,
+      "rank": 1
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.910Z",
+        "updatedAt": "2019-04-11T14:10:21.522Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30e2",
+      "school_id": "42",
+      "name": "武汉大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/42.jpg",
+      "__v": 0,
+      "rank": 2
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.910Z",
+        "updatedAt": "2019-04-11T14:10:20.453Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30de",
+      "school_id": "99",
+      "name": "四川大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/99.jpg",
+      "__v": 0,
+      "rank": 3
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.910Z",
+        "updatedAt": "2019-04-11T14:10:21.534Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30d7",
+      "school_id": "31",
+      "name": "北京大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/31.jpg",
+      "__v": 0,
+      "rank": 4
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.910Z",
+        "updatedAt": "2019-04-11T14:10:20.856Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30db",
+      "school_id": "104",
+      "name": "中山大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/104.jpg",
+      "__v": 0,
+      "rank": 5
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.911Z",
+        "updatedAt": "2019-04-11T14:10:21.229Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30e7",
+      "school_id": "140",
+      "name": "清华大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "理工类",
+      "logo": "https://static-data.eol.cn/upload/logo/140.jpg",
+      "__v": 0,
+      "rank": 6
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.911Z",
+        "updatedAt": "2019-04-11T14:10:20.194Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30e3",
+      "school_id": "114",
+      "name": "浙江大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/114.jpg",
+      "__v": 0,
+      "rank": 7
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:32:40.910Z",
+        "updatedAt": "2019-04-11T14:10:20.454Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab3f685752b30ee40c30df",
+      "school_id": "123",
+      "name": "中南大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/123.jpg",
+      "__v": 0,
+      "rank": 8
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.067Z",
+        "updatedAt": "2019-04-11T14:10:21.535Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5824",
+      "school_id": "126",
+      "name": "山东大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/126.jpg",
+      "__v": 0,
+      "rank": 9
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.072Z",
+        "updatedAt": "2019-04-11T14:10:20.880Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404671a4813488bb583c",
+      "school_id": "111",
+      "name": "南京大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/111.jpg",
+      "__v": 0,
+      "rank": 10
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.054Z",
+        "updatedAt": "2019-04-11T14:10:21.230Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb580c",
+      "school_id": "51",
+      "name": "西南交通大学",
+      "is211": true,
+      "is985": false,
+      "isDual_class": "双一流",
+      "type": "理工类",
+      "logo": "https://static-data.eol.cn/upload/logo/51.jpg",
+      "__v": 0,
+      "rank": 11
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.069Z",
+        "updatedAt": "2019-04-11T14:10:20.195Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5830",
+      "school_id": "118",
+      "name": "苏州大学",
+      "is211": true,
+      "is985": false,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/118.jpg",
+      "__v": 0,
+      "rank": 12
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.057Z",
+        "updatedAt": "2019-04-11T14:10:20.455Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5818",
+      "school_id": "934",
+      "name": "西南大学",
+      "is211": true,
+      "is985": false,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/934.jpg",
+      "__v": 0,
+      "rank": 13
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.067Z",
+        "updatedAt": "2019-04-11T14:10:21.537Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5825",
+      "school_id": "132",
+      "name": "复旦大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/132.jpg",
+      "__v": 0,
+      "rank": 14
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.072Z",
+        "updatedAt": "2019-04-11T14:10:20.884Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404671a4813488bb583d",
+      "school_id": "125",
+      "name": "上海交通大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/125.jpg",
+      "__v": 0,
+      "rank": 15
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.054Z",
+        "updatedAt": "2019-04-11T14:10:21.232Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb580d",
+      "school_id": "119",
+      "name": "重庆大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/119.jpg",
+      "__v": 0,
+      "rank": 16
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.069Z",
+        "updatedAt": "2019-04-11T14:10:20.196Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5831",
+      "school_id": "62",
+      "name": "郑州大学",
+      "is211": true,
+      "is985": false,
+      "isDual_class": "双一流",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/62.jpg",
+      "__v": 0,
+      "rank": 17
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.059Z",
+        "updatedAt": "2019-04-11T14:10:20.470Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5819",
+      "school_id": "391",
+      "name": "南华大学",
+      "is211": false,
+      "is985": false,
+      "isDual_class": "",
+      "type": "综合类",
+      "logo": "https://static-data.eol.cn/upload/logo/391.jpg",
+      "__v": 0,
+      "rank": 18
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.067Z",
+        "updatedAt": "2019-04-11T14:10:21.538Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404571a4813488bb5826",
+      "school_id": "60",
+      "name": "天津大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "理工类",
+      "logo": "https://static-data.eol.cn/upload/logo/60.jpg",
+      "__v": 0,
+      "rank": 19
+    },
+    {
+      "meta": {
+        "createdAt": "2019-04-08T12:36:22.072Z",
+        "updatedAt": "2019-04-11T14:10:20.886Z"
+      },
+      "pics": [],
+      "users": [],
+      "_id": "5cab404671a4813488bb583e",
+      "school_id": "105",
+      "name": "华南理工大学",
+      "is211": true,
+      "is985": true,
+      "isDual_class": "双一流",
+      "type": "理工类",
+      "logo": "https://static-data.eol.cn/upload/logo/105.jpg",
+      "__v": 0,
+      "rank": 20
+    }
+  ]
+}

@@ -31,6 +31,7 @@
 <script>
 import MHeader from '@/base/header/header'
 import Scroll from '@/base/scroll/scroll'
+import { getSchools } from '@/api/schools.js'
 export default {
   name: "ToolBox",
   components: {
@@ -39,123 +40,24 @@ export default {
   },
   data() {
     return {
-      schools:[
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        },
-        {
-          is211: true,
-          is985:true,
-          isDual_class: "双一流",
-          logo: 'https://static-data.eol.cn/upload/logo/102.jpg',
-          name: "厦门大学",
-          pics:[],
-          rank: 1,
-          school_id: "102",
-          type: "综合类",
-          users: [],
-          _id: '5cab3f685752b30ee40c30e6'
-        }
-      ]
+      schools:[],
     }
   },
   computed: {
    
   },
   methods: {
-    
+    _getSchools(){
+      getSchools().then((res) => {
+        if(res.code==0&&res.data){
+          this.schools = res.data
+        }
+      })
+    }
   },
   mounted() {
-    
-  },
+    this._getSchools()
+  }
 }
 </script>
 <style lang="stylus" scoped>
