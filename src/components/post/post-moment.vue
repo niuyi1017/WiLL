@@ -71,6 +71,7 @@ export default {
   },
   methods: {
     _post(postUrl,postContent){
+      console.log(postContent)
       post(postUrl,postContent).then(res => {
         console.log(res)
       })

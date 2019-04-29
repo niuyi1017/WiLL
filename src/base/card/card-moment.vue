@@ -16,7 +16,7 @@
         
     </div>
     <div class="content-wrapper">
-      <div class="text">{{momentData.content.text}}
+      <div class="text">{{momentData.content}}
       </div>
       <div class="pic-group-wrapper" v-show="displayPicList.length">
         <div class="pic-group" v-for="(pics, index) in displayPicList" :key="index">
@@ -60,10 +60,10 @@ export default {
   },
   computed: {
     galleryImgs(){
-      return this.momentData.content.picList
+      return this.momentData.picUrls
     },
     displayPicList(){
-        let picList = this.momentData.content.picList 
+        let picList = this.momentData.picUrls
         let res = []
         if(picList.length == 4){
           res = [[],[]]
@@ -129,6 +129,7 @@ export default {
         margin-right .2rem
         img 
           width 100%
+          height 100%
       .title-time
         height 1rem
         margin-top .1rem
@@ -171,6 +172,7 @@ export default {
         margin .05rem
         img 
           width 100%
+          height 100%
   .footer
     display flex
     font-size .30rem
