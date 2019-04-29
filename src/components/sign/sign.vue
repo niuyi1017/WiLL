@@ -33,7 +33,8 @@
 <script>
 /* eslint-disable */
 import {signUp, signIn} from '@/api/user'
-import {mapMutations,mapActions} from 'vuex'
+import {mapActions,mapMutations,mapGetters} from 'vuex'
+import {getUploadSK} from '@/api/post'
 export default {
   name: 'sign',
   data() {
@@ -48,22 +49,38 @@ export default {
     }
   },
   methods: {
+     _getUploadSk(){
+      if(!this.uploadSK){
+        getUploadSK().then(res => {
+          if(res.code==0&&res.data){
+            this.setUploadSK(res.data.uploadToken)
+          }
+        })
+      }
+    },
     handleSign(){
       if(this._checkform()){
         if(this.signMode){
           console.log("signin")
           signIn(this.phoneNumber,this.password).then((res) => {
             if(res.code==0&&res.data){
-              console.log(res.data)
               const data = {
                 token: res.data.token,
                 uid: res.data.uid
               }
               this.signInSuccess(data)
+              this. _getUploadSk()
             }
           })
         }else{
-          // signUp(phoneNumber,username,password)
+          signUp(this.phoneNumber,this.username,this.password).then((res) => {
+            if(res.code==0&&res.data){
+              this.signMode = true
+              this.password = ''
+            }else{
+              console.log(res)
+            }
+          })
         }
          
       }
@@ -82,10 +99,10 @@ export default {
           this.errMsg = "手机号 / 密码不能为空！"
         }
       }else{
-        if (this.username && this.password && this.confirmPassword ) {
+        if (this.username && this.password && this.confirmPassword && this.phoneNumber ) {
           if(this.password == this.confirmPassword)
-            if(this.username.length<6||this.password.length<6){
-              this.errMsg = "用户名 / 密码长度不能小于6位！"
+            if(this.username.length<3||this.password.length<6 || this.phoneNumber < 11){
+              this.errMsg = "用户名长度不能小于3位 / 密码长度不能小于6位！"
             }else{
               return true
             }
@@ -93,8 +110,8 @@ export default {
             this.errMsg = "两次密码不一致！"
           }
         }
-        if(!this.username||!this.password){
-          this.errMsg = "用户名 / 密码不能为空！！"
+        if(!this.username||!this.password||!this.phoneNumber){
+          this.errMsg = "手机号 / 用户名 / 密码不能为空！！"
         }
       }
     },
@@ -106,17 +123,19 @@ export default {
       this.confirmPassword = ''
 
     },
-    // ...mapMutations({
-    //     setIsSignin: 'SET_ISSIGNIN'
-    // })
+   
     ...mapActions({
         signInSuccess: 'signInSuccess'
+    }),
+    ...mapMutations({
+      setUploadSK: "SET_UPLOADSK"
     })
   },
   computed: {
     title() {
       return this.signMode ? "登录" : "注册"
-    }
+    },
+     ...mapGetters(['uploadSK'])
   },
 }
 </script>

@@ -29,6 +29,8 @@
   </div>
 </template>
 <script>
+/* eslint-disable */
+import {mapGetters} from 'vuex'
 export default {
   nama: 'Post',
   methods: {
@@ -41,7 +43,9 @@ export default {
     gotoPostQuestion(){
       this.$router.push('/post/question')
     },
+    
   },
+  
 }
 </script>
 <style lang="stylus" scoped>
