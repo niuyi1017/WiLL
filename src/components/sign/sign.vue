@@ -4,7 +4,10 @@
       <div class="title">{{title}}</div>
       <div class="input-group">
         <div class="input-wrapper">
-          <input type="text" v-model="username" class="username" placeholder="账号">
+          <input type="text" v-model="phoneNumber" class="username" placeholder="请输入手机号">
+        </div>
+        <div class="input-wrapper" v-show="!signMode">
+          <input type="text" v-model="username" class="username" placeholder="请设置昵称">
         </div>
         <div class="input-wrapper">
           <input type="password" v-model="password" class="password" placeholder="密码">
@@ -28,7 +31,9 @@
   </div>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+/* eslint-disable */
+import {signUp, signIn} from '@/api/user'
+import {mapMutations,mapActions} from 'vuex'
 export default {
   name: 'sign',
   data() {
@@ -36,6 +41,7 @@ export default {
       isError: false,
       errMsg:'',
       signMode: true, //true = signin, false = signup
+      phoneNumber:null,
       username: null,
       password: null,
       confirmPassword: null
@@ -44,20 +50,36 @@ export default {
   methods: {
     handleSign(){
       if(this._checkform()){
-         this.setIsSignin(true)
+        if(this.signMode){
+          console.log("signin")
+          signIn(this.phoneNumber,this.password).then((res) => {
+            if(res.code==0&&res.data){
+              console.log(res.data)
+              const data = {
+                token: res.data.token,
+                uid: res.data.uid
+              }
+              this.signInSuccess(data)
+            }
+          })
+        }else{
+          // signUp(phoneNumber,username,password)
+        }
+         
       }
+     
     },
     _checkform(){
       if(this.signMode){
-        if (this.username && this.password) {
-          if(this.username.length<6||this.password.length<6){
-            this.errMsg = "用户名 / 密码长度不能小于6位！"
+        if (this.phoneNumber && this.password) {
+          if(this.phoneNumber.length<11||this.password.length<6){
+            this.errMsg = "手机号至少为11位 / 密码长度不能小于6位！"
           }else{
               return true
           }
         }
-        if(!this.username||!this.password){
-          this.errMsg = "用户名 / 密码不能为空！"
+        if(!this.phoneNumber||!this.password){
+          this.errMsg = "手机号 / 密码不能为空！"
         }
       }else{
         if (this.username && this.password && this.confirmPassword ) {
@@ -84,8 +106,11 @@ export default {
       this.confirmPassword = ''
 
     },
-    ...mapMutations({
-        setIsSignin: 'SET_ISSIGNIN'
+    // ...mapMutations({
+    //     setIsSignin: 'SET_ISSIGNIN'
+    // })
+    ...mapActions({
+        signInSuccess: 'signInSuccess'
     })
   },
   computed: {
