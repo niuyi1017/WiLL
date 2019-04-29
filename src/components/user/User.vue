@@ -1,7 +1,7 @@
 <template>
   <div class="user">
-    <user-profile :isSelf="isSelf" v-show="token"/>
-    <sign v-show="!token"/>
+    <user-profile :isSelf="isSelf" v-if="token"/>
+    <sign v-if="!token"/>
   </div>
 </template>
 <script>

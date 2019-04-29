@@ -33,6 +33,8 @@
 import MHeader from '@/base/header/header'
 import * as qiniu from 'qiniu-js'
 import { uploadAllPicAsync } from "@/api/uploadpic"
+import {mapGetters} from 'vuex'
+import {post} from '@/api/post'
 export default {
   name: "ToolBox",
   components: {
@@ -51,7 +53,6 @@ export default {
         },
         questionTitle: "",
         content: "",
-        sk: '',
         previewPics: [],
         picFiles:[]
     }
@@ -65,11 +66,14 @@ export default {
     },
     questionPlaceholder(){
       return this.type == 'moment' ? '' : "请输入问题标题，使用 #话题# 可添加话题" 
-    }
+    },
+    ...mapGetters(['uploadSK','uid'])
   },
   methods: {
-    _getUploadSk(){
-
+    _post(postUrl,postContent){
+      post(postUrl,postContent).then(res => {
+        console.log(res)
+      })
     },
     _readAsDataUrlProminse(file){
       return new Promise((resolve, reject) => {
@@ -84,15 +88,17 @@ export default {
       })
     },
     async headerRightClicked(){
-      let postUrl = `api/new/${this.type}` 
+      let postUrl = `api/${this.type}` 
       let postContent = {
+        author: this.uid,
         content: this.content,
         picUrls: await this.uploadPicAsync()
       } 
-      if(this.type != "moment")
+      if(this.type != "moment"){
         postContent.tag = this.questionTitle.split('#')[1],
         postContent.title = this.questionTitle.split('#')[0]+this.questionTitle.split('#')[2]
-      
+      }
+      this._post(postUrl,postContent)
       console.log(postUrl,postContent)
     },
     handlePicInput(e){
@@ -119,7 +125,7 @@ export default {
       let picFiles = this.picFiles
       let picUrls = []
       try {
-        let res = await uploadAllPicAsync(picFiles)
+        let res = await uploadAllPicAsync(picFiles,this.uploadSK)
         res.map(item => {
           picUrls.push(`http://pq2z2mcsm.bkt.clouddn.com/${item.key}`)
         })
@@ -135,7 +141,6 @@ export default {
     this.sk= '',
     this.previewPics = [],
     this.picFiles = []
-    this._getUploadSk()
   }
 }
 </script>

@@ -19,10 +19,11 @@ export function signIn(phoneNumber,password) {
     return Promise.resolve(res.data)
   })
 }
-export function signUp(phoneNumber, password) {
-  const url = '/api/signIn'
+export function signUp(phoneNumber,username, password) {
+  const url = '/api/signUp'
   const data = {
     phoneNumber,
+    username,
     password
   }
  
