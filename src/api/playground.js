@@ -7,7 +7,7 @@ export function getQaList() {
   })
 }
 export function getMomentList() {
-  const url = '/api/momentList.json'
+  const url = '/api/moments'
   return axios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)

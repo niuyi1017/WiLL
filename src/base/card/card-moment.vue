@@ -6,8 +6,8 @@
           <img src="../../common/image/t3.jpg" alt="" srcset="">
         </div>
         <div class="title-time">
-          <div class="title">{{momentData.userName}}</div>
-          <span class="time">{{momentData.postAt}}</span>
+          <div class="title">{{momentData.author.username}}</div>
+          <span class="time">{{dispalyCreatedAt}}</span>
         </div>
       </div>
       <div class="right">
@@ -16,7 +16,7 @@
         
     </div>
     <div class="content-wrapper">
-      <div class="text">{{momentData.content.text}}
+      <div class="text">{{momentData.content}}
       </div>
       <div class="pic-group-wrapper" v-show="displayPicList.length">
         <div class="pic-group" v-for="(pics, index) in displayPicList" :key="index">
@@ -30,7 +30,7 @@
       <div class="left">
         <div class="item">
           <i class="iconfont icon-eye"></i>
-          <span class="num">{{momentData.readNum}}</span>
+          <span class="num">{{momentData.read_num}}</span>
         </div>
         <div class="item">
           <i class="iconfont icon-comment"></i>
@@ -40,13 +40,15 @@
       <div class="right">
         <div class="item">
           <i class="iconfont icon-like"></i>
-          <span class="num">{{momentData.likeNum}}</span>
+          <span class="num">{{momentData.like_num}}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+// import day from 'dayjs'
+import moment from 'moment'
 import {mapActions} from 'vuex'
 export default {
   name: 'Tab',
@@ -60,10 +62,10 @@ export default {
   },
   computed: {
     galleryImgs(){
-      return this.momentData.content.picList
+      return this.momentData.picUrls
     },
     displayPicList(){
-        let picList = this.momentData.content.picList 
+        let picList = this.momentData.picUrls
         let res = []
         if(picList.length == 4){
           res = [[],[]]
@@ -85,8 +87,14 @@ export default {
         }
       }
         return res
-      }
-    },
+      },
+      dispalyCreatedAt() {
+      let createdAt = this.momentData.meta.createdAt
+      // let display = day(createdAt).format('YYYY-MM-DD HH:mm')
+      let display = moment(createdAt).fromNow()
+      return display
+    }
+  },
   methods: {
     handleImgClick(index,innerIndex){
       let galleryImgs = this.galleryImgs
@@ -129,6 +137,7 @@ export default {
         margin-right .2rem
         img 
           width 100%
+          height 100%
       .title-time
         height 1rem
         margin-top .1rem
@@ -171,6 +180,8 @@ export default {
         margin .05rem
         img 
           width 100%
+          height 100%
+          // padding-top 100%
   .footer
     display flex
     font-size .30rem
