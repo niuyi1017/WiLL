@@ -73,7 +73,7 @@ export default {
     _post(postUrl,postContent){
       console.log(postContent)
       post(postUrl,postContent).then(res => {
-        console.log(res)
+       this.$router.push(`/playground/${this.type}`)
       })
     },
     _readAsDataUrlProminse(file){

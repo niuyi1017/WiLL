@@ -6,8 +6,8 @@
           <img src="../../common/image/t3.jpg" alt="" srcset="">
         </div>
         <div class="title-time">
-          <div class="title">{{momentData.userName}}</div>
-          <span class="time">{{momentData.postAt}}</span>
+          <div class="title">{{momentData.author.username}}</div>
+          <span class="time">{{dispalyCreatedAt}}</span>
         </div>
       </div>
       <div class="right">
@@ -30,7 +30,7 @@
       <div class="left">
         <div class="item">
           <i class="iconfont icon-eye"></i>
-          <span class="num">{{momentData.readNum}}</span>
+          <span class="num">{{momentData.read_num}}</span>
         </div>
         <div class="item">
           <i class="iconfont icon-comment"></i>
@@ -40,13 +40,15 @@
       <div class="right">
         <div class="item">
           <i class="iconfont icon-like"></i>
-          <span class="num">{{momentData.likeNum}}</span>
+          <span class="num">{{momentData.like_num}}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+// import day from 'dayjs'
+import moment from 'moment'
 import {mapActions} from 'vuex'
 export default {
   name: 'Tab',
@@ -85,8 +87,14 @@ export default {
         }
       }
         return res
-      }
-    },
+      },
+      dispalyCreatedAt() {
+      let createdAt = this.momentData.meta.createdAt
+      // let display = day(createdAt).format('YYYY-MM-DD HH:mm')
+      let display = moment(createdAt).fromNow()
+      return display
+    }
+  },
   methods: {
     handleImgClick(index,innerIndex){
       let galleryImgs = this.galleryImgs
@@ -173,6 +181,7 @@ export default {
         img 
           width 100%
           height 100%
+          // padding-top 100%
   .footer
     display flex
     font-size .30rem
