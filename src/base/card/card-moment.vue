@@ -3,7 +3,7 @@
     <div class="header">
       <div class="left">
         <div class="pic">
-          <img src="../../common/image/t3.jpg" alt="" srcset="">
+          <img :src="momentData.author.avatar" alt="" srcset="">
         </div>
         <div class="title-time">
           <div class="title">{{momentData.author.username}}</div>
@@ -47,7 +47,6 @@
   </div>
 </template>
 <script>
-// import day from 'dayjs'
 import moment from 'moment'
 import {mapActions} from 'vuex'
 export default {
@@ -90,7 +89,6 @@ export default {
       },
       dispalyCreatedAt() {
       let createdAt = this.momentData.meta.createdAt
-      // let display = day(createdAt).format('YYYY-MM-DD HH:mm')
       let display = moment(createdAt).fromNow()
       return display
     }
@@ -131,7 +129,7 @@ export default {
         height .85rem
         width .85rem
         border-radius .5rem
-        background #333
+        background #fff
         margin-top .15rem
         overflow hidden
         margin-right .2rem
@@ -181,7 +179,6 @@ export default {
         img 
           width 100%
           height 100%
-          // padding-top 100%
   .footer
     display flex
     font-size .30rem
