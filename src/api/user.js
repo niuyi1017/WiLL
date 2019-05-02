@@ -13,7 +13,6 @@ export function signIn(phoneNumber,password) {
     phoneNumber,
     password
   }
-  console.log(data)
   return axios.post(url, data)
     .then((res) => {
     return Promise.resolve(res.data)

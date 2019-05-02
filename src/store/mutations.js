@@ -12,19 +12,19 @@ const mutations = {
   },
   [types.SET_TOKEN](state, token) {
     state.token = token
-    // try {
-    //   localStorage.token = token
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      localStorage.token = token
+    } catch (error) {
+      console.log(error)
+    }
   },
   [types.SET_UID](state, uid) {
     state.uid = uid
-    // try {
-    //   localStorage.uid = uid
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      localStorage.uid = uid
+    } catch (error) {
+      console.log(error)
+    }
   },
   [types.SET_UPLOADSK](state, uploadSK) {
     state.uploadSK = uploadSK

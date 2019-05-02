@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from './config'
 export function getQaList() {
   const url = '/api/qaList.json'
   return axios.get(url
