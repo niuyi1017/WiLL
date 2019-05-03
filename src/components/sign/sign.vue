@@ -66,7 +66,8 @@ export default {
             if(res.code==0&&res.data){
               const data = {
                 token: res.data.token,
-                uid: res.data.uid
+                uid: res.data.uid,
+                following: res.data.following
               }
               this.signInSuccess(data)
               this. _getUploadSk()

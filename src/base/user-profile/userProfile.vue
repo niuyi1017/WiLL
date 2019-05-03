@@ -7,7 +7,7 @@
               :showRight="showRight"
               :showAbs="showAbs"/>
     <div class="pic-wrapper">
-      <img :src="user.bgImg" >
+      <img :src="user.avatar" >
     </div>
     <div class="content">
       <div class="pic">
@@ -19,32 +19,36 @@
       </div>
       
       <div class="pad">
-        <div class="totalNum" v-if="user.sum!==undefined">
+        <div class="totalNum" >
           <div class="item">
-            <div class="num">{{user.sum.following}}</div>
+            <div class="num">{{user.following.length}}</div>
             <div class="name">关注</div>
           </div>
           <div class="item">
-            <div class="num">{{user.sum.followers}}</div>
+            <div class="num">{{user.follower.length}}</div>
             <div class="name">粉丝</div>
           </div>
           <div class="item">
-            <div class="num">{{user.sum.favorites}}</div>
+            <div class="num">{{user.favour_num}}</div>
             <div class="name">收藏</div>
           </div>
           <div class="item">
-            <div class="num">{{user.sum.posts}}</div>
+            <div class="num">{{user.post_num}}</div>
             <div class="name">发布</div>
           </div>
         </div>
         <div class="introduce">
           <h3 class="title">个人简介</h3>
-          <p class="desc">{{user.intro}}</p>
+          <p class="desc" v-if="user.intro">{{user.intro}}</p>
+          <p class="desc" v-else>这个人很懒，什么都没留下~</p>
         </div>
         <div class="tag">
           <h3 class="title">斜杠青年</h3>
-          <div class="container">
+          <div class="container" v-if="user.tags.length">
             <div class="item" v-for="(item, index) in user.tags" :key="index">{{item}}</div>
+          </div>
+           <div class="container" v-else>
+            <div class="desc" >这个人很懒，还未设置标签</div>
           </div>
         </div>
         <div class="moment">
@@ -74,6 +78,7 @@ import SHeader from '@/base/header/Sheader'
 import CardUserPage from '@/base/card/card-userpage'
 import TabBar from '@/components/tabBar/tabBar'
 import { getUser } from '@/api/user'
+import {mapGetters} from 'vuex'
 export default {
   name: 'UserProfile',
   components: {
@@ -98,7 +103,8 @@ export default {
   },
   methods: {
     _getUser(){
-      getUser().then((res) => {
+      const queryUid = this.isSelf ?  this.uid: this.id
+      getUser(queryUid).then((res) => {
         if(res.code == 0 && res.data){
           this.user = res.data
         }
@@ -122,8 +128,14 @@ export default {
       return this.isSelf 
     },
     showAbs() {
-      return !this.isSelf 
-    }
+      return this.isSelf 
+    },
+    ...mapGetters([
+      'uid'
+    ])
+  },
+  mounted() {
+    this._getUser()
   },
   activated() {
     this._getUser()
@@ -141,7 +153,7 @@ export default {
     position fixed
     background-size:100% 100%;
     img 
-      height 100%
+      // height 100%
       width 100%
   .content
     height 5.5rem
@@ -243,6 +255,12 @@ export default {
           margin-right .25rem
           margin-bottom .2rem
           border .02rem solid $cl-yellow
+          color $cl-subColor
+        .desc
+          height 1.2rem
+          display flex
+          flex-direction column
+          justify-content center
           color $cl-subColor
     .moment
       margin-top .2rem

@@ -11,7 +11,16 @@ try {
 let uid = null
 try {
   if (localStorage.uid) {
-    token = localStorage.uid
+    uid = localStorage.uid
+  }
+} catch (error) {
+  console.log(error)
+}
+
+let following = []
+try {
+  if (localStorage.following) {
+    following = localStorage.following
   }
 } catch (error) {
   console.log(error)
@@ -24,6 +33,7 @@ const state = {
   isSignin: false,
   token,
   uid,
-  uploadSK: null
+  uploadSK: null,
+  following
 }
 export default state
