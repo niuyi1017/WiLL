@@ -42,7 +42,7 @@ export default {
     },
     showAbs: {
       type: Boolean,
-      default: false
+      default: true
     },
     showBack: {
       type: Boolean,
@@ -54,7 +54,7 @@ export default {
     },
     showRight: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import axios from 'axios'
-export function getUser() {
-  const url = '/api/user.json'
+export function getUser(uid) {
+  const url = `/api/user/${uid}`
   return axios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)

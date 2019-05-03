@@ -20,15 +20,26 @@ const mutations = {
   },
   [types.SET_UID](state, uid) {
     state.uid = uid
-    try {
-      localStorage.uid = uid
-    } catch (error) {
-      console.log(error)
-    }
+    // try {
+    //   localStorage.uid = uid
+    // } catch (error) {
+    //   console.log(error)
+    // }
   },
   [types.SET_UPLOADSK](state, uploadSK) {
     state.uploadSK = uploadSK
     
   },
+  [types.SET_FOLLOWING](state, following) {
+    state.following = following
+    try {
+      localStorage.following = following
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+
+
 }
 export default mutations

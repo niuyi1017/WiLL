@@ -1,7 +1,7 @@
 <template>
   <div class="user">
-    <user-profile :isSelf="isSelf" v-if="token"/>
-    <sign v-if="!token"/>
+    <user-profile :isSelf="isSelf" v-if="uid"/>
+    <sign v-if="!uid"/>
   </div>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
   },
   computed: {
    ...mapGetters([
-     'token'
+     'uid'
    ])
   },
 }
