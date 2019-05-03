@@ -98,7 +98,11 @@ export default {
   },
   data() {
     return {
-      user: {}
+      user: {
+        tags: [],
+        follower: [],
+        following: []
+      }
     }
   },
   methods: {
@@ -128,7 +132,7 @@ export default {
       return this.isSelf 
     },
     showAbs() {
-      return this.isSelf 
+      return true
     },
     ...mapGetters([
       'uid'
