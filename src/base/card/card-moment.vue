@@ -1,7 +1,7 @@
 <template>
   <div class="card-moment">
     <div class="header">
-      <div class="left">
+      <div class="left" @click="handleUserClick">
         <div class="pic">
           <img :src="momentData.author.avatar" alt="" srcset="">
         </div>
@@ -11,7 +11,8 @@
         </div>
       </div>
       <div class="right">
-        <div class="button" v-show="!momentData.isFriend">+ Follow</div>
+        <div class="button" v-show="!isFollowing">+ Follow</div>
+        <div class="button" v-show="isFollowing">已关注</div>
       </div>
         
     </div>
@@ -48,7 +49,7 @@
 </template>
 <script>
 import moment from 'moment'
-import {mapActions} from 'vuex'
+import {mapActions,mapGetters} from 'vuex'
 export default {
   name: 'Tab',
   props: {
@@ -91,7 +92,18 @@ export default {
       let createdAt = this.momentData.meta.createdAt
       let display = moment(createdAt).fromNow()
       return display
-    }
+    },
+    isFollowing(){
+      let result = false
+      if(this.uid){
+        if(this.uid == this.momentData.author._id)
+          result = true
+        else
+          result =  this.following.includes(this.momentData.author._id)
+      }
+      return result
+    },
+    ...mapGetters(['following','uid'])
   },
   methods: {
     handleImgClick(index,innerIndex){
@@ -101,6 +113,17 @@ export default {
         index: realIndex,
         galleryImgs
         })
+    },
+    handleUserClick(){
+      let authorId = this.momentData.author._id
+      let uid = this.uid
+      if(uid){
+        if(authorId == uid)
+          this.$router.push(`/user`)
+        else{
+          this.$router.push(`/userProfile/${authorId}`)
+        }
+      }
     },
     ...mapActions([
       'openGallery'
