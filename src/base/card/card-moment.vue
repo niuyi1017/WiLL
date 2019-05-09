@@ -11,8 +11,8 @@
         </div>
       </div>
       <div class="right">
-        <div class="button" v-show="!isFollowing">+ Follow</div>
-        <div class="button" v-show="isFollowing">已关注</div>
+        <div class="button" @click="handleUserFollow" v-show="!isFollowing">+ Follow</div>
+        <div class="button"  v-show="isFollowing">已关注</div>
       </div>
         
     </div>
@@ -50,6 +50,8 @@
 <script>
 import moment from 'moment'
 import {mapActions,mapGetters} from 'vuex'
+import { userFollow } from '@/api/user'
+import {momentMode,contentType} from '@/common/js/config'
 export default {
   name: 'Tab',
   props: {
@@ -125,8 +127,33 @@ export default {
         }
       }
     },
+    handleUserFollow(){
+      let from = this.uid
+      let to = this.momentData.author._id
+      let avatar = this.momentData.author.avatar
+      let authorname = this.momentData.author.username
+      userFollow(from, to).then((res) => {
+          if(res.code==0&&res.data){
+            let following = res.data.following //此次当前用户关注的人
+            let postTime = new Date()
+            let recentlyMoment = {
+              momentMode:momentMode.follow,
+              contentType: contentType.user,
+              postTime,
+              imgUrl: avatar,
+              desc:authorname
+            }
+            const data = {
+              following,
+              recentlyMoment
+            }
+            this.setUserFollow(data)
+          }
+        })
+    },
     ...mapActions([
-      'openGallery'
+      'openGallery',
+      'setUserFollow'
     ])
   }
 }

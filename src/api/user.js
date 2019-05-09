@@ -31,3 +31,14 @@ export function signUp(phoneNumber,username, password) {
       return Promise.resolve(res.data)
     })
 }
+export function userFollow(from, to) {
+  const url = '/api/user/follow'
+  const data = {
+    from,
+    to
+  }
+  return axios.post(url, data)
+    .then((res) => {
+      return Promise.resolve(res.data)
+    })
+}

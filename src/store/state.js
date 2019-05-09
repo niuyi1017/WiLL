@@ -19,8 +19,16 @@ try {
 
 let following = []
 try {
-  if (localStorage.following) {
+  if (localStorage.following && localStorage.following!=undefined) {
     following = localStorage.following
+  }
+} catch (error) {
+  console.log(error)
+}
+let recentlyMoments = []
+try {
+  if (localStorage.recentlyMoments && localStorage.recentlyMoments != undefined) {
+    recentlyMoments = localStorage.recentlyMoments
   }
 } catch (error) {
   console.log(error)
@@ -34,6 +42,7 @@ const state = {
   token,
   uid,
   uploadSK: null,
-  following
+  following,
+  recentlyMoments
 }
 export default state

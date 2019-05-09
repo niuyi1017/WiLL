@@ -33,11 +33,40 @@ const mutations = {
   [types.SET_FOLLOWING](state, following) {
     state.following = following
     try {
-      localStorage.following = following
+      localStorage.following =  JSON.stringify(following)
     } catch (error) {
       console.log(error)
     }
   },
+  [types.SET_RECENTLY_MOMENTS](state, recentlyMoments) {
+    state.recentlyMoments = recentlyMoments
+    try {
+      localStorage.recentlyMoments = JSON.stringify(recentlyMoments)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  [types.PUSH_FOLLOWING](state, following) {
+    state.following.push(following)
+    try {
+      let locaFollowing = JSON.parse(localStorage.getItem('following'));
+      locaFollowing.push(following)
+      localStorage.following = JSON.stringify(locaFollowing)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+  [types.PUSH_RECENTLY_MOMENTS](state, recentlyMoment) {
+    state.recentlyMoments.push(recentlyMoment)
+    try {
+      let localRecentlyMoments = JSON.parse(localStorage.getItem('recentlyMoments'));
+      localRecentlyMoments.push(recentlyMoment)
+      localStorage.recentlyMoments = JSON.stringify(localRecentlyMoments)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
 
