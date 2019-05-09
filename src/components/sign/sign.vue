@@ -67,7 +67,8 @@ export default {
               const data = {
                 token: res.data.token,
                 uid: res.data.uid,
-                following: res.data.following
+                following: res.data.following,
+                recentlyMoments:[]
               }
               this.signInSuccess(data)
               this. _getUploadSk()

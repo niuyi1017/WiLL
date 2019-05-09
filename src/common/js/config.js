@@ -12,9 +12,10 @@ export const contentType = {
   question: 1,
   comment: 2,
   answer: 3,
-  moment: 4
+  moment: 4,
+  user:5
 }
-export const contentTypeStr = ["文章", "问题", "评论", "回答", "同学圈"]
+export const contentTypeStr = ["文章", "问题", "评论", "回答", "同学圈", "童鞋"]
 export const searchResultType = {
   school: 0,
   major: 1,
