@@ -90,7 +90,7 @@ export default {
       }
         return res
       },
-      dispalyCreatedAt() {
+    dispalyCreatedAt() {
       let createdAt = this.momentData.meta.createdAt
       let display = moment(createdAt).fromNow()
       return display
@@ -132,17 +132,16 @@ export default {
       let to = this.momentData.author._id
       let avatar = this.momentData.author.avatar
       let authorname = this.momentData.author.username
-      userFollow(from, to).then((res) => {
+      let recentlyMoment = {
+            momentMode:momentMode.follow,
+            contentType: contentType.user,
+            postTime: new Date(),
+            imgUrl: avatar,
+            desc:authorname
+          }
+      userFollow(from, to, recentlyMoment).then((res) => {
           if(res.code==0&&res.data){
             let following = res.data.following //此次当前用户关注的人
-            let postTime = new Date()
-            let recentlyMoment = {
-              momentMode:momentMode.follow,
-              contentType: contentType.user,
-              postTime,
-              imgUrl: avatar,
-              desc:authorname
-            }
             const data = {
               following,
               recentlyMoment

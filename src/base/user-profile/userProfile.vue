@@ -54,14 +54,13 @@
         <div class="moment">
           <div class="title">最近动态</div>
           <div class="moment-list">
-            <card-user-page v-for="(item, index) in user.recentlyMoments" 
+            <card-user-page v-for="(item, index) in recentlyMomentsSorted" 
                             :key="index" 
                             :content="item"
                             :isSelf="isSelf"/>
             <div class="allMoment">
               查看全部动态
             </div>
-
           </div>
         </div>
       </div>
@@ -134,8 +133,21 @@ export default {
     showAbs() {
       return true
     },
+    recentlyMomentsSorted() {
+      let moments = this.recentlyMoments
+      let result=[]
+      for( let i=moments.length-1 ; i> moments.length-15;i--){
+        if(moments[i]){
+          result.push(moments[i])
+        }else{
+          break
+        }
+      }
+      return result
+    },
     ...mapGetters([
-      'uid'
+      'uid',
+      'recentlyMoments'
     ])
   },
   mounted() {

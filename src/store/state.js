@@ -19,7 +19,7 @@ try {
 
 let following = []
 try {
-  if (localStorage.following && localStorage.following!=undefined) {
+  if (localStorage.following) {
     following = localStorage.following
   }
 } catch (error) {
@@ -27,7 +27,7 @@ try {
 }
 let recentlyMoments = []
 try {
-  if (localStorage.recentlyMoments && localStorage.recentlyMoments != undefined) {
+  if (localStorage.recentlyMoments) {
     recentlyMoments = localStorage.recentlyMoments
   }
 } catch (error) {
