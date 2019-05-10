@@ -12,7 +12,7 @@
          <img :src="content.imgUrl" alt="">
        </div>
        <div class="pic" v-else>
-         <img src="../../common/image/b2.jpg" alt="">
+         <img :src="content.imgUrl" alt="">
        </div>
        <div class="text text-title-desc" v-if="content.title">
          <h3>{{this.content.title}}</h3>
@@ -139,9 +139,10 @@ export default {
           width 100%
           height 100%
       .pic
-        height 1.8rem
-        width 1.8rem
-        margin-right .2rem
+        height 1.6rem
+        width 1.6rem
+        margin-left .2rem
+        margin-right .4rem
         flex none
         border-radius .25rem
         overflow hidden

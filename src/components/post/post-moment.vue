@@ -33,7 +33,8 @@
 import MHeader from '@/base/header/header'
 import * as qiniu from 'qiniu-js'
 import { uploadAllPicAsync } from "@/api/uploadpic"
-import {mapGetters} from 'vuex'
+import {momentMode,contentType} from '@/common/js/config'
+import {mapGetters,mapMutations} from 'vuex'
 import {post} from '@/api/post'
 export default {
   name: "ToolBox",
@@ -71,9 +72,16 @@ export default {
   },
   methods: {
     _post(postUrl,postContent){
-      console.log(postContent)
-      post(postUrl,postContent).then(res => {
-       this.$router.push(`/playground/${this.type}`)
+     let recentlyMoment = {
+            momentMode:momentMode.post,
+            contentType: contentType[this.type],
+            postTime: new Date(),
+            imgUrl: postContent.picUrls[0]?postContent.picUrls[0]:'',
+            desc:postContent.content
+          }
+      post(postUrl,postContent,recentlyMoment).then(res => {
+        this.pushRecentlyMoments(recentlyMoment)
+        this.$router.push(`/playground/${this.type}`)
       })
     },
     _readAsDataUrlProminse(file){
@@ -100,7 +108,6 @@ export default {
         postContent.title = this.questionTitle.split('#')[0]+this.questionTitle.split('#')[2]
       }
       this._post(postUrl,postContent)
-      console.log(postUrl,postContent)
     },
     handlePicInput(e){
       let readFiles = e.target.files
@@ -134,7 +141,10 @@ export default {
         console.log(error)
       }
       return picUrls
-    }
+    },
+    ...mapMutations({
+      pushRecentlyMoments:'PUSH_RECENTLY_MOMENTS'
+    })
   },
   activated() {
     this.questionTitle = "",
