@@ -6,9 +6,9 @@ export function getUploadSK() {
     return Promise.resolve(res.data)
   })
 }
-export function post(postUrl, postContent) {
+export function post(postUrl, postContent, recentlyMoment) {
   const url = postUrl
-  const data = postContent
+  const data = { postContent, recentlyMoment}
   return Maxios.post(url,
     data
   ).then((res) => {

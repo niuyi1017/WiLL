@@ -45,7 +45,7 @@ export default {
   activated() {
     let url = '/playground/' + this.mode
     this.$router.push(url)
-  }
+  },
 }
 </script>
 <style lang="stylus" scoped>

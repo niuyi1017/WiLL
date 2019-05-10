@@ -47,14 +47,17 @@ const mutations = {
     }
   },
   [types.PUSH_FOLLOWING](state, following) {
+    console.log(following)
     state.following.push(following)
     try {
       let locaFollowing = JSON.parse(localStorage.getItem('following'));
       locaFollowing.push(following)
+      
       localStorage.following = JSON.stringify(locaFollowing)
     } catch (error) {
       console.log(error)
     }
+    console.log(state.following)
   },
 
   [types.PUSH_RECENTLY_MOMENTS](state, recentlyMoment) {
@@ -67,8 +70,5 @@ const mutations = {
       console.log(error)
     }
   }
-
-
-
 }
 export default mutations

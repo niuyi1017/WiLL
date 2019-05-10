@@ -4,12 +4,15 @@
     <div class="line" :style="tagColor"></div>
     <div class="header">
       <div class="mode" :style="modeColor">{{contentType}}</div>
-      <div class="postTime">1 min ago</div>
+      <div class="postTime">{{postTime}}</div>
     </div>
      <div class="title">{{title}}</div>
      <div class="content">
-       <div class="pic">
-         <img src="../../common/image/b2.jpg" alt="">
+       <div class="avatar" v-if="content.contentType == 5">
+         <img :src="content.imgUrl" alt="">
+       </div>
+       <div class="pic" v-else>
+         <img :src="content.imgUrl" alt="">
        </div>
        <div class="text text-title-desc" v-if="content.title">
          <h3>{{this.content.title}}</h3>
@@ -24,6 +27,7 @@
 </template>
 <script>
 import {momentModeStr,contentTypeStr,getRandomColor} from '@/common/js/config'
+import moment from 'moment'
 export default {
   name: "CardUserPage",
   data() {
@@ -51,7 +55,17 @@ export default {
       return contentTypeStr[this.content.contentType]
     },
     title() {
-      return  this.content.momentMode == 0 ? `${this.momentMode}新的${this.contentType}：`: `${this.momentMode}${this.contentType}`
+      if(this.content.contentType == 5 ){
+        return   `${this.momentMode} ${this.content.desc} ${this.contentType}：`
+      }else{
+        return  this.content.momentMode == 0 ? `${this.momentMode}新的${this.contentType}：`: `${this.momentMode}${this.contentType}`
+      }
+     
+    },
+    postTime() {
+      let createdAt = this.content.postTime
+      let display = moment(createdAt).fromNow()
+      return display
     },
     modeColor() {
       let result = {}
@@ -109,12 +123,26 @@ export default {
       margin-bottom .15rem
       height 1.8rem
       display flex
-      justify-content space-between
+      justify-content flex-start
+      align-items center
       padding 0 .2rem
+      .avatar
+        height 1.2rem
+        width 1.2rem
+        margin-left .2rem
+        margin-right .4rem
+        flex none
+        border-radius 50%
+        box-shadow 0 .1rem .3rem #aaa
+        overflow hidden
+        img
+          width 100%
+          height 100%
       .pic
-        height 1.8rem
-        width 1.8rem
-        margin-right .2rem
+        height 1.6rem
+        width 1.6rem
+        margin-left .2rem
+        margin-right .4rem
         flex none
         border-radius .25rem
         overflow hidden
