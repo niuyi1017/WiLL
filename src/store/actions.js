@@ -8,13 +8,21 @@ export const closeGallery = function ({ commit }) {
   commit(types.SET_GALLERYIMGS,[])
   commit(types.SET_GALLERYINDEX,0)
 }
-export const signInSuccess = function ({ commit }, { token, uid, following, recentlyMoments}){
+export const signInSuccess = function ({ commit }, { token, uid, following, favour, like,recentlyMoments}){
   commit(types.SET_TOKEN,token)
   commit(types.SET_UID, uid)
   commit(types.SET_FOLLOWING, following)
+  commit(types.SET_FAVOUR, favour)
+  commit(types.SET_LIKE, like)
   commit(types.SET_RECENTLY_MOMENTS, recentlyMoments)
 }
 export const setUserFollow = function ({ commit }, { following, recentlyMoment}) {
   commit(types.PUSH_FOLLOWING, following)
   commit(types.PUSH_RECENTLY_MOMENTS, recentlyMoment)
+}
+export const pushRecentlyMoment = function ({ commit }, recentlyMoment) {
+  commit(types.PUSH_RECENTLY_MOMENTS, recentlyMoment)
+}
+export const pushLike = function ({ commit }, moment_id) {
+  commit(types.PUSH_LIKE, moment_id)
 }

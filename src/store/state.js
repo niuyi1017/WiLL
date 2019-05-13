@@ -25,6 +25,25 @@ try {
 } catch (error) {
   console.log(error)
 }
+
+let favour = {}
+try {
+  if (localStorage.favour) {
+    favour = localStorage.favour
+  }
+} catch (error) {
+  console.log(error)
+}
+
+let like = {}
+try {
+  if (localStorage.like) {
+    like = localStorage.like
+  }
+} catch (error) {
+  console.log(error)
+}
+
 let recentlyMoments = []
 try {
   if (localStorage.recentlyMoments) {
@@ -43,6 +62,8 @@ const state = {
   uid,
   uploadSK: null,
   following,
+  favour,
+  like,
   recentlyMoments
 }
 export default state

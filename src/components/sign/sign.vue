@@ -68,6 +68,8 @@ export default {
                 token: res.data.token,
                 uid: res.data.uid,
                 following: res.data.following,
+                favour: res.data.favour,
+                like: res.data.like,
                 recentlyMoments:res.data.recentlyMoments
               }
               this.signInSuccess(data)

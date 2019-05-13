@@ -59,6 +59,22 @@ const mutations = {
     }
     console.log(state.following)
   },
+  [types.SET_FAVOUR](state, favour) {
+    state.favour = favour
+    try {
+      localStorage.favour = JSON.stringify(favour)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  [types.SET_LIKE](state, like) {
+    state.like = like
+    try {
+      localStorage.like = JSON.stringify(like)
+    } catch (error) {
+      console.log(error)
+    }
+  },
 
   [types.PUSH_RECENTLY_MOMENTS](state, recentlyMoment) {
     state.recentlyMoments.push(recentlyMoment)
@@ -66,6 +82,16 @@ const mutations = {
       let localRecentlyMoments = JSON.parse(localStorage.getItem('recentlyMoments'));
       localRecentlyMoments.push(recentlyMoment)
       localStorage.recentlyMoments = JSON.stringify(localRecentlyMoments)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  [types.PUSH_LIKE](state, moment_id) {
+    state.like.moment.push(moment_id)
+    try {
+      let like = JSON.parse(localStorage.getItem('like'));
+      like.moment.push(moment_id)
+      localStorage.like = JSON.stringify(like)
     } catch (error) {
       console.log(error)
     }

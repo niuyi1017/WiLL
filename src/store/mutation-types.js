@@ -9,5 +9,11 @@ export const SET_UPLOADSK = 'SET_UPLOADSK'
 
 export const SET_FOLLOWING = 'SET_FOLLOWING'
 export const PUSH_FOLLOWING = 'PUSH_FOLLOWING'
+
+export const SET_FAVOUR = 'SET_FAVOUR'
+
+export const SET_LIKE = 'SET_LIKE'
+export const PUSH_LIKE = 'PUSH_LIKE'
+
 export const SET_RECENTLY_MOMENTS = 'SET_RECENTLY_MOMENTS'
 export const PUSH_RECENTLY_MOMENTS = 'PUSH_RECENTLY_MOMENTS'

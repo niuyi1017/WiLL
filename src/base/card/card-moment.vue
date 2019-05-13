@@ -39,8 +39,9 @@
         </div>
       </div>
       <div class="right">
-        <div class="item">
-          <i class="iconfont icon-like"></i>
+        <div class="item" @click="handleLike">
+          <i class="iconfont icon-like" v-if="!this.isLike"></i>
+          <i class="iconfont icon-like-fill like" v-else></i>
           <span class="num">{{momentData.like_num}}</span>
         </div>
       </div>
@@ -51,6 +52,7 @@
 import moment from 'moment'
 import {mapActions,mapGetters} from 'vuex'
 import { userFollow } from '@/api/user'
+import { momentLike } from '@/api/playground'
 import {momentMode,contentType} from '@/common/js/config'
 export default {
   name: 'Tab',
@@ -105,7 +107,14 @@ export default {
       }
       return result
     },
-    ...mapGetters(['following','uid'])
+    isLike(){
+      let result = false
+      if(this.uid){
+        result =  this.like.moment.includes(this.momentData._id)
+      }
+      return result
+    },
+    ...mapGetters(['following','uid','like'])
   },
   methods: {
     handleImgClick(index,innerIndex){
@@ -150,9 +159,40 @@ export default {
           }
         })
     },
+    handleLike() {
+      let from = this.uid
+      let to = this.momentData.author._id
+      let imgUrl = this.momentData.picUrls[0]?this.momentData.picUrls[0]:''
+      let desc = this.momentData.content
+      let moment_id = this.momentData._id
+      let recentlyMoment = {
+            momentMode:momentMode.like,
+            contentType: contentType.moment,
+            postTime: new Date(),
+            imgUrl,
+            desc
+          }
+      if(this.isLike){
+        momentCancelLike().then(res=>{
+          if(res.code==0&&res.data){
+            
+          }
+        })
+      }else{
+        momentLike(moment_id, from, to, recentlyMoment).then((res) => {
+          if(res.code==0&&res.data){
+            this.momentData.like_num = res.data.like_num+1
+            this.pushRecentlyMoment(recentlyMoment)
+            this.pushLike(moment_id)
+          }
+        })
+      }
+    },
     ...mapActions([
       'openGallery',
-      'setUserFollow'
+      'setUserFollow',
+      'pushRecentlyMoment',
+      'pushLike'
     ])
   }
 }
@@ -247,4 +287,6 @@ export default {
       line-height .8rem
       .iconfont
           font-size .34rem
+      .like
+         color $cl-yellow
 </style>
