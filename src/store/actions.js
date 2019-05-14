@@ -26,3 +26,9 @@ export const pushRecentlyMoment = function ({ commit }, recentlyMoment) {
 export const pushLike = function ({ commit }, moment_id) {
   commit(types.PUSH_LIKE, moment_id)
 }
+export const pullRecentlyMoment = function ({ commit }, recentlyMoment) {
+  commit(types.PULL_RECENTLY_MOMENTS, recentlyMoment)
+}
+export const pullLike = function ({ commit }, moment_id) {
+  commit(types.PULL_LIKE, moment_id)
+}

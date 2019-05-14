@@ -52,7 +52,7 @@
 import moment from 'moment'
 import {mapActions,mapGetters} from 'vuex'
 import { userFollow } from '@/api/user'
-import { momentLike } from '@/api/playground'
+import { momentLike, momentCancelLike } from '@/api/playground'
 import {momentMode,contentType} from '@/common/js/config'
 export default {
   name: 'Tab',
@@ -173,9 +173,11 @@ export default {
             desc
           }
       if(this.isLike){
-        momentCancelLike().then(res=>{
+        momentCancelLike(moment_id, from, to, recentlyMoment).then(res=>{
           if(res.code==0&&res.data){
-            
+            this.momentData.like_num = res.data.like_num-1
+            this.pullRecentlyMoment(recentlyMoment)
+            this.pullLike(moment_id)
           }
         })
       }else{
@@ -192,7 +194,9 @@ export default {
       'openGallery',
       'setUserFollow',
       'pushRecentlyMoment',
-      'pushLike'
+      'pushLike',
+      'pullRecentlyMoment',
+      'pullLike'
     ])
   }
 }

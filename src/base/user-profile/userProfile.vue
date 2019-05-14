@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="footer" v-if="!isSelf">
-      <div class="button" v-if="!user.isFriend">加关注</div>
+      <div class="button" v-if="!isFollowing">加关注</div>
       <div class="button" v-else>传小纸条</div>
     </div>
     <tab-bar v-if="isSelf"/>
@@ -100,7 +100,8 @@ export default {
       user: {
         tags: [],
         follower: [],
-        following: []
+        following: [],
+        recentlyMoments:[]
       }
     }
   },
@@ -133,8 +134,15 @@ export default {
     showAbs() {
       return true
     },
+    isFollowing(){
+      let result = false
+      
+      result =  this.following.includes(this.id)
+      
+      return result
+    },
     recentlyMomentsSorted() {
-      let moments = this.recentlyMoments
+      let moments = this.isSelf?this.recentlyMoments:this.user.recentlyMoments
       let result=[]
       for( let i=moments.length-1 ; i> moments.length-15;i--){
         if(moments[i]){
@@ -147,7 +155,8 @@ export default {
     },
     ...mapGetters([
       'uid',
-      'recentlyMoments'
+      'recentlyMoments',
+      'following'
     ])
   },
   mounted() {
