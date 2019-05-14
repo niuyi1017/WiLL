@@ -12,14 +12,14 @@
     </div>
     <div class="follow-wrapper" v-else>
       <div class="follow" v-if="isFollowed"> 已关注 </div>
-      <div class="follow" @click="handleFollow" v-else> + Follow </div>
+      <div class="follow" @click="handleFollow" v-else>+ Follow</div>
     </div>
     <div class="time">{{postTime}}</div>
   </div>
 </template>
 <script>
 import moment from 'moment'
-import {mapGetters} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
 import { userFollow } from '@/api/user'
 import {momentMode,contentType} from '@/common/js/config'
 export default {
@@ -78,6 +78,7 @@ export default {
           }
         })
     },
+    ...mapActions(['setUserFollow'])
   },
 }
 </script>
