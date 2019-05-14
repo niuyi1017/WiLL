@@ -6,8 +6,8 @@ export function getMessages() {
     return Promise.resolve(res.data)
   })
 }
-export function getNotifications() {
-  const url = '/api/notifications.json'
+export function getNotifications(uid) {
+  const url = `/api/messages/notifications?uid=${uid}`
   return axios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)

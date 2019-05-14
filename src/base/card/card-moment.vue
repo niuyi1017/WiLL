@@ -52,7 +52,7 @@
 import moment from 'moment'
 import {mapActions,mapGetters} from 'vuex'
 import { userFollow } from '@/api/user'
-import { momentLike } from '@/api/playground'
+import { momentLike, momentCancelLike } from '@/api/playground'
 import {momentMode,contentType} from '@/common/js/config'
 export default {
   name: 'Tab',
@@ -148,7 +148,14 @@ export default {
             imgUrl: avatar,
             desc:authorname
           }
-      userFollow(from, to, recentlyMoment).then((res) => {
+      let notification = {
+        from,
+        message: "关注了你",
+        postTime: new Date(),
+        articlePic:null,
+        isFollow: true
+      }
+      userFollow(from, to, recentlyMoment,notification).then((res) => {
           if(res.code==0&&res.data){
             let following = res.data.following //此次当前用户关注的人
             const data = {
@@ -172,14 +179,22 @@ export default {
             imgUrl,
             desc
           }
+      let notification = {
+        from,
+        message: "赞了你的同学圈",
+        postTime: new Date(),
+        articlePic:imgUrl
+      }
       if(this.isLike){
-        momentCancelLike().then(res=>{
+        momentCancelLike(moment_id, from, to, recentlyMoment).then(res=>{
           if(res.code==0&&res.data){
-            
+            this.momentData.like_num = res.data.like_num-1
+            this.pullRecentlyMoment(recentlyMoment)
+            this.pullLike(moment_id)
           }
         })
       }else{
-        momentLike(moment_id, from, to, recentlyMoment).then((res) => {
+        momentLike(moment_id, from, to, recentlyMoment,notification).then((res) => {
           if(res.code==0&&res.data){
             this.momentData.like_num = res.data.like_num+1
             this.pushRecentlyMoment(recentlyMoment)
@@ -192,7 +207,9 @@ export default {
       'openGallery',
       'setUserFollow',
       'pushRecentlyMoment',
-      'pushLike'
+      'pushLike',
+      'pullRecentlyMoment',
+      'pullLike'
     ])
   }
 }

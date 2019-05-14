@@ -2,11 +2,11 @@
   <div class="scroll-wrapper">
     <scroll class="scroll">
       <div>
-        <div class="notification-part" v-for="(item, index) in notifications" :key="index">
-          <h3>{{item.date}}</h3>
+        <div class="notification-part" v-for="(notificationArr, date, index) in notifications" :key="index">
+          <h3>{{date}}</h3>
           <div class="notification-list">
             <notififation-item 
-                    v-for="(notification, index) in item.notifications" 
+                    v-for="(notification, index) in notificationArr" 
                     :key="index"
                     :notification="notification"
                     />
@@ -20,6 +20,8 @@
 import NotififationItem from '@/base/notification-part/notification-item'
 import Scroll from '@/base/scroll/scroll'
 import { getNotifications } from '@/api/message'
+import {mapGetters} from 'vuex'
+import moment from 'moment'
 export default {
   name: 'NotificationPart',
   components: {
@@ -28,21 +30,41 @@ export default {
   },
   data() {
     return {
-      notifications: []
+      notifications: {}
     }
+  },
+  computed: {
+    ...mapGetters(['uid'])
   },
   methods: {
     _getNotifications(){
-      getNotifications().then((res) => {
-        if(res.code==0&&res.data){
-          this.notifications = res.data
-        }
-      })
+      if(this.uid){
+        getNotifications(this.uid).then((res) => {
+          if(res.code==0&&res.data){
+            let notifications = res.data
+            let result = {}
+            for(let i=0;i<notifications.length;i++){
+              let date = moment(notifications[i].postTime,'YYYYMMDD').calendar().split(' ')[0]
+              if(result[date]){
+                result[date].push(notifications[i])
+              }else{
+                result[date] = []
+                result[date].push(notifications[i])
+              }
+            }
+            this.notifications = result
+          }
+        })
+      }
+      
     }
   },
   mounted() {
     this._getNotifications()
-  }
+  },
+  activated() {
+    this._getNotifications()
+  },
 }
 </script>
 <style lang="stylus" scoped>
