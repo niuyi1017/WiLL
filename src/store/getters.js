@@ -8,3 +8,4 @@ export const following = state => state.following
 export const like = state => state.like
 export const favour = state => state.favour
 export const recentlyMoments = state =>  state.recentlyMoments
+export const momentData = state => state.momentData

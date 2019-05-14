@@ -7,7 +7,7 @@ import Playground from '../components/playground/Playground.vue'
 import qaPart from '../components/playground/components/qa-part.vue'
 import momentPart from '../components/playground/components/moment-part.vue'
 import PostMoment from '../components/post/post-moment.vue'
-
+import MomentDetail from '../components/playground/momentDetail.vue'
 
 import Message from '../components/message/Message.vue'
 import NotificationPart from '@/base/notification-part/notification-part'
@@ -115,6 +115,12 @@ export default new Router({
       path: '/post/:type',
       name: 'postmoment',
       component: PostMoment,
+      props: true
+    },
+    {
+      path: '/momentDetail/:moment_id',
+      name: 'momentDetail',
+      component: MomentDetail,
       props: true
     }
   ],
