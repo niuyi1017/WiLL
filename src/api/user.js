@@ -31,12 +31,13 @@ export function signUp(phoneNumber,username, password) {
       return Promise.resolve(res.data)
     })
 }
-export function userFollow(from, to, recentlyMoment) {
+export function userFollow(from, to, recentlyMoment,notification) {
   const url = '/api/user/follow'
   const data = {
     from,
     to,
-    recentlyMoment
+    recentlyMoment,
+    notification
   }
   return axios.post(url, data)
     .then((res) => {

@@ -1,22 +1,27 @@
 <template>
   <div class="item">
     <div class="pic">
-      <img :src="notification.avatar" alt="" srcset="" v-show="!notification.isSystemMsg">
+      <img :src="notification.from.avatar" alt="" srcset="" v-show="!notification.isSystemMsg">
       <i class="iconfont icon-bell" v-show="notification.isSystemMsg"></i>
     </div>
     <div class="content">
-        <div class="text"><span class="username">{{notification.username}}</span> {{notification.message}}</div>
+        <div class="text"><span class="username">{{notification.from.username}}</span> {{notification.message}}</div>
     </div>
     <div class="article-pic" v-if="!notification.isFollow">
       <img :src="notification.articlePic" alt="" srcset="">
     </div>
-    <div class="follow" v-else>
-      + Follow
+    <div class="follow-wrapper" v-else>
+      <div class="follow" v-if="isFollowed"> 已关注 </div>
+      <div class="follow" @click="handleFollow" v-else> + Follow </div>
     </div>
-    <div class="time">{{notification.postTime}}</div>
+    <div class="time">{{postTime}}</div>
   </div>
 </template>
 <script>
+import moment from 'moment'
+import {mapGetters} from 'vuex'
+import { userFollow } from '@/api/user'
+import {momentMode,contentType} from '@/common/js/config'
 export default {
   name: 'NotificationItem',
   props: {
@@ -24,19 +29,56 @@ export default {
       type: Object,
       default() {
         return {
-              isRead: false,
-              isSystemMsg: false,
-              isFollow: false,
-              isFriends: false,
               avatar: '',
-              username: '一只小小白',
-              message: '赞了你的文章',
-              postTime: '17 mins ago',
+              username: '',
+              message: '',
+              postTime: '',
               articlePic: ''
         }
       }
     }
-  }
+  },
+  computed: {
+    postTime(){
+      return moment(this.notification.postTime).fromNow()
+    },
+    isFollowed(){
+      return  this.following.includes(this.notification.from._id) 
+    },
+    ...mapGetters(['following','uid'])
+  },
+  methods: {
+    handleFollow(){
+      let from = this.uid
+      let to = this.notification.from._id
+      let avatar = this.notification.from.avatar
+      let username = this.notification.from.username
+      let recentlyMoment = {
+            momentMode:momentMode.follow,
+            contentType: contentType.user,
+            postTime: new Date(),
+            imgUrl: avatar,
+            desc:username
+          }
+      let notification = {
+        from,
+        message: "关注了你",
+        postTime: new Date(),
+        articlePic:null,
+        isFollow: true//通知类型是否为follow
+      }
+      userFollow(from, to, recentlyMoment,notification).then((res) => {
+          if(res.code==0&&res.data){
+            let following = res.data.following //此次当前用户关注的人
+            const data = {
+              following,
+              recentlyMoment
+            }
+            this.setUserFollow(data)
+          }
+        })
+    },
+  },
 }
 </script>
 <style lang="stylus" scoped>
@@ -91,21 +133,21 @@ export default {
     overflow hidden
     img
       width 100%
-  .follow 
-    height .45rem
-    line-height .5rem
-    width 1.2rem
-    text-align center
-    padding 0.025rem .25rem
-    position absolute
-    top .65rem
-    right 0.4rem
-    border-radius .25rem
-    // border .02rem solid $cl-yellow
-    background $cl-yellow
-    color #fff
+      height 100%
+  .follow-wrapper    
+    .follow 
+      height .45rem
+      line-height .5rem
+      width 1.2rem
+      text-align center
+      padding 0.025rem .25rem
+      position absolute
+      top .65rem
+      right 0.4rem
+      border-radius .25rem
+      border .02rem solid $cl-yellow
+      color $cl-yellow
 .time
   margin-left .8rem
   height .6rem
-  // line-height .6rem
 </style>

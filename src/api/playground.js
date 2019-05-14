@@ -13,13 +13,14 @@ export function getMomentList() {
     return Promise.resolve(res.data)
   })
 }
-export function momentLike(moment_id,from,to,recentlyMoment) {
+export function momentLike(moment_id, from, to, recentlyMoment, notification) {
   const url = '/api/moment/like'
   const data = {
     moment_id,
     from,
     to,
-    recentlyMoment
+    recentlyMoment,
+    notification
   } 
   return axios.put(url,data)
   .then((res) => {
