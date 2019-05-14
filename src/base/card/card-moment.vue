@@ -1,7 +1,7 @@
 <template>
-  <div class="card-moment">
+  <div class="card-moment" @click="gotoMomentDetail">
     <div class="header">
-      <div class="left" @click="handleUserClick">
+      <div class="left" @click.stop="handleUserClick">
         <div class="pic">
           <img :src="momentData.author.avatar" alt="" srcset="">
         </div>
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="right">
-        <div class="button" @click="handleUserFollow" v-show="!isFollowing">+ Follow</div>
+        <div class="button" @click.stop="handleUserFollow" v-show="!isFollowing">+ Follow</div>
         <div class="button"  v-show="isFollowing">已关注</div>
       </div>
         
@@ -35,11 +35,11 @@
         </div>
         <div class="item">
           <i class="iconfont icon-comment"></i>
-          <span class="num">{{momentData.commentNum}}</span>
+          <span class="num">{{momentData.comments.length}}</span>
         </div>
       </div>
       <div class="right">
-        <div class="item" @click="handleLike">
+        <div class="item" @click.stop="handleLike">
           <i class="iconfont icon-like" v-if="!this.isLike"></i>
           <i class="iconfont icon-like-fill like" v-else></i>
           <span class="num">{{momentData.like_num}}</span>
@@ -114,6 +114,9 @@ export default {
       }
       return result
     },
+    // likeNum(){
+    //   return this.momentData.like_num
+    // },
     ...mapGetters(['following','uid','like'])
   },
   methods: {
@@ -203,13 +206,19 @@ export default {
         })
       }
     },
+    gotoMomentDetail(){
+      // console.log(this.momentData)
+      this.setMomentData(this.momentData)
+      this.$router.push(`/momentDetail/${this.momentData._id}`)
+    },
     ...mapActions([
       'openGallery',
       'setUserFollow',
       'pushRecentlyMoment',
       'pushLike',
       'pullRecentlyMoment',
-      'pullLike'
+      'pullLike',
+      'setMomentData'
     ])
   }
 }
@@ -299,11 +308,13 @@ export default {
         margin-right .4rem
         .iconfont
           font-size .34rem
+          margin-right .1rem
     .right
       height .8rem
       line-height .8rem
       .iconfont
           font-size .34rem
+          margin-right .1rem
       .like
          color $cl-yellow
 </style>

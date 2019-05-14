@@ -64,6 +64,7 @@ const state = {
   following,
   favour,
   like,
-  recentlyMoments
+  recentlyMoments,
+  momentData:{}
 }
 export default state

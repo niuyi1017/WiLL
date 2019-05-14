@@ -115,6 +115,9 @@ const mutations = {
     } catch (error) {
       console.log(error)
     }
+  },
+  [types.SET_MOMENTDATA](state, momentData) {
+    state.momentData = momentData
   }
 }
 export default mutations
