@@ -1,8 +1,8 @@
 <template>
-  <div class="card-moment" @click="gotoMomentDetail">
+  <div class="card-moment" v-if="momentData" @click="gotoMomentDetail">
     <div class="header">
-      <div class="left" @click.stop="handleUserClick">
-        <div class="pic">
+      <div class="left" v-if="momentData.author" @click.stop="handleUserClick">
+        <div class="pic" >
           <img :src="momentData.author.avatar" alt="" srcset="">
         </div>
         <div class="title-time">
@@ -22,7 +22,7 @@
       <div class="pic-group-wrapper" v-show="displayPicList.length">
         <div class="pic-group" v-for="(pics, index) in displayPicList" :key="index">
           <div class="pic" v-for="(pic,innerIndex) in pics" :key="innerIndex">
-            <img :src="pic" v-show="pic" @click="handleImgClick(index,innerIndex)">
+            <img :src="pic" v-show="pic" @click.stop="handleImgClick(index,innerIndex)">
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="item">
           <i class="iconfont icon-comment"></i>
-          <span class="num">{{momentData.comments.length}}</span>
+          <span class="num" v-if="momentData.comments">{{momentData.comments.length}}</span>
         </div>
       </div>
       <div class="right">
@@ -59,9 +59,13 @@ export default {
   props: {
     momentData:{
       type: Object,
-      default(){
-        return {}
-      }
+      // default(){
+      //   return {
+      //     // author:{
+      //     //   avatar: 'http://blogpic.niuy.xyz/Screenshot_20170417-232840_1.jpg'
+      //     // }
+      //   }
+      // }
     }
   },
   computed: {
@@ -69,7 +73,7 @@ export default {
       return this.momentData.picUrls
     },
     displayPicList(){
-        let picList = this.momentData.picUrls
+        let picList = this.momentData.picUrls?this.momentData.picUrls:[]
         let res = []
         if(picList.length == 4){
           res = [[],[]]
@@ -208,7 +212,7 @@ export default {
     },
     gotoMomentDetail(){
       // console.log(this.momentData)
-      this.setMomentData(this.momentData)
+      // this.setMomentData(this.momentData)
       this.$router.push(`/momentDetail/${this.momentData._id}`)
     },
     ...mapActions([

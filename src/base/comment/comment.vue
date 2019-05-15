@@ -4,17 +4,17 @@
       <div class="comment-content" v-for="(item, index) in comments" :key="index"> 
         <div class="content">
           <div class="head">
-            <div class="pic">
-              <img :src="item.avatar" alt="" srcset="">
+            <div class="pic" @click="handleReply(item.author)">
+              <img :src="item.author.avatar" alt="" srcset="">
             </div>
             <div class="username">
-              <h3>{{item.username}}</h3>
-              <span class="time">{{item.postAt}}</span>  
+              <h3>{{item.author.username}}</h3>
+              <span class="time">{{item.meta.createdAt}}</span>  
             </div>
             <div class="icon-group">
               <div class="item">
                 <i class="iconfont icon-icon_community_line"></i>
-                <span class="num">{{item.reply_num}}</span>
+                <span class="num">{{item.replys.length}}</span>
               </div>
               <div class="item">
                 <i class="iconfont icon-like"></i>
@@ -49,15 +49,16 @@
         <i class="iconfont icon-edit-square"></i>
       </div>
       <div class="middle">
-        <textarea rows="1" placeholder="发表评论"></textarea>
+        <textarea rows="1" :placeholder="placeholder" v-model="commentContent"></textarea>
       </div>
-      <div class="right item">
+      <div class="right item" @click="handleComment">
         <i class="iconfont icon-feiji"></i>
       </div>
     </div>
   </div>
 </template>
 <script>
+import moment from 'moment'
 export default {
   name: 'Comment',
   props:{
@@ -67,13 +68,39 @@ export default {
         return []
       }
     }
-  }
+  },
+  data() {
+    return {
+      placeholder: '轻击撰写评论',
+      commentContent: "",
+    }
+  },
+  // computed: {
+  //   commentData(){
+  //     let result = this.comments.forEach(item => {
+  //       item.meta.createdAt = moment(item.meta.createdAt).fromNow()
+  //     } )
+  //     return result
+  //   }
+  // },
+  methods: {
+    handleComment(){
+      if(this.commentContent){
+        let comment = this.commentContent
+        this.$emit('postComment',comment)
+      }
+    },
+    handleReply(author){
+      this.placeholder = `@${author.username}：`
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>
 @import "~@/common/stylus/variable.styl"
 .comment-wrapper
   .wrapper
+    padding-bottom 1rem
     &:last-child
         padding-bottom 1rem
   .no-content
