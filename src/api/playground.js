@@ -13,6 +13,13 @@ export function getMomentList() {
     return Promise.resolve(res.data)
   })
 }
+export function getMomentDetail(moment_id) {
+  const url = `/api/moments/${moment_id}`
+  return axios.get(url
+  ).then((res) => {
+    return Promise.resolve(res.data)
+  })
+}
 export function momentLike(moment_id, from, to, recentlyMoment, notification) {
   const url = '/api/moment/like'
   const data = {
