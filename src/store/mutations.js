@@ -26,6 +26,22 @@ const mutations = {
     //   console.log(error)
     // }
   },
+  [types.SET_AVATAR](state, avatar) {
+    state.avatar = avatar
+    // try {
+    //   localStorage.avatar = avatar
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  },
+  [types.SET_USERNAME](state, username) {
+    state.username = username
+    // try {
+    //   localStorage.username = username
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  },
   [types.SET_UPLOADSK](state, uploadSK) {
     state.uploadSK = uploadSK
     

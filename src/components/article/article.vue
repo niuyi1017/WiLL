@@ -47,7 +47,7 @@
 <script>
 import MHeader from '@/base/header/header'
 import Comment from '@/base/comment/comment'
-import {getComments} from '@/api/comments'
+// import {getComments} from '@/api/comment'
 export default {
   name: 'Article',
   components: {
@@ -63,11 +63,11 @@ export default {
   },
   methods: {
     _getComments(){
-      getComments().then((res) => {
-        if(res.code==0&&res.data){
-          this.comments = res.data
-        }
-      })
+      // getComments().then((res) => {
+      //   if(res.code==0&&res.data){
+      //     this.comments = res.data
+      //   }
+      // })
     }
   },
   mounted() {
