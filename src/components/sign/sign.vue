@@ -67,6 +67,8 @@ export default {
               const data = {
                 token: res.data.token,
                 uid: res.data.uid,
+                avatar: res.data.avatar,
+                username: res.data.username,
                 following: res.data.following,
                 favour: res.data.favour,
                 like: res.data.like,

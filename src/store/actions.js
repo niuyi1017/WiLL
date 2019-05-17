@@ -8,9 +8,11 @@ export const closeGallery = function ({ commit }) {
   commit(types.SET_GALLERYIMGS,[])
   commit(types.SET_GALLERYINDEX,0)
 }
-export const signInSuccess = function ({ commit }, { token, uid, following, favour, like,recentlyMoments}){
+export const signInSuccess = function ({ commit }, { token, uid,avatar,username, following, favour, like,recentlyMoments}){
   commit(types.SET_TOKEN,token)
   commit(types.SET_UID, uid)
+  commit(types.SET_AVATAR, avatar)
+  commit(types.SET_USERNAME, username)
   commit(types.SET_FOLLOWING, following)
   commit(types.SET_FAVOUR, favour)
   commit(types.SET_LIKE, like)

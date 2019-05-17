@@ -4,7 +4,11 @@
     <div class="card-moment-wrapper">
       <card-moment :momentData="momentData"/>
     </div>
-    <comment @postComment="handlePostComment" :comments="momentData.comments"/>
+    <comment 
+            @postComment="handlePostComment" 
+            :comments="momentData.comments"
+            @postReply="handlePostReply"
+            />
   </div>
 </template>
 <script>
@@ -12,7 +16,7 @@ import MHeader from '@/base/header/header'
 import Comment from '@/base/comment/comment'
 import CardMoment from '@/base/card/card-moment'
 import { getMomentDetail } from '@/api/playground'
-import { postComment } from '@/api/comment'
+import { postComment, postReply } from '@/api/comment'
 import {momentMode,contentType} from '@/common/js/config'
 import { mapGetters } from 'vuex';
 export default {
@@ -39,7 +43,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['uid'])
+    ...mapGetters(['uid','avatar','username'])
   },
   methods: {
     _getMomentDetail(){
@@ -50,33 +54,72 @@ export default {
           }
         })
     },
-    handlePostComment(commentContent){
-      // let to = this.momentData.author._id
-      let imgUrl = this.momentData.picUrls[0]?this.momentData.picUrls[0]:''
-      let desc = this.momentData.content
-      let moment_id = this.momentData._id
-      let comment = {
-        author: this.uid,
-        content: commentContent,
-        replyType: 0,
-        moment_id
+    handlePostComment(isreply,commentContent){
+
+      if(!isreply){
+        // let to = this.momentData.author._id
+        let imgUrl = this.momentData.picUrls[0]?this.momentData.picUrls[0]:''
+        let desc = commentContent
+        let moment_id = this.momentData._id
+        let comment = {
+          author: this.uid,
+          content: commentContent,
+          replyType: 0,
+          moment_id
+        }
+        let recentlyMoment = {
+              momentMode:momentMode.comment,
+              contentType: contentType.moment,
+              postTime: new Date(),
+              imgUrl,
+              desc
+            }
+        let notification = {
+          from: this.uid,
+          message: "评论了你的同学圈",
+          postTime: new Date(),
+          articlePic: imgUrl,
+          isFollow: false
+        }
+        postComment(comment,recentlyMoment,notification).then((res) => {
+            if(res.code==0&&res.data){
+              console.log(res.data)
+              
+            }
+          })
+      }else{
+        this.handlePostReply(commentContent)
       }
+    },
+    handlePostReply({to,content,comment_id}){
+      let imgUrl = this.momentData.picUrls[0]?this.momentData.picUrls[0]:''
+      let desc = content
+      let reply = {
+        to:to,
+        from:{
+          uid: this.uid,
+          avatar: this.avatar,
+          username:this.username
+        },
+        content,
+        comment_id,
+      }
+      console.log(reply)
       let recentlyMoment = {
-            momentMode:momentMode.comment,
-            contentType: contentType.moment,
+            momentMode:momentMode.reply,
+            contentType: contentType.comment,
             postTime: new Date(),
             imgUrl,
             desc
           }
       let notification = {
         from: this.uid,
-        message: "评论了你的同学圈",
+        message: "回复了你的评论",
         postTime: new Date(),
         articlePic: imgUrl,
         isFollow: false
       }
-      console.log(comment)  
-      postComment(comment,recentlyMoment,notification).then((res) => {
+      postReply(reply,recentlyMoment,notification).then((res) => {
           if(res.code==0&&res.data){
             console.log(res.data)
             

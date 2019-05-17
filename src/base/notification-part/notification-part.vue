@@ -43,7 +43,8 @@ export default {
           if(res.code==0&&res.data){
             let notifications = res.data
             let result = {}
-            for(let i=0;i<notifications.length;i++){
+            for(let i=notifications.length-1;i>0;i--){
+              if(notifications[i]==null)continue;
               let date = moment(notifications[i].postTime,'YYYYMMDD').calendar().split(' ')[0]
               if(result[date]){
                 result[date].push(notifications[i])

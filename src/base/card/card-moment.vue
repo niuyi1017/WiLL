@@ -103,7 +103,7 @@ export default {
     },
     isFollowing(){
       let result = false
-      if(this.uid){
+      if(this.uid&&this.momentData.author){
         if(this.uid == this.momentData.author._id)
           result = true
         else

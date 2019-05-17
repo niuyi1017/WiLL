@@ -4,6 +4,8 @@ export const SET_GALLERYINDEX = 'SET_GALLERYINDEX'
 
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_UID = 'SET_UID'
+export const SET_AVATAR = 'SET_AVATAR'
+export const SET_USERNAME = 'SET_USERNAME'
 
 export const SET_UPLOADSK = 'SET_UPLOADSK'
 

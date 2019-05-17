@@ -4,7 +4,7 @@
       <div class="comment-content" v-for="(item, index) in comments" :key="index"> 
         <div class="content">
           <div class="head">
-            <div class="pic" @click="handleReply(item.author)">
+            <div class="pic" @click="handleReply(item.author,item._id)">
               <img :src="item.author.avatar" alt="" srcset="">
             </div>
             <div class="username">
@@ -25,12 +25,12 @@
           <div class="body">
             <p>{{item.content}}</p>
             <div class="reply" v-for="(reply, innerIndex) in item.replys" :key="innerIndex">
-              <div class="head">
+              <div class="head" @click="handleReply(reply.from,item._id)">
                 <div class="pic">
-                  <img :src="reply.from_avatar" alt="" srcset="">
+                  <img :src="reply.from.avatar" alt="" srcset="">
                 </div>
                 <div class="username">
-                  {{reply.from_username}} <span class="to"> 回复 </span> {{reply.to_username}}
+                  {{reply.from.username}} <span class="to"> 回复 </span> {{reply.to.username}}
                 </div>
               </div>
               <div class="reply-body">
@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-import moment from 'moment'
+// import moment from 'moment'
 export default {
   name: 'Comment',
   props:{
@@ -71,27 +71,42 @@ export default {
   },
   data() {
     return {
+      isReply:false,
       placeholder: '轻击撰写评论',
       commentContent: "",
     }
   },
-  // computed: {
-  //   commentData(){
-  //     let result = this.comments.forEach(item => {
-  //       item.meta.createdAt = moment(item.meta.createdAt).fromNow()
-  //     } )
-  //     return result
-  //   }
-  // },
   methods: {
-    handleComment(){
+    handleComment(comment_id){
       if(this.commentContent){
-        let comment = this.commentContent
-        this.$emit('postComment',comment)
+        if(!this.isReply){
+          let comment = this.commentContent
+          this.$emit('postComment',this.isReply,comment)
+          this.commentContent=""
+        }else{
+          let reply = {
+            to:this.to,
+            content: this.commentContent,
+            comment_id:this.comment_id,
+          }
+          console.log(reply)
+          this.$emit('postComment',this.isReply,reply)
+          this.commentContent=""
+        }
       }
     },
-    handleReply(author){
-      this.placeholder = `@${author.username}：`
+    handleReply(to,comment_id){
+      this.isReply = !this.isReply
+      if(this.isReply){
+        this.placeholder = `@${to.username}：`
+        if(!to._id){
+          to._id = to.uid
+        }
+        this.to = to,
+        this.comment_id = comment_id
+      }else{
+        this.placeholder = '轻击撰写评论'
+      }
     }
   },
 }
