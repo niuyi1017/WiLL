@@ -1,7 +1,7 @@
 <template>
   <div class="comment-wrapper">
     <div class="wrapper" v-if="comments.length">
-      <div class="comment-content" v-for="(item, index) in comments" :key="index"> 
+      <div class="comment-content" v-for="(item, index) in comments4show" :key="index"> 
         <div class="content">
           <div class="head">
             <div class="pic" @click="handleReply(item.author,item._id)">
@@ -9,7 +9,7 @@
             </div>
             <div class="username">
               <h3>{{item.author.username}}</h3>
-              <span class="time">{{item.meta.createdAt}}</span>  
+              <span class="time" >{{item.meta.createdAt}}</span>  
             </div>
             <div class="icon-group">
               <div class="item">
@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-// import moment from 'moment'
+import moment from 'moment'
 export default {
   name: 'Comment',
   props:{
@@ -76,8 +76,17 @@ export default {
       commentContent: "",
     }
   },
+  computed: {
+    comments4show(){
+      let comments = this.comments
+      for(let i = 0; i<comments.length; i++){
+        comments[i].meta.createdAt = moment(comments[i].meta.createdAt).fromNow()
+      }
+      return comments
+    }
+  },
   methods: {
-    handleComment(comment_id){
+    handleComment(){
       if(this.commentContent){
         if(!this.isReply){
           let comment = this.commentContent

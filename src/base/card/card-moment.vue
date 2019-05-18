@@ -118,9 +118,6 @@ export default {
       }
       return result
     },
-    // likeNum(){
-    //   return this.momentData.like_num
-    // },
     ...mapGetters(['following','uid','like'])
   },
   methods: {
