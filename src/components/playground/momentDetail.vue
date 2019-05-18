@@ -18,7 +18,7 @@ import CardMoment from '@/base/card/card-moment'
 import { getMomentDetail } from '@/api/playground'
 import { postComment, postReply } from '@/api/comment'
 import {momentMode,contentType} from '@/common/js/config'
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations} from 'vuex';
 export default {
   name: 'momentDetail',
   components: {
@@ -55,9 +55,7 @@ export default {
         })
     },
     handlePostComment(isreply,commentContent){
-
       if(!isreply){
-        // let to = this.momentData.author._id
         let imgUrl = this.momentData.picUrls[0]?this.momentData.picUrls[0]:''
         let desc = commentContent
         let moment_id = this.momentData._id
@@ -83,8 +81,8 @@ export default {
         }
         postComment(comment,recentlyMoment,notification).then((res) => {
             if(res.code==0&&res.data){
-              console.log(res.data)
-              
+              this.momentData.comments = res.data.comments
+              this.pushRecentlyMoments(recentlyMoment)
             }
           })
       }else{
@@ -104,7 +102,6 @@ export default {
         content,
         comment_id,
       }
-      console.log(reply)
       let recentlyMoment = {
             momentMode:momentMode.reply,
             contentType: contentType.comment,
@@ -121,11 +118,20 @@ export default {
       }
       postReply(reply,recentlyMoment,notification).then((res) => {
           if(res.code==0&&res.data){
-            console.log(res.data)
-            
+            let comment_id = res.data.comment_id
+            let comments = this.momentData.comments
+            for(let i = 0;i<comments.length;i++){
+              if(comments[i]._id == comment_id){
+                comments[i].replys = res.data.replys
+              }
+            }
+            this.pushRecentlyMoments(recentlyMoment)
           }
         })
-    }
+    },
+    ...mapMutations({
+      pushRecentlyMoments:'PUSH_RECENTLY_MOMENTS'
+    })
   },
   activated() {
     this._getMomentDetail()

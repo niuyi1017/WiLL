@@ -89,7 +89,6 @@ export default {
             content: this.commentContent,
             comment_id:this.comment_id,
           }
-          console.log(reply)
           this.$emit('postComment',this.isReply,reply)
           this.commentContent=""
         }
