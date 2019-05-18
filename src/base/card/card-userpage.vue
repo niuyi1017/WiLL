@@ -139,8 +139,8 @@ export default {
           width 100%
           height 100%
       .pic
-        height 1.6rem
-        width 1.6rem
+        height 1.4rem
+        width 1.4rem
         margin-left .2rem
         margin-right .4rem
         flex none
