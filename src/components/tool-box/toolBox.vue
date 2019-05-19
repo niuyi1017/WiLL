@@ -30,9 +30,9 @@
           </div>
         </div>
         <div class="icon-group">
-          <div class="item">
+          <div class="item" @click="gotoChooseSchools">
             <div class="icon"><i class="iconfont icon-linechart"></i></div>
-            <div class="name">历年分数线</div>
+            <div class="name">智能择校</div>
           </div>
           <div class="item" @click="gotoSchools">
             <div class="icon"><i class="iconfont icon-bank"></i></div>
@@ -157,6 +157,9 @@ export default {
     },
     gotoSpecials() {
        this.$router.push('/speciallist')
+    },
+    gotoChooseSchools(){
+       this.$router.push('/chooseSchools')
     }
   },
   mounted() {

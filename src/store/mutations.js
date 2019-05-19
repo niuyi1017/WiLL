@@ -134,6 +134,10 @@ const mutations = {
   },
   [types.SET_MOMENTDATA](state, momentData) {
     state.momentData = momentData
-  }
+  },
+
+  [types.SET_CHOOSESCHOOLS](state, chooseSchools) {
+    state.chooseSchools = chooseSchools
+  },
 }
 export default mutations

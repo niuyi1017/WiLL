@@ -11,3 +11,4 @@ export const like = state => state.like
 export const favour = state => state.favour
 export const recentlyMoments = state =>  state.recentlyMoments
 export const momentData = state => state.momentData
+export const chooseSchools = state => state.chooseSchools
