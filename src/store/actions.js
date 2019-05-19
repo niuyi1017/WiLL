@@ -38,3 +38,6 @@ export const pullLike = function ({ commit }, moment_id) {
 export const setMomentData = function ({ commit }, momentDada) {
   commit(types.SET_MOMENTDATA, momentDada)
 }
+export const setChoolSchools = function ({ commit }, chooseSchools) {
+  commit(types.SET_CHOOSESCHOOLS, chooseSchools)
+}

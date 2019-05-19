@@ -6,3 +6,23 @@ export function getSchools() {
     return Promise.resolve(res.data)
   })
 }
+export function getSchoolsByScore(data) {
+  const url = '/api/schoolsByScore'
+  let config = {
+    params: data
+  }
+  return Maxios.get(url, config
+  ).then((res) => {
+    return Promise.resolve(res.data)
+  })
+}
+export function getSchoolsByRank(data) {
+  const url = '/api/schoolsByRank'
+  let config = {
+    params: data
+  }
+  return Maxios.get(url, config
+  ).then((res) => {
+    return Promise.resolve(res.data)
+  })
+}

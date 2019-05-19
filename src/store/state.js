@@ -65,6 +65,7 @@ const state = {
   favour,
   like,
   recentlyMoments,
-  momentData:{}
+  momentData:{},
+  chooseSchools: {}
 }
 export default state
