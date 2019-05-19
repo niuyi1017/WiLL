@@ -68,7 +68,6 @@ export default {
   },
   methods: {
     _getSchools(){
-      console.log(this.chooseSchools)
         if(this.chooseSchools.score){
           getSchoolsByScore(this.chooseSchools).then(res => {
             if(res.code==0&&res.data){
@@ -89,7 +88,6 @@ export default {
                 ret.push(result)
               }
               this.schools = ret
-              console.log(ret)
             }
         })
         }else{

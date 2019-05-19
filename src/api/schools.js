@@ -11,7 +11,6 @@ export function getSchoolsByScore(data) {
   let config = {
     params: data
   }
-  console.log(data)
   return Maxios.get(url, config
   ).then((res) => {
     return Promise.resolve(res.data)
