@@ -115,9 +115,10 @@ export default new Router({
       component: School
     },
     {
-      path: '/articles/:id',
+      path: '/articles/:article_id',
       name: 'articles',
-      component: Article
+      component: Article,
+      props: true
     },
     {
       path: '/userProfile/:id',

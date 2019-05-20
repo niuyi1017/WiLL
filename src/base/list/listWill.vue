@@ -2,14 +2,14 @@
   <div class="list-will">
     <div class="card-wrapper" v-for="(item,index) in articleList" 
                               :key="index"
-                              @click="seleteItem(index)" >
+                              @click="seleteItem(item._id)" >
      <div class="left">
-       <img class="left-pic" src='../../common/image/2.jpg' >
+       <img class="left-pic" :src="item.cover" >
      </div>
      <div class="right">
        <div class="right-wrapper">
           <div class="header">
-            <div class="author">{{item.author}}</div>
+            <div class="author">{{item.author.username}}</div>
             <div class="title-wrapper">
               <p class="title">{{item.title}}</p>
             </div>
@@ -18,15 +18,15 @@
             <div class="icon-group">
               <div class="item">
                 <i class="iconfont icon-eye"></i>
-                <span class="num">{{item.read}}</span>
+                <span class="num">{{item.read_num}}</span>
               </div>
               <div class="item">
                 <i class="iconfont icon-comment"></i>
-                <span class="num">{{item.comment}}</span>
+                <span class="num">{{item.comments.length}}</span>
               </div>
               <div class="item">
                 <i class="iconfont icon-like"></i>
-                <span class="num">{{item.like}}</span>
+                <span class="num">{{item.like_num}}</span>
               </div>
             </div>
           </div>
@@ -51,6 +51,9 @@ export default {
       let url = `/articles/${id}`
       this.$router.push(url)
     }
+  },
+  mounted() {
+    console.log(this.articleList)
   },
 }
 </script>
