@@ -1,14 +1,14 @@
 <template>
-  <div class="article-wrapper">
+  <div class="article-wrapper" >
     <m-header :title="title"/>
-    <div class="author-card">
+    <div class="author-card" v-if="article.author">
       <div class="left">
-        <div class="pic">
-          <img src="../../common/image/t1.jpg" alt="" srcset="">
+        <div class="pic" >
+          <img :src="article.author.avatar" alt="" srcset="">
         </div>
-        <div class="author">
-          <div class="username">一只小小白</div>
-          <div class="time">31 mins ago </div>
+        <div class="author" >
+          <div class="username">{{article.author.username}}</div>
+          <div class="time">{{article.meta.createdAt}} </div>
         </div>
       </div>
       <div class="right">
@@ -16,14 +16,14 @@
       </div>
     </div>
     <div class="headline">
-      <h1 class="article-title">在距海最近的大学读书是什么样的体验</h1>
+      <h1 class="article-title">{{article.title}}</h1>
       <div class="meta">
-        <div class="time">31 mins ago</div>
-        <div class="name">一只小小白</div>
+        <div class="time">{{article.meta.createdAt}} </div>
+        <div class="name">{{article.author.username}}</div>
       </div>
     </div>
-    <div class="content">
-
+    <div class="content" v-html="article.content">
+      
     </div>
     <div class="comment-bar">
       <div class="left">
@@ -47,7 +47,7 @@
 <script>
 import MHeader from '@/base/header/header'
 import Comment from '@/base/comment/comment'
-// import {getComments} from '@/api/comment'
+import {getArticle} from '@/api/article'
 export default {
   name: 'Article',
   components: {
@@ -58,20 +58,39 @@ export default {
     return {
       title: '文章正文',
       showAbs: true,
-      comments: []
+      comments: [],
+      article(){
+        return {
+          author: {
+            username: "...",
+            avatar: "..."
+          },
+          title: "loading...",
+          meta:{
+            cretedAt: 'loading',
+            updateddAt: "loading"
+          }
+        }
+      }
+    }
+  },
+  props: {
+    article_id:{
+      type: String
     }
   },
   methods: {
-    _getComments(){
-      // getComments().then((res) => {
-      //   if(res.code==0&&res.data){
-      //     this.comments = res.data
-      //   }
-      // })
+    _getArticle(){
+      getArticle(this.article_id).then((res) => {
+        if(res.code==0&&res.data){
+          this.article = res.data
+          console.log(this.article)
+        }
+      })
     }
   },
   mounted() {
-    this._getComments()
+    this._getArticle()
   },
 }
 </script>
@@ -136,9 +155,10 @@ export default {
       .name
         color $cl-blue
   .content
-    height 10rem
     background #fff
     margin-bottom 0.1rem
+    padding .1rem 0.15rem
+    
   .comment-bar
     height 1rem
     display flex
@@ -157,4 +177,6 @@ export default {
       .num 
         margin-left .1rem
         margin-top .05rem
+p
+  font-size .40rem
 </style>
