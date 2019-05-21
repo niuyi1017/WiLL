@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper" ref="wrapper">
     <swiper :options="swiperOption" >
-      <swiper-slide v-for="(major,index) in majorList" :key="index">
+      <swiper-slide v-for="(major,index) in specials" :key="index">
         <div class="card-wrapper" :style="diffColor[index]">
-          <h3 class="major">{{major.name}}</h3>
+          <h3 class="major">{{major.special_name}}</h3>
         </div>
       </swiper-slide>
     </swiper>
@@ -14,12 +14,12 @@ import {diffColor} from '@/common/js/config'
 export default {
   name: "SwiperMajors",
   props: {
-    // userList:{
-    //   type: Array,
-    //   default() {
-    //     return []
-    //   }
-    // }
+    specials:{
+      type: Array,
+      default() {
+        return []
+      }
+    }
   },
   data () {
       return {
@@ -49,32 +49,6 @@ export default {
             }
           }
         },
-        majorList:[
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          },
-          {
-            name: "物联网工程"
-          }
-        ],
         diffColor
       }
   },
@@ -95,18 +69,18 @@ export default {
   width: 100%
   height :0
   overflow hidden
-  padding-bottom 1.4rem
+  padding-bottom 1rem
   .card-wrapper
-    margin-top .35rem
+    // margin-top .35rem
     width 3rem
     height .8rem
     line-height .8rem
     text-align center
     position relative
-    border-radius .1rem
-    margin-bottom .5rem
+    border-radius .08rem
+    // margin-bottom .5rem
     color #fff
-    box-shadow 0 0rem .4rem #aaa
+    // box-shadow 0 0rem .4rem #aaa
     overflow hidden
     &:first-child
       margin-left .3rem

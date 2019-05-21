@@ -1,15 +1,15 @@
 <template>
   <div class="will">
     <search-box/>
-    <swiper-will :swiperList="will.swiperlist"/>
-    <swiper-majors :majorList="will.hotMajorList"></swiper-majors>
+    <swiper-will :swiperList="will.slideShows"/>
+    <swiper-majors :specials="will.hotSpecials"></swiper-majors>
     <col-title title="热门 Hot" icon="icon-fire"/> 
     <list-will :articleList="will.hotArticles"/>
-    <swiper-users :userList="will.recommendUserList"></swiper-users>
+    <swiper-users :userList="will.recommendPeople"></swiper-users>
     <col-title title="热门大学" icon="icon-fire"/>
-    <swiper-schools :schoolList="will.hotSchoolList"></swiper-schools>
+    <swiper-schools :schoolList="will.hotSchools"></swiper-schools>
     <col-title />
-    <list-will :articleList="will.recommendArticleList"/>
+    <list-will :articleList="will.recommendArticles"/>
     <TabBar />
   </div>
 </template>

@@ -4,7 +4,7 @@
       <swiper-slide v-for="(school,index) in schoolList" :key="index">
         <div class="card-wrapper" @click="selectSchool(index)">
           <div class="pic">
-            <img src="http://blogpic.niuy.xyz/648ac377gy1fwibre3yhfj21kw11ykjl.jpg" alt="" srcset="">
+            <img src="http://prt246ayv.bkt.clouddn.com/%E7%A8%BF%E5%AE%9A%E8%AE%BE%E8%AE%A1%E5%AF%BC%E5%87%BA-20190521-233408.png" alt="" srcset="">
           </div>
           <div class="info">
             <!-- <div class="pic">
@@ -15,7 +15,7 @@
               <div class="tags">
                 <div class="tag" v-show="school.is985">985</div>
                 <div class="tag" v-show="school.is211">211</div>
-                <div class="tag" v-show="school.isDualClass">双一流</div>
+                <div class="tag" v-show="school.isDualClass">????�</div>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default {
     position relative
     border-radius .2rem
     margin-bottom .5rem
-    box-shadow 0 0rem .4rem #aaa
+    // box-shadow 0 0rem .4rem #aaa
     overflow hidden
     &:first-child
       margin-left .3rem
@@ -100,7 +100,7 @@ export default {
       img 
         height 100%
         width 100%
-        filter brightness(0.80)
+        // filter brightness(0.80)
     .info
       position absolute
       width 100%
