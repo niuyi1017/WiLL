@@ -52,9 +52,7 @@ export default {
       this.$router.push(url)
     }
   },
-  mounted() {
-    // console.log(this.articleList)
-  },
+ 
 }
 </script>
 <style lang="stylus" scoped>
@@ -81,6 +79,7 @@ export default {
       left 0rem
       .left-pic
         width 100%
+        height 100%
     .right
       height 2.2rem
       background #fff

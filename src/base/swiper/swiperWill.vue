@@ -4,11 +4,11 @@
       <swiper-slide v-for="(item, index) in swiperList" :key="index" >
         <div class="card-wrapper">
           <div class="top">
-            <div class="tag">{{item.tag}}</div>
+            <!-- <div class="tag">{{item.tag}}</div> -->
             <div class="pic">
               <img :src="item.imgUrl">
             </div>
-            <div class="header">{{item.title}}</div>
+            <!-- <div class="header">{{item.title}}</div> -->
           </div>
         </div>
       </swiper-slide>
@@ -25,7 +25,7 @@
       return {
         swiperOption: {
           loop: true,
-          slidesPerView: 1.1,
+          slidesPerView: 1,
           autoplay: 4500
         },
       }
@@ -41,13 +41,13 @@
   padding-bottom :3.8rem
   background $cl-bg2
   .card-wrapper
-    width 94%
-    margin-left 5%
-    margin-top .2rem
+    width 100%
+    // margin-left 5%
+    // margin-top .2rem
     overflow hidden
-    border-radius .3rem
+    // border-radius .15rem
     height 3.6rem
-    box-shadow 0 0rem .1rem 0 #AAAAAA
+    // box-shadow 0 0rem .1rem 0 #AAAAAA
     margin-bottom .2rem
     .top
       height 0
@@ -61,7 +61,7 @@
         overflow hidden
         img
           width 100%
-          margin-top: -2.0rem;
+          // margin-top: -2.0rem;
       .tag
         position absolute
         top .2rem
