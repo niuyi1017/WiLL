@@ -63,7 +63,6 @@ const mutations = {
     }
   },
   [types.PUSH_FOLLOWING](state, following) {
-    console.log(following)
     state.following.push(following)
     try {
       let locaFollowing = JSON.parse(localStorage.getItem('following'));
@@ -73,7 +72,6 @@ const mutations = {
     } catch (error) {
       console.log(error)
     }
-    console.log(state.following)
   },
   [types.SET_FAVOUR](state, favour) {
     state.favour = favour
@@ -112,21 +110,21 @@ const mutations = {
       console.log(error)
     }
   },
-  [types.PUSH_LIKE](state, moment_id) {
-    state.like.moment.push(moment_id)
+  [types.PUSH_LIKE](state,{type, moment_id}) {
+    state.like[type].push(moment_id)
     try {
       let like = JSON.parse(localStorage.getItem('like'))
-      like.moment.push(moment_id)
+      like[type].push(moment_id)
       localStorage.like = JSON.stringify(like)
     } catch (error) {
       console.log(error)
     }
   },
-  [types.PULL_LIKE](state, moment_id) {
-    state.like.moment.splice(state.like.moment.indexOf(moment_id), 1)
+  [types.PULL_LIKE](state, {type, moment_id}) {
+    state.like[type].splice(state.like[type].indexOf(moment_id), 1)
     try {
       let like = JSON.parse(localStorage.getItem('like'));
-      like.moment.splice(like.moment.indexOf(moment_id), 1)
+      like[type].splice(like[type].indexOf(moment_id), 1)
       localStorage.like = JSON.stringify(like)
     } catch (error) {
       console.log(error)

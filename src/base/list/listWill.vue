@@ -53,7 +53,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.articleList)
+    // console.log(this.articleList)
   },
 }
 </script>
