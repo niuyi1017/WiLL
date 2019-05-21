@@ -194,7 +194,11 @@ export default {
           if(res.code==0&&res.data){
             this.momentData.like_num = res.data.like_num-1
             this.pullRecentlyMoment(recentlyMoment)
-            this.pullLike(moment_id)
+            let change = {
+              type: 'moment',
+              moment_id
+            }
+            this.pullLike(change)
           }
         })
       }else{
@@ -202,7 +206,11 @@ export default {
           if(res.code==0&&res.data){
             this.momentData.like_num = res.data.like_num+1
             this.pushRecentlyMoment(recentlyMoment)
-            this.pushLike(moment_id)
+            let change = {
+              type: 'moment',
+              moment_id
+            }
+            this.pushLike(change)
           }
         })
       }

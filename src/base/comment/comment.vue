@@ -8,7 +8,7 @@
               <img :src="item.author.avatar" alt="" srcset="">
             </div>
             <div class="username">
-              <h3>{{item.author.username}}</h3>
+              <div class="h3">{{item.author.username}}</div>
               <span class="time" >{{item.meta.createdAt}}</span>  
             </div>
             <div class="icon-group">
@@ -153,7 +153,7 @@ export default {
         .username
           flex-grow 1
           margin 0 .2rem
-          h3
+          .h3
             line-height .4rem
           .time
             color #aaa

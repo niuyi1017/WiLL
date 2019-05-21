@@ -50,7 +50,6 @@ export default {
        getMomentDetail(this.moment_id).then((res) => {
           if(res.code==0&&res.data){
             this.momentData = res.data
-            
           }
         })
     },

@@ -25,14 +25,14 @@ export const setUserFollow = function ({ commit }, { following, recentlyMoment})
 export const pushRecentlyMoment = function ({ commit }, recentlyMoment) {
   commit(types.PUSH_RECENTLY_MOMENTS, recentlyMoment)
 }
-export const pushLike = function ({ commit }, moment_id) {
-  commit(types.PUSH_LIKE, moment_id)
+export const pushLike = function ({ commit }, change) {
+  commit(types.PUSH_LIKE, change)
 }
 export const pullRecentlyMoment = function ({ commit }, recentlyMoment) {
   commit(types.PULL_RECENTLY_MOMENTS, recentlyMoment)
 }
-export const pullLike = function ({ commit }, moment_id) {
-  commit(types.PULL_LIKE, moment_id)
+export const pullLike = function ({ commit },change) {
+  commit(types.PULL_LIKE,change)
 }
 
 export const setMomentData = function ({ commit }, momentDada) {

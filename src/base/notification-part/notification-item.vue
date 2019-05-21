@@ -1,10 +1,10 @@
 <template>
   <div class="item">
-    <div class="pic">
+    <div class="pic" v-if="notification.from">
       <img :src="notification.from.avatar" alt="" srcset="" v-show="!notification.isSystemMsg">
       <i class="iconfont icon-bell" v-show="notification.isSystemMsg"></i>
     </div>
-    <div class="content">
+    <div class="content" v-if="notification.from">
         <div class="text"><span class="username">{{notification.from.username}}</span> {{notification.message}}</div>
     </div>
     <div class="article-pic" v-if="!notification.isFollow">
@@ -30,10 +30,12 @@ export default {
       default() {
         return {
               avatar: '',
-              username: '',
               message: '',
               postTime: '',
-              articlePic: ''
+              articlePic: '',
+              from:{
+                username: ""
+              }
         }
       }
     }
