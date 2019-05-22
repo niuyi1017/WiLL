@@ -35,7 +35,10 @@ export default {
   },
   mounted() {
    this._getQaList()
-  }
+  },
+  activated() {
+    this._getQaList()
+  },
 }
 </script>
 <style lang="stylus" scoped>

@@ -51,9 +51,9 @@ export default {
               }
             }
           }
-          result.sort((a,b) => {
-            return a.title-b.title
-          })
+          // result.sort((a,b) => {
+          //   return a.title-b.title
+          // })
           this.contacts = result
         }
       })
