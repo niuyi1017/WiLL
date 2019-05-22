@@ -135,7 +135,7 @@ export default {
       try {
         let res = await uploadAllPicAsync(picFiles,this.uploadSK)
         res.map(item => {
-          picUrls.push(`http://pq2z2mcsm.bkt.clouddn.com/${item.key}`)
+          picUrls.push(`http://prt246ayv.bkt.clouddn.com/${item.key}`)
         })
       } catch (error) {
         console.log(error)
