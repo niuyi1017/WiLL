@@ -17,7 +17,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 
-new Vue({
+export const app =new Vue({
   render: h => h(App),
   router,
   store,
