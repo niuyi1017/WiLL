@@ -2,7 +2,7 @@
   <div class="tool-box">
     <m-header title="院校库"></m-header>
     <div class="scroll-wrapper">
-      <scroll :data="schools" class="scroll">
+      <scroll :data="schools" class="scroll" :pullup="pullup" @scrollToEnd="loadMore">
         <div>
           <div class="card" v-for="(school, index) in schools" :key="index">
             <div class="pic">
@@ -22,6 +22,7 @@
               </div>
             </div>
           </div>
+          <loading v-show="hasMore"/>
       </div>
     </scroll>
    </div>
@@ -31,32 +32,52 @@
 <script>
 import MHeader from '@/base/header/header'
 import Scroll from '@/base/scroll/scroll'
+import Loading from '@/base/loading/loading'
 import { getSchools } from '@/api/schools.js'
 export default {
   name: "ToolBox",
   components: {
     Scroll,
-    MHeader
+    MHeader,
+    Loading
   },
   data() {
     return {
       schools:[],
+      pullup: true,
+      hasMore: true,
+      page: 0
     }
   },
-  computed: {
-   
-  },
   methods: {
-    _getSchools(){
-      getSchools().then((res) => {
+    _getSchools(page){
+      this.hasMore = true
+      getSchools(page).then((res) => {
         if(res.code==0&&res.data){
           this.schools = res.data
+          if(res.data.length==0){
+            this.hasMore = false
+          }
+        }
+      })
+    },
+    loadMore(){
+      if(!this.hasMore){
+        return
+      }
+      this.page++
+      getSchools(this.page).then((res) => {
+        if(res.code==0&&res.data){
+          this.schools =  this.schools.concat(res.data)
+          if(res.data.length==0){
+            this.hasMore = false
+          }
         }
       })
     }
   },
   mounted() {
-    this._getSchools()
+    this._getSchools(this.page)
   }
 }
 </script>
