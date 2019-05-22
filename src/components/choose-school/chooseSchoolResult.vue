@@ -2,7 +2,7 @@
   <div class="schoolsResult">
     <m-header title="择校结果"></m-header>
      <div class="scroll-wrapper">
-      <scroll :data="schools" class="scroll">
+      <scroll :data="schools" class="scroll"  @scrollToEnd="loadMore">
         <div>
           <div class="card" v-for="(school, index) in schools" :key="index">
             <div class="top">
@@ -60,16 +60,20 @@ export default {
   // },
   data() {
     return {
-      schools:[]
+      schools:[],
+      pullup: true,
+      hasMore: true,
+      scorePage: 1,
+      rankPage: 1
     }
   },
   computed: {
     ...mapGetters(['chooseSchools'])
   },
   methods: {
-    _getSchools(){
+    _getSchools(page){
         if(this.chooseSchools.score){
-          getSchoolsByScore(this.chooseSchools).then(res => {
+          getSchoolsByScore(this.chooseSchools,page).then(res => {
             if(res.code==0&&res.data){
               let schools = res.data
               let ret = []
@@ -87,11 +91,18 @@ export default {
                 }
                 ret.push(result)
               }
-              this.schools = ret
+              if(res.data.length==0){
+                this.hasMore = false
+              }
+              if(page == 0){
+                this.schools = ret
+              }else{
+                this.schools = this.schools.concat(ret)
+              }
             }
         })
         }else{
-          getSchoolsByRank(this.chooseSchools).then(res => {
+          getSchoolsByRank(this.chooseSchools,page).then(res => {
             if(res.code==0&&res.data){
               let schools = res.data
               let ret = []
@@ -109,17 +120,37 @@ export default {
                 }
                 ret.push(result)
               }
-              this.schools = ret
+              if(res.data.length==0){
+                this.hasMore = false
+              }
+              if(page == 0){
+                this.schools = ret
+              }else{
+                this.schools = this.schools.concat(ret)
+              }
             }
         })
       }
+    },
+    loadMore(){
+      if(!this.hasMore){
+        return
+      }
+      if(this.chooseSchools.score){
+        this.scorePage++
+        this._getSchools(this.scorePage)
+      }else{
+         this.rankPage++
+        this._getSchools(this.scorepage)
+      }
     }
   },
-  mounted() {
-    this._getSchools()
-  },
+  // mounted() {
+  //   this._getSchools(0)
+  // },
   activated() {
-    this._getSchools()
+    this.schools = []
+    this._getSchools(0)
   },
 
 }

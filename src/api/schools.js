@@ -1,13 +1,13 @@
 import Maxios from './config'
-export function getSchools() {
-  const url = '/api/schools'
+export function getSchools(page) {
+  const url = `/api/schools?page=${page}`
   return Maxios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)
   })
 }
-export function getSchoolsByScore(data) {
-  const url = '/api/schoolsByScore'
+export function getSchoolsByScore(data,page) {
+  const url = `/api/schoolsByScore?page=${page}`
   let config = {
     params: data
   }
@@ -16,8 +16,8 @@ export function getSchoolsByScore(data) {
     return Promise.resolve(res.data)
   })
 }
-export function getSchoolsByRank(data) {
-  const url = '/api/schoolsByRank'
+export function getSchoolsByRank(data,page) {
+  const url = `/api/schoolsByRank?page=${page}`
   let config = {
     params: data
   }

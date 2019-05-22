@@ -14,7 +14,7 @@ export function getNotifications(uid) {
   })
 }
 export function getContacts() {
-  const url = '/api/contacts.json'
+  const url = '/api/messages/contacts'
   return axios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)

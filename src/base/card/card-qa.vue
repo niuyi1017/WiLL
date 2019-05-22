@@ -5,13 +5,13 @@
         <div class="tag" :style="tagColor">{{qaData.tag}}</div>
         <div class="time">{{qaData.postAt}}</div>
       </div>
-      <div class="question">{{qaData.question}}?</div>
+      <div class="question">{{qaData.question}}</div>
       <div class="answer">
           {{qaData.answer}}
       </div>
       <div class="footer">
         <div class="author">
-          <div class="pic"><img src="../../common/image/t2.jpg" alt=""></div>
+          <div class="pic"><img src="http://blogpic.niuy.xyz/Screenshot_20170417-232840_1.jpg" alt=""></div>
           <div class="author-name">{{qaData.userName}}</div>
         </div>
         <div class="icon-group">

@@ -2,7 +2,7 @@
   <div class="tool-box">
     <m-header title="专业库"></m-header>
     <div class="scroll-wrapper">
-      <scroll :data="specials" class="scroll">
+      <scroll :data="specials" class="scroll" :pullup="pullup" @scrollToEnd="loadMore">
         <div>
           <div class="card" v-for="(special, index) in specials" :key="index">
             <div class="left">
@@ -17,6 +17,7 @@
               <div class="type">{{special.level3_name}}</div>
             </div>
           </div>
+          <loading v-show="hasMore"/>
         </div>
       </scroll>
     </div>
@@ -26,32 +27,53 @@
 <script>
 import MHeader from '@/base/header/header'
 import Scroll from '@/base/scroll/scroll'
+import Loading from '@/base/loading/loading'
 import { getSpecials } from '@/api/specials.js'
 export default {
   name: "ToolBox",
   components: {
     Scroll,
-    MHeader
+    MHeader,
+    Loading
   },
   data() {
     return {
-      specials:[]
+      specials:[],
+      pullup: true,
+       hasMore: true,
+      page: 0
     }
   },
-  computed: {
-   
-  },
   methods: {
-    _getSpecials() {
-      getSpecials().then(res => {
+    _getSpecials(page) {
+       this.hasMore = true
+      getSpecials(page).then(res => {
          if(res.code==0&&res.data){
           this.specials = res.data
+          if(res.data.length==0){
+            this.hasMore = false
+          }
+        }
+      })
+    },
+    loadMore(){
+      if(!this.hasMore){
+        return
+      }
+      this.page++
+      getSpecials(this.page).then((res) => {
+        if(res.code==0&&res.data){
+          this.specials =  this.specials.concat(res.data)
+          if(res.data.length==0){
+            this.hasMore = false
+          }
         }
       })
     }
   },
+
   mounted() {
-    this._getSpecials()
+    this._getSpecials(this.page)
   },
   
 }

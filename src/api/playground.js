@@ -1,6 +1,6 @@
 import axios from './config'
 export function getQaList() {
-  const url = '/api/qaList.json'
+  const url = '/api/questions'
   return axios.get(url
   ).then((res) => {
     return Promise.resolve(res.data)

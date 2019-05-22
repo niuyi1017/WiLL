@@ -68,9 +68,9 @@ export default {
       }
   },
   methods: {
-    selectSchool(id){
-      let url = `/schools/${id}` 
-      this.$router.push(url)
+    selectSchool(){
+      // let url = `/schools/${id}` 
+      // this.$router.push(url)
     }
   },
 }
