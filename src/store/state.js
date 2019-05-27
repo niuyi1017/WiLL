@@ -1,7 +1,7 @@
 /* eslint-disable */
 let token = null
 try {
-  if(localStorage.token){
+  if (localStorage.uid && localStorage.token){
     token = localStorage.token
   }
 } catch (error) {
